@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+    <idinfo>
+        <citation>
+            <citeinfo>
+                <title>A Tract Profile ACS 5-year 2009-2013</title>
+                <onlink>https://gisrevprxy.seattle.gov/arcgis/rest/services/CENSUS_EXT/TRACT_ACS_5Y13_TOP20/MapServer/1</onlink>
+                <onlink>http://seattlecitygis.maps.arcgis.com/home/item.html?id=3bd89d3144834963bdd9141a70d56b95</onlink>
+            </citeinfo>
+        </citation>
+        <descript>
+            <abstract>Data from:  American Community Survey, 5-year Series 2009-2013King County, Washington census tracts with American Community Survey data derived from the U.S. Census Bureau's demographic profiles (DP02-DP05).  The geo service includes over 50 attributes of the most frequently requested data.When downloading the data, please select &amp;quot;GDB Download&amp;quot; under &amp;quot;Additional Resources&amp;quot; to preserve long field names.  The associated file geodatabase contains a feature class referred to as &amp;quot;top 20&amp;quot; that includes these 50+ attributes.  There are an additional four feature classes which include the data from each data profile. Data from:  American Community Survey, 5-year Series 2009-2013</abstract>
+            <purpose>King County, Washington census tracts with American Community Survey data.</purpose>
+        </descript>
+        <keywords>
+            <theme>
+                <themekt>None</themekt>
+                <themekey>tracts</themekey>
+                <themekey>ACS5Y13</themekey>
+                <themekey>ACS</themekey>
+                <themekey>Planning</themekey>
+                <themekey>demographics</themekey>
+                <themekey>census</themekey>
+            </theme>
+        </keywords>
+        <accconst>None</accconst>
+        <useconst>PDDL | This item is meant for public access and use. The City of Seattle makes no representation or warranty as to its accuracy. Important | The City of Seattle has created this service for our GIS Open Data website. We do reserve the right to alter, suspend, re-host, or retire this service at any time and without notice. GIS staff will provide notification of changes via the Comments RSS capability in ArcGIS Online.</useconst>
+    </idinfo>
+    <metainfo>
+        <metd>20190607</metd>
+        <metc>
+            <cntinfo>
+                <!--no contact person or organization name available-->
+            </cntinfo>
+        </metc>
+        <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+        <metstdv>FGDC-STD-001-1998</metstdv>
+        <mettc>local time</mettc>
+    </metainfo>
+</metadata>
