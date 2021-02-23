@@ -146,10 +146,16 @@ colnames(by_beat) <- c('Beat', 'Type_1', 'Type_2', 'Type_3', 'Type_4', 'NatAm_uo
                        'NatAm_pop', 'Asian_pop', 'PacIsl_pop', 'OtherRace_pop',
                        'TwoPlusRace_pop', 'HispLat_pop', 'HSGrad', 'BachGrad',
                        'EngNotVWell', 'Pop200PctBelowPov', 'PersonOfColor',
-                       'Median_Age', 'Median_HHIncome', 'Median_GrossRent')
+                       'Median_Age', 'Median_HHIncome', 'Median_GrossIncome')
+by_puma <- left_join(by_puma, aggregate(cbind(Type_1, Type_2, Type_3, Type_4,
+                                              NatAm_uof, Asian_uof, Black_uof,
+                                              HispLat_uof, PacIsl_uof, RaceNA_uof,
+                                              White_uof, F_uof, M_uof, GenderNA_uof,
+                                              Count_uof) ~ PUMA, data = by_beat,
+                                        sum), by='PUMA')
 
-write.csv(by_beat, 'static/uof_cleaned.csv', row.names=FALSE)
-write.csv(by_puma, 'static/census_cleaned.csv', row.names=FALSE)
+write.csv(by_beat, 'static/by_beat.csv', row.names=FALSE)
+write.csv(by_puma, 'static/by_puma.csv', row.names=FALSE)
 geojson_write(input = beats, file='static/beats_geo.geojson')
 
 geo2topo('static/beats_geo.geojson', object_name = 'beats_topo')
