@@ -1,4 +1,4 @@
-"beat","Type_1","Type_2","Type_3","Type_4","Nat_Am","Asian.x","Black.x","Hisp_Lat","Pac_Isl","Race_NA","White.x","F","M","Gender_NA","count","PUMA","Total_Pop","White.y","Black.y","NatAm","Asian.y","PacIsl","OtherRace","TwoPlusRace","HispLat","HSGrad","BachGrad","EngNotVWell","Pop200PctBelowPov","PersonOfColor","Median_Age","MedianHHIncome","Median_Gross_Rent"
+"Beat","Type_1","Type_2","Type_3","Type_4","NatAm_uof","Asian_uof","Black_uof","HispLat_uof","PacIsl_uof","RaceNA_uof","White_uof","F_uof","M_uof","GenderNA_uof","Count_uof","PUMA","Total_Pop","White_pop","Black_pop","NatAm_pop","Asian_pop","PacIsl_pop","OtherRace_pop","TwoPlusRace_pop","HispLat_pop","HSGrad","BachGrad","EngNotVWell","Pop200PctBelowPov","PersonOfColor","Median_Age","Median_HHIncome","Median_GrossRent"
 "-",658,449,8,16,14,32,252,28,8,379,418,257,771,103,1131,"",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "99",27,1,0,0,0,6,13,0,0,3,6,5,23,0,28,"",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "B1",123,48,0,2,0,2,31,5,1,23,111,42,131,0,173,"NW",139634,110103,3084,590,10788,369,135,6196,8369,11335,41924,6070,26154,29531,37,75220,1175

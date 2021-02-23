@@ -125,6 +125,7 @@ match_tract_PUMA <- function(s) {
 }
 
 by_beat$PUMA <- sapply(by_beat$beat, match_beat_PUMA)
+beats@data$PUMA <- sapply(beats@data$beat, match_beat_PUMA)
 census_df$PUMA <- sapply(census_df$Tract_Name, match_tract_PUMA)
 
 # creating the final dataset
@@ -138,7 +139,17 @@ by_puma <- left_join(by_puma, aggregate(cbind(Median_Age, MedianHHIncome,
                                         data = census_df, median))
 
 by_beat <- left_join(by_beat, by_puma, by='PUMA')
+colnames(by_beat) <- c('Beat', 'Type_1', 'Type_2', 'Type_3', 'Type_4', 'NatAm_uof',
+                       'Asian_uof', 'Black_uof', 'HispLat_uof', 'PacIsl_uof',
+                       'RaceNA_uof', 'White_uof', 'F_uof', 'M_uof', 'GenderNA_uof',
+                       'Count_uof', 'PUMA', 'Total_Pop', 'White_pop', 'Black_pop',
+                       'NatAm_pop', 'Asian_pop', 'PacIsl_pop', 'OtherRace_pop',
+                       'TwoPlusRace_pop', 'HispLat_pop', 'HSGrad', 'BachGrad',
+                       'EngNotVWell', 'Pop200PctBelowPov', 'PersonOfColor',
+                       'Median_Age', 'Median_HHIncome', 'Median_GrossRent')
 
-write.csv(by_beat, 'static\\uof_cleaned.csv', row.names=FALSE)
-write.csv(by_puma, 'static\\census_cleaned.csv', row.names=FALSE)
-geojson_write(input = beats, file='static\\beats_geo.geojson')
+write.csv(by_beat, 'static/uof_cleaned.csv', row.names=FALSE)
+write.csv(by_puma, 'static/census_cleaned.csv', row.names=FALSE)
+geojson_write(input = beats, file='static/beats_geo.geojson')
+
+geo2topo('static/beats_geo.geojson', object_name = 'beats_topo')
