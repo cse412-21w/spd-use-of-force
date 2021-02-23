@@ -140,4 +140,5 @@ by_puma <- left_join(by_puma, aggregate(cbind(Median_Age, MedianHHIncome,
 by_beat <- left_join(by_beat, by_puma, by='PUMA')
 
 write.csv(by_beat, 'static\\uof_cleaned.csv', row.names=FALSE)
+write.csv(by_puma, 'static\\census_cleaned.csv', row.names=FALSE)
 geojson_write(input = beats, file='static\\beats_geo.geojson')
