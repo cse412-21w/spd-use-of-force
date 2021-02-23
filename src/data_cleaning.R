@@ -5,6 +5,8 @@ library(dummies)
 library(tidyverse)
 library(RSocrata)
 library(broom)
+library(geojsonio)
+setwd("~/GitHub/spd-use-of-force")
 
 # loading in the data
 beats <- readOGR('static/beats/SPD_BEATS_WGS84.shp')
@@ -31,6 +33,7 @@ colnames(uof)[13:22] <- c('Nat_Am', 'Asian', 'Black', 'Hisp_Lat', 'Pac_Isl',
                           'Race_NA', 'White', 'F', 'M', 'Gender_NA')
 
 # cleaning the beats data
+beats <- spTransform(beats, proj4string(census))
 beats_df <- tidy(beats, id = 'objectid')
 colnames(beats@data)[1] <- 'id'
 beats_df <- left_join(beats_df, beats@data, by='id')
@@ -136,3 +139,5 @@ by_puma <- left_join(by_puma, aggregate(cbind(Median_Age, MedianHHIncome,
 
 by_beat <- left_join(by_beat, by_puma, by='PUMA')
 
+write.csv(by_beat, 'static\\uof_cleaned.csv', row.names=FALSE)
+geojson_write(input = beats, file='static\\beats_geo.geojson')
