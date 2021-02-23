@@ -33,6 +33,7 @@ colnames(uof)[13:22] <- c('Nat_Am', 'Asian', 'Black', 'Hisp_Lat', 'Pac_Isl',
                           'Race_NA', 'White', 'F', 'M', 'Gender_NA')
 
 # cleaning the beats data
+beats <- spTransform(beats, proj4string(census))
 beats_df <- tidy(beats, id = 'objectid')
 colnames(beats@data)[1] <- 'id'
 beats_df <- left_join(beats_df, beats@data, by='id')
