@@ -5,9 +5,9 @@ library(dummies)
 library(tidyverse)
 library(RSocrata)
 library(broom)
+library(geojsonio)
 setwd("~/GitHub/spd-use-of-force")
 
-{
 # loading in the data
 beats <- readOGR('static/beats/SPD_BEATS_WGS84.shp')
 census <- readOGR('static/census/A_Tract_Profile_ACS_5-year_2009-2013.shp')
@@ -138,5 +138,5 @@ by_puma <- left_join(by_puma, aggregate(cbind(Median_Age, MedianHHIncome,
 
 by_beat <- left_join(by_beat, by_puma, by='PUMA')
 
-return(by_beat)
-}
+write.csv(by_beat, 'static\\uof_cleaned.csv', row.names=FALSE)
+geojson_write(beats, file='static\\beats_geo.geojson')
