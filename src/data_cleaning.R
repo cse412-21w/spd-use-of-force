@@ -159,3 +159,26 @@ write.csv(by_puma, 'static/by_puma.csv', row.names=FALSE)
 geojson_write(input = beats, file='static/beats_geo.geojson')
 
 geo2topo('static/beats_geo.geojson', object_name = 'beats_topo')
+
+##Nicole making mini data set
+#creating total sum
+total_uof_count <- as.numeric(sum(by_beat$Type_1) + sum(by_beat$Type_2) + 
+                              sum(by_beat$Type_3) + sum(by_beat$Type_4))
+total_population <- as.numeric(sum(by_puma$Total_Pop))
+
+#creating columns
+race <- c("White", "Black/African American","Native American", "Asian", 
+          "Pacific Islander", "Hispanic / Latino", "Not Specified")
+uof_count <- c(sum(by_beat$White_uof), sum(by_beat$Black_uof), sum(by_beat$NatAm_uof), 
+               sum(by_beat$Asian_uof), sum(by_beat$PacIsl_uof), sum(by_beat$HispLat_uof),
+               sum(by_beat$RaceNA_uof))
+uof_percent <- uof_count / total_uof_count
+pop_count <- c(sum(by_puma$White), sum(by_puma$Black), sum(by_puma$NatAm), 
+               sum(by_puma$Asian), sum(by_puma$PacIsl), sum(by_puma$HispLat), 0)
+pop_percent <- pop_count / total_population
+
+#combine columns into dataframe
+minidata <- data.frame(race = race, uof_percent = uof_percent, pop_percent = pop_percent,
+                     difference = uof_percent - pop_percent)
+#exporting to csv
+write.csv(minidata, 'static/by_race.csv', row.names=FALSE)
