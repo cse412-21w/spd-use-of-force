@@ -22,24 +22,63 @@
       </section>
       <section>
         <h2>Final Project</h2>
-        <p>The final project will provide hands-on experience designing, implementing, 
-          and deploying interactive visualizations. Your project should address a concrete
-          visualization challenge and should propose a novel, creative solution. The final
-          deliverable will take the form of a visual analysis tool or an explanatory narrative,
-          deployed as an interactive web page. More info on the
-          <a href="https://courses.cs.washington.edu/courses/cse412/21wi/fp.html">course website</a>.
-        </p>
       </section>
-      <section>
-        <p><strong>This page is used mainly to demo how to embed visualizations. All visualizations below are
-          not perfect and need more iteration critiques before really publishing on a webpage.
-        </strong></p>
+      
+      <section id="Timeline">
+        <h3>First visualization:</h3>
       </section>
 
+      <section>
+        <p>Line graph showing the use of force incidents over time. It's important to be able to see how
+          the use of force in the SPD has changed over time, and to be able to switch between different
+          levels of granularity. When you look at the use of force over the course of several years, it
+          looks like the number of incidents have dropped dramatically since George Floyd’s death; in
+          reality, when you look more closely at the months surrounding May 2020, the data just got more
+          extreme.</p>
+      </section>
+      <section>
+        <p>We want this visualization to be heavily interactive, attention-grabber - use brushing/linking
+          to show a big timeline on the top that's been zoomed to specific time periods, then a short
+          long one on the bottom that shows the whole timeline where you can select the time periods to
+          show above (like in the example for overview+detail in 
+          <a href="https://observablehq.com/@uwdata/interaction"> this Observable notebook</a>.
+          Then adding the data for race and level of force to give more information - have menu options
+          to switch between showing all UoF incidents, separating them by race, and separating by level
+          of force. 
+        </p>
+      </section>
+
+      <section id="vegaDemo">
+        <h4>Embed a Vega-Lite Visualization:</h4>
+        <div id="view"></div>
+      </section>
+    
+      <section id="Profiles">
+        <h3>Second visualization:</h3>
+      </section>
+
+      <section>
+        <p>Profiles for different areas in Seattle, to give additional context and granularity.
+          Show a map of Seattle separated by neighborhood, be able to click on each neighborhood to
+          see more info about each: racial distribution, economic info, level of education,
+          English-speaking, etc., as well as the frequency and breakdown of UoF incidents.</p>
+      </section>
+      <section>
+        <p>Current status: have the first few visuals, the Tableau dashboard works well for this.
+          Can click on a PUMA on the map or select one on the menu to make all the visuals show data
+          for that PUMA. Need to add more visuals, clean it up, make it pretty and logical.
+          Also need to figure out how to make it default to showing data for the whole city, and
+          how to upload a Tableau Public visual while keeping the data source live rather than an
+          extract.
+        </p>
+      </section>
       
       <section id="tableauDemo"> 
-        <h3>Embed a Tableau Visualization:</h3>
-        <div class="tableauPlaceholder" id="viz1614221702449" style="position: relative"><noscript><a href="#"><img alt=" " src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fi&#47;final_project_exploration&#47;SeattleProfiles&#47;1_rss.png" style="border: none"></a></noscript><object class="tableauViz" style="display:none;"><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F"> <param name="embed_code_version" value="3"> <param name="site_root" value=""><param name="name" value="final_project_exploration&#47;SeattleProfiles"><param name="tabs" value="no"><param name="toolbar" value="yes"><param name="static_image" value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fi&#47;final_project_exploration&#47;SeattleProfiles&#47;1.png"> <param name="animate_transition" value="yes"><param name="display_static_image" value="yes"><param name="display_spinner" value="yes"><param name="display_overlay" value="yes"><param name="display_count" value="yes"><param name="language" value="en"><param name="filter" value="publish=yes"></object></div>                <script>var divElement = document.getElementById('viz1614221702449');
+        <h4>Neighborhood profiles:</h4>
+        <div class="tableauPlaceholder" id="viz1614221702449" style="position: relative">
+          <noscript><a href="#"><img alt=" " src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fi&#47;final_project_exploration&#47;SeattleProfiles&#47;1_rss.png" style="border: none">
+          </a>
+        </noscript><object class="tableauViz" style="display:none;"><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F"> <param name="embed_code_version" value="3"> <param name="site_root" value=""><param name="name" value="final_project_exploration&#47;SeattleProfiles"><param name="tabs" value="no"><param name="toolbar" value="yes"><param name="static_image" value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fi&#47;final_project_exploration&#47;SeattleProfiles&#47;1.png"> <param name="animate_transition" value="yes"><param name="display_static_image" value="yes"><param name="display_spinner" value="yes"><param name="display_overlay" value="yes"><param name="display_count" value="yes"><param name="language" value="en"><param name="filter" value="publish=yes"></object></div>                <script>var divElement = document.getElementById('viz1614221702449');
 var vizElement = divElement.getElementsByTagName('object')[0];
 
 if (divElement.offsetWidth > 800) {
@@ -66,13 +105,22 @@ scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
 vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
       </section>
     
-      <section id="vegaDemo">
-        <h3>Embed a Vega-Lite Visualization:</h3>
-        <div id="view"></div>
+      <section id="Bar chart">
+        <h3>Third visualization:</h3>
       </section>
-    
+
+      <section>
+        <p>Series of bar graphs showing the racial distribution of the population, then of UoF subjects,
+          then the difference between them, to really nail down the level of racial bias in the SPD.
+          (Logic: If race had no impact on an individual's likelihood to be involved in a UoF incident,
+          we'd expect the proportion of UoF subjects of each race to be more or less the same as the
+          proportion of the Seattle population of each race.) Ideally animate the transitions between
+          them, to make it easier to follow.
+        </p>
+      </section>
+
       <section id="d3Demo">
-        <h3>Embed a D3 Visualization:</h3>
+        <h4>Embed a D3 Visualization:</h4>
         <div id="d3-demo"></div>
       </section>
 
