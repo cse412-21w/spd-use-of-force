@@ -17,13 +17,13 @@ var y = d3.scaleLinear()
 
 makeStaticViz();
 function makeStaticViz() {
-    const container = d3.select('#staticBar')
+    container = d3.select('#staticBar')
         .append('svg')
         .att("id", "basic-chart")
         .attr('width', width)
         .attr('height', height);
     
-    const bars = container.selectAll('rect')
+    bars = container.selectAll('rect')
         .data(uof_for_me)
         .join('rect')
         .attr('x', d => x_new(d.race))  
@@ -35,7 +35,7 @@ function makeStaticViz() {
     ;
 
   // position and populate the x-axis
-    const xAxis = container.append('g')
+    xAxis = container.append('g')
         .attr('transform', `translate(0, ${height - margin.bottom})`)
         .call(d3.axisBottom(x_new))
         .append('text')
@@ -48,7 +48,7 @@ function makeStaticViz() {
         .text('total UOF Percents');     
 
   // position and populate the y-axis
-    const yAxis = container.append('g')
+    yAxis = container.append('g')
         .attr('transform', `translate(${margin.left}, 0)`)
         .call(d3.axisLeft(y_new_per));
 }
