@@ -117,23 +117,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../static/sunshine.csv":[function(require,module,exports) {
-module.exports = "/sunshine.5e299277.csv";
-},{}],"vegaDemo.js":[function(require,module,exports) {
-"use strict";
+})({"timeline.js":[function(require,module,exports) {
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-var _sunshine = _interopRequireDefault(require("../static/sunshine.csv"));
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// import dataset
-"use strict"; // the code should be executed in "strict mode".
-// With strict mode, you can not, for example, use undeclared variables
-
-
-var sunshineArray = []; // used to store data later
-
-var citySet = [];
 var options = {
   config: {// Vega-Lite default configuration
   },
@@ -152,30 +142,76 @@ var options = {
 };
 vl.register(vega, vegaLite, options); // Again, We use d3.csv() to process data
 
-d3.csv(_sunshine.default).then(function (data) {
-  data.forEach(function (d) {
-    sunshineArray.push(d);
+var uof = [];
+d3.json("https://data.seattle.gov/resource/ppi5-g2bj.json?$limit=20000").then(function (data) {
+  var levels = ["Level 1 - Use of Force", "Level 2 - Use of Force", "Level 3 - Use of Force", "Level 3 - OIS"];
+  var parser = d3.timeParse('%Y-%m-%dT%H:%M:%S.%L');
+  var year = d3.timeFormat('%B %Y');
+  var bb = d3.timeFormat('%Y-%m');
+  uof = data.map(function (incident) {
+    return _objectSpread(_objectSpread({}, incident), {}, {
+      incident_type: 1 + levels.indexOf(incident.incident_type),
+      occured_date_time: parser(incident.occured_date_time),
+      Occurance_Date: year(parser(incident.occured_date_time)),
+      blah: bb(parser(incident.occured_date_time))
+    });
+  }); // console.log(uof); // This line was used to check values stored in uof after processing. feel free to delete.
 
-    if (!citySet.includes(d.city)) {
-      citySet.push(d.city);
-    }
-  });
-  drawBarVegaLite();
+  drawTimeline(); // your other functions goes here. 
 });
 
-function drawBarVegaLite() {
+function drawTimeline() {
   // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
   // your visualization goes here
-  vl.markBar({
-    filled: true,
-    color: 'teal'
-  }).data(sunshineArray).encode(vl.x().fieldN('month').sort('none'), vl.y().fieldQ('sunshine'), vl.tooltip(['sunshine'])).width(450).height(450).render().then(function (viewElement) {
+  var hover = vl.selectSingle().encodings('x') // limit selection to x-axis value
+  .on('mouseover') // select on mouseover events
+  .nearest(true) // select data point nearest the cursor
+  .empty('none'); // empty selection includes no data points 
+
+  var line = vl.markLine().data(uof).encode(vl.x().fieldT('blah').title("Date").timeUnit("yearmonth"), vl.y().count("subject_race").title("Counts"), vl.color().field("subject_race")); // shared base for new layers, filtered to hover selection
+
+  var base = line.transform(vl.filter(hover)); // mark properties for text label layers
+
+  var label = {
+    align: 'left',
+    dx: 5,
+    dy: -5
+  };
+  var white = {
+    stroke: 'white',
+    strokeWidth: 2
+  };
+  var dateBase = base.transform(vl.filter(hover));
+  var dateLabel = {
+    align: 'center',
+    dx: 5,
+    dy: -5
+  };
+  var white1 = {
+    stroke: 'white',
+    strokeWidth: 2
+  };
+  var tooltipBase = base.transform(vl.filter(hover));
+  var tooltip = vl.layer( // tooltipBase.markRule({ strokeWidth: 0.5 }),
+  tooltipBase.markText({
+    align: "center"
+  }).encode(vl.y().value(0), vl.text().fieldT("blah").timeUnit("yearmonth"), vl.color().value("black")));
+  vl.data(uof).layer(line, // add a rule mark to serve as a guide line
+  vl.markRule({
+    color: '#aaa'
+  }).transform(vl.filter(hover)).encode(vl.x().fieldT('blah')), // add circle marks for selected time points, hide unselected points
+  line.markCircle().select(hover) // use as anchor points for selection
+  .encode(vl.opacity().if(hover, vl.value(1)).value(0)), // add white stroked text to provide a legible background for labels
+  base.markText(label, white).encode(vl.text().count('subject_race')), // add text labels for stock prices
+  base.markText(label).encode(vl.text().count('subject_race')), //    dateBase.markText(dateLabel, white1).encode(vl.text().count('subject_race')),
+  //  dateBase.markText(dateLabel).encode(vl.text().fieldT('blah').timeUnit("yearmonthdate"))
+  tooltip).width(700).height(350).title("Monthly Counts of Use of Force Incidents").render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
-    document.getElementById("view").appendChild(viewElement);
+    document.getElementById('view').appendChild(viewElement);
   });
 }
-},{"../static/sunshine.csv":"../static/sunshine.csv"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -203,7 +239,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49779" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52243" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -379,5 +415,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","vegaDemo.js"], null)
-//# sourceMappingURL=/vegaDemo.ea1a58a6.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","timeline.js"], null)
+//# sourceMappingURL=/timeline.02a44989.js.map

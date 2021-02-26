@@ -117,63 +117,59 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"ZQwg":[function(require,module,exports) {
-module.exports = "https://cse412-21w.github.io/project-demo/sunshine.71fb7d0b.csv";
-},{}],"CsaW":[function(require,module,exports) {
+})({"vpAz":[function(require,module,exports) {
+module.exports = "https://cse412-21w.github.io/project-demo/by_race.a0ce6137.csv";
+},{}],"Rk44":[function(require,module,exports) {
 "use strict";
 
-var _sunshine = _interopRequireDefault(require("../static/sunshine.csv"));
+var _by_race = _interopRequireDefault(require("../static/by_race.csv"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import dataset
-"use strict"; // the code should be executed in "strict mode".
-// With strict mode, you can not, for example, use undeclared variables
-
-
-var sunshineArray = []; // used to store data later
-
-var citySet = [];
-var options = {
-  config: {// Vega-Lite default configuration
-  },
-  init: function init(view) {
-    // initialize tooltip handler
-    view.tooltip(new vegaTooltip.Handler().call);
-  },
-  view: {
-    // view constructor options
-    // remove the loader if you don't want to default to vega-datasets!
-    //   loader: vega.loader({
-    //     baseURL: "",
-    //   }),
-    renderer: "canvas"
-  }
+//import data
+//set up height, width, margin
+var container;
+var race;
+var uof_percent;
+var height = 700;
+var width = 950;
+var margin = {
+  top: 10,
+  right: 10,
+  bottom: 35,
+  left: 35
 };
-vl.register(vega, vegaLite, options); // Again, We use d3.csv() to process data
-
-d3.csv(_sunshine.default).then(function (data) {
+var dataArray = [];
+d3.csv(_by_race.default).then(function (data) {
   data.forEach(function (d) {
-    sunshineArray.push(d);
-
-    if (!citySet.includes(d.city)) {
-      citySet.push(d.city);
-    }
+    dataArray.push(d);
   });
-  drawBarVegaLite();
-});
+  makeStaticViz();
+}); //scale functions
 
-function drawBarVegaLite() {
-  // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
-  // your visualization goes here
-  vl.markBar({
-    filled: true,
-    color: 'teal'
-  }).data(sunshineArray).encode(vl.x().fieldN('month').sort('none'), vl.y().fieldQ('sunshine'), vl.tooltip(['sunshine'])).width(450).height(450).render().then(function (viewElement) {
-    // render returns a promise to a DOM element containing the chart
-    // viewElement.value contains the Vega View object instance
-    document.getElementById('view').appendChild(viewElement);
-  });
+var x = d3.scaleBand().domain(dataArray.map(function (d) {
+  return d.race;
+})).range([margin.left, width - margin.right]);
+var y = d3.scaleLinear().domain([-1, 1]).range([height - margin.bottom, margin.top]);
+
+function makeStaticViz() {
+  //scale functions
+  var x = d3.scaleBand().domain(dataArray.map(function (d) {
+    return d.race;
+  })).range([margin.left, width - margin.right]);
+  var y = d3.scaleLinear().domain([-1, 1]).range([height - margin.bottom, margin.top]);
+  container = d3.select('#staticBar').append('svg').attr("id", "basic-chart").attr('width', width).attr('height', height);
+  var bars = container.append('svg').selectAll('rect').data(dataArray).join('rect').attr('x', function (d) {
+    return x(d.race);
+  }).attr('y', function (d) {
+    return y(d.uof_percent);
+  }).attr('width', x.bandwidth()).attr('height', function (d) {
+    return height / 2 - y(d.uof_percent);
+  }).style('fill', 'steelblue').style('stroke', 'white'); // position and populate the x-axis
+
+  var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height - margin.bottom, ")")).call(d3.axisBottom(x)).append('text').attr('text-anchor', 'end').attr('fill', 'white').attr('font-size', '12px').attr('font-weight', 'bold').attr('x', width - margin.right).attr('y', -10).text('total UOF Percents'); // position and populate the y-axis
+
+  var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ", 0)")).call(d3.axisLeft(y));
 }
-},{"../static/sunshine.csv":"ZQwg"}]},{},["CsaW"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/project-demo/vegaDemo.b15bb0aa.js.map
+},{"../static/by_race.csv":"vpAz"}]},{},["Rk44"], null)
+//# sourceMappingURL=https://cse412-21w.github.io/project-demo/NicoleViz.9d3ca704.js.map

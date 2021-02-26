@@ -128,34 +128,45 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //import data
 //set up height, width, margin
+var container;
 var height = 700;
 var width = 950;
 var margin = {
   top: 10,
   right: 10,
-  bottom: 20,
+  bottom: 35,
   left: 35
-}; //scale functions
+};
+var dataArray = [];
+d3.csv(_by_race.default).then(function (data) {
+  data.forEach(function (d) {
+    dataArray.push(d);
+  });
+  makeStaticViz();
+});
+console.log(dataArray);
+console.log(dataArray.map(function (a) {
+  return a.uof_percent;
+})); //scale functions
 
-var x = d3.scaleBand().domain(_by_race.default.map(function (d) {
+var x = d3.scaleBand().domain(dataArray.map(function (d) {
   return d.race;
 })).range([margin.left, width - margin.right]);
 var y = d3.scaleLinear().domain([-1, 1]).range([height - margin.bottom, margin.top]);
-makeStaticViz();
 
 function makeStaticViz() {
-  var container = d3.select('#staticBar').append('svg').att("id", "basic-chart").attr('width', width).attr('height', height);
-  var bars = container.selectAll('rect').data(uof_for_me).join('rect').attr('x', function (d) {
-    return x_new(d.race);
+  container = d3.select('#staticBar').append('svg').attr("id", "basic-chart").attr('width', width).attr('height', height);
+  var bars = container.append('svg').selectAll('rect').data(dataArray).join('rect').attr('x', function (d) {
+    return x(d.race);
   }).attr('y', function (d) {
-    return y_new_per(d.uof_percent);
-  }).attr('width', x_new.bandwidth()).attr('height', function (d) {
-    return height / 2 - y_new_per(d.uof_percent);
+    return y(d.uof_percent);
+  }).attr('width', x.bandwidth()).attr('height', function (d) {
+    return height / 2 - y(d.uof_percent);
   }).style('fill', 'steelblue').style('stroke', 'white'); // position and populate the x-axis
 
-  var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height - margin.bottom, ")")).call(d3.axisBottom(x_new)).append('text').attr('text-anchor', 'end').attr('fill', 'white').attr('font-size', '12px').attr('font-weight', 'bold').attr('x', width - margin.right).attr('y', -10).text('total UOF Percents'); // position and populate the y-axis
+  var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height - margin.bottom, ")")).call(d3.axisBottom(x)).append('text').attr('text-anchor', 'end').attr('fill', 'white').attr('font-size', '12px').attr('font-weight', 'bold').attr('x', width - margin.right).attr('y', -10).text('total UOF Percents'); // position and populate the y-axis
 
-  var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ", 0)")).call(d3.axisLeft(y_new_per));
+  var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ", 0)")).call(d3.axisLeft(y));
 }
 },{"../static/by_race.csv":"../static/by_race.csv"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -185,7 +196,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57288" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52243" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
