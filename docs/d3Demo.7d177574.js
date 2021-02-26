@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"ZQwg":[function(require,module,exports) {
-module.exports = "https://cse412-21w.github.io/project-demo/sunshine.71fb7d0b.csv";
+module.exports = "https://cse412-21w.github.io/spd-use-of-force/sunshine.71fb7d0b.csv";
 },{}],"uEQA":[function(require,module,exports) {
 "use strict";
 
@@ -209,4 +209,4 @@ function drawLineD3() {
   }).style("font-size", "15px").attr("alignment-baseline", "middle");
 }
 },{"../static/sunshine.csv":"ZQwg"}]},{},["uEQA"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/project-demo/d3Demo.7d177574.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/d3Demo.7d177574.js.map

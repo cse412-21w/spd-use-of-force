@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"vpAz":[function(require,module,exports) {
-module.exports = "https://cse412-21w.github.io/project-demo/by_race.a0ce6137.csv";
+module.exports = "https://cse412-21w.github.io/spd-use-of-force/by_race.a0ce6137.csv";
 },{}],"Rk44":[function(require,module,exports) {
 "use strict";
 
@@ -172,4 +172,4 @@ function makeStaticViz() {
   var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ", 0)")).call(d3.axisLeft(y));
 }
 },{"../static/by_race.csv":"vpAz"}]},{},["Rk44"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/project-demo/NicoleViz.9d3ca704.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.9d3ca704.js.map
