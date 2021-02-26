@@ -3,6 +3,8 @@ import by_race from '../static/by_race.csv'
 
 //set up height, width, margin
 var container;
+var race;
+var uof_percent;
 var height = 700;
 var width = 950;
 var margin = ({top: 10, right: 10, bottom: 35, left: 35});
@@ -12,12 +14,9 @@ d3.csv(by_race).then(function(data) {
     data.forEach(function(d){
       dataArray.push(d);
     })
+    
     makeStaticViz();
   });
-
-console.log(dataArray);
-
-console.log(dataArray.map(a => a.uof_percent));
 
 //scale functions
 var x = d3.scaleBand()
@@ -30,6 +29,14 @@ var y = d3.scaleLinear()
 
 
 function makeStaticViz() {
+  //scale functions
+  var x = d3.scaleBand()
+    .domain(dataArray.map(d => d.race))
+    .range([margin.left, width - margin.right]);
+  var y = d3.scaleLinear() 
+    .domain([-1, 1])
+    .range([height - margin.bottom, margin.top]);
+
     container = d3.select('#staticBar')
         .append('svg')
         .attr("id", "basic-chart")
