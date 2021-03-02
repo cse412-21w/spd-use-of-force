@@ -153,9 +153,13 @@ by_puma <- left_join(by_puma, aggregate(cbind(Type_1, Type_2, Type_3, Type_4,
                                               White_uof, F_uof, M_uof, GenderNA_uof,
                                               Count_uof) ~ PUMA, data = by_beat,
                                         sum), by='PUMA')
+by_date <- aggregate(cbind(Type_1, Type_2, Type_3, Type_4, Nat_Am, Asian,
+                           Black, Hisp_Lat, Pac_Isl, Race_NA, White, count) ~ Date,
+                     data = uof, sum)
 
 write.csv(by_beat, 'static/by_beat.csv', row.names=FALSE)
 write.csv(by_puma, 'static/by_puma.csv', row.names=FALSE)
+write.csv(by_date, 'static/by_date.csv', row.names=FALSE)
 geojson_write(input = beats, file='static/beats_geo.geojson')
 
 geo2topo('static/beats_geo.geojson', object_name = 'beats_topo')
