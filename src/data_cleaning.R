@@ -182,7 +182,25 @@ pop_count <- c(sum(by_puma$White), sum(by_puma$Black), sum(by_puma$NatAm),
 pop_percent <- pop_count / total_population
 
 #combine columns into dataframe
-minidata <- data.frame(race = race, uof_percent = uof_percent, pop_percent = pop_percent,
+by_race <- data.frame(uof_percent = uof_percent, pop_percent = pop_percent,
                      difference = uof_percent - pop_percent)
+rownames(by_race) <- race
+
+#transpose the data so each row is uof/pop percent and each column is race
+#hoping this will make animation easier
+
+by_percent <- data.frame(White = double(3), Black = double(3), 
+                         NatAm= double(3), Asian = double(3), PacIsl = double(3), 
+                         HispLat = double(3), RaceNA = double(3))
+
+
+for(i in 1:7) {
+  by_percent[, i] <- c(uof_count[i]/total_uof_count, pop_count[i] / total_population, 
+                       uof_count[i]/total_uof_count - pop_count[i] / total_population)
+}
+rownames(by_percent)<- c("uof_count", "pop_count", "difference")
+
+
 #exporting to csv
-write.csv(minidata, 'static/by_race.csv', row.names=FALSE)
+write.csv(by_race, 'static/by_race.csv', row.names=FALSE)
+write.csv(by_percent, 'static/by_percent.csv')
