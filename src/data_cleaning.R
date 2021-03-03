@@ -47,12 +47,12 @@ beats_df <- left_join(beats_df, by_beat, by='beat')
 
 # cleaning the census data
 census <- cbind(census[1:3], census[6:8], census[10], census[12], census[14],
-                census[16], census[18], census[20], census[22], census[43:44],
+                census[16], census[18], census[20], census[22], census[45:46],
                 census[48], census[50], census[54], census[56], census[78])
 colnames(census@data) <- c('ID', 'GEOID', 'Tract_Name', 'Total_Pop', 'Median_Age',
                            'White', 'Black', 'NatAm', 'Asian', 'PacIsl',
-                           'OtherRace', 'TwoPlusRace', 'HispLat', 'HSGrad',
-                           'BachGrad', 'EngNotVWell', 'MedianHHIncome',
+                           'OtherRace', 'TwoPlusRace', 'HispLat', 'Pct_HSGrad',
+                           'Pct_BachGrad', 'EngNotVWell', 'MedianHHIncome',
                            'Pop200PctBelowPov', 'PersonOfColor', 'Median_Gross_Rent')
 census@data$Tract_Name <- substring(census@data$Tract_Name, 14,)
 
@@ -131,10 +131,10 @@ census_df$PUMA <- sapply(census_df$Tract_Name, match_tract_PUMA)
 # creating the final dataset
 census_df <- census_df %>% filter(!(PUMA == ''))
 by_puma <- aggregate(cbind(Total_Pop, White, Black, NatAm, Asian, PacIsl,
-                           OtherRace, TwoPlusRace, HispLat, HSGrad, BachGrad,
-                           EngNotVWell, Pop200PctBelowPov, PersonOfColor) ~ PUMA,
+                           OtherRace, TwoPlusRace, HispLat, EngNotVWell, 
+                           Pop200PctBelowPov, PersonOfColor) ~ PUMA,
                      data = census_df, sum)
-by_puma <- left_join(by_puma, aggregate(cbind(Median_Age, MedianHHIncome,
+by_puma <- left_join(by_puma, aggregate(cbind(Pct_HSGrad, Pct_BachGrad, Median_Age, MedianHHIncome,
                                               Median_Gross_Rent) ~ PUMA,
                                         data = census_df, median))
 
@@ -144,7 +144,7 @@ colnames(by_beat) <- c('Beat', 'Type_1', 'Type_2', 'Type_3', 'Type_4', 'NatAm_uo
                        'RaceNA_uof', 'White_uof', 'F_uof', 'M_uof', 'GenderNA_uof',
                        'Count_uof', 'PUMA', 'Total_Pop', 'White_pop', 'Black_pop',
                        'NatAm_pop', 'Asian_pop', 'PacIsl_pop', 'OtherRace_pop',
-                       'TwoPlusRace_pop', 'HispLat_pop', 'HSGrad', 'BachGrad',
+                       'TwoPlusRace_pop', 'HispLat_pop', 'Pct_HSGrad', 'Pct_BachGrad',
                        'EngNotVWell', 'Pop200PctBelowPov', 'PersonOfColor',
                        'Median_Age', 'Median_HHIncome', 'Median_GrossIncome')
 by_puma <- left_join(by_puma, aggregate(cbind(Type_1, Type_2, Type_3, Type_4,
