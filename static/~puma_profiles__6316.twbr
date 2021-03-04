@@ -4,6 +4,7 @@
 <workbook source-build='2020.4.1 (20204.21.0114.0916)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
     <AutoCreateAndUpdateDSDPhoneLayouts />
+    <_.fcp.Layers.true...Layers />
     <MapboxVectorStylesAndLayers />
     <_.fcp.MarkAnimation.true...MarkAnimation />
     <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
@@ -16,8 +17,9 @@
     <SpatialFileLayer />
     <WindowsPersistSimpleIdentifiers />
     <ZoneBackgroundTransparency />
+    <ZoneFriendlyName />
   </document-format-change-manifest>
-  <repository-location id='puma_profiles' path='/workbooks' revision='1.0' />
+  <repository-location id='profiles_uof' path='/workbooks' revision='1.1' />
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
     <preference name='ui.shelf.height' value='26' />
@@ -57,11 +59,11 @@
               <column datatype='integer' name='OtherRace' ordinal='7' />
               <column datatype='integer' name='TwoPlusRace' ordinal='8' />
               <column datatype='integer' name='HispLat' ordinal='9' />
-              <column datatype='integer' name='HSGrad' ordinal='10' />
-              <column datatype='integer' name='BachGrad' ordinal='11' />
-              <column datatype='integer' name='EngNotVWell' ordinal='12' />
-              <column datatype='integer' name='Pop200PctBelowPov' ordinal='13' />
-              <column datatype='integer' name='PersonOfColor' ordinal='14' />
+              <column datatype='integer' name='EngNotVWell' ordinal='10' />
+              <column datatype='integer' name='Pop200PctBelowPov' ordinal='11' />
+              <column datatype='integer' name='PersonOfColor' ordinal='12' />
+              <column datatype='real' name='Pct_HSGrad' ordinal='13' />
+              <column datatype='real' name='Pct_BachGrad' ordinal='14' />
               <column datatype='real' name='Median_Age' ordinal='15' />
               <column datatype='real' name='MedianHHIncome' ordinal='16' />
               <column datatype='real' name='Median_Gross_Rent' ordinal='17' />
@@ -97,7 +99,6 @@
         <cols>
           <map key='[Asian]' value='[by_puma.csv].[Asian]' />
           <map key='[Asian_uof]' value='[by_puma.csv].[Asian_uof]' />
-          <map key='[BachGrad]' value='[by_puma.csv].[BachGrad]' />
           <map key='[Black]' value='[by_puma.csv].[Black]' />
           <map key='[Black_uof]' value='[by_puma.csv].[Black_uof]' />
           <map key='[Count_uof]' value='[by_puma.csv].[Count_uof]' />
@@ -105,7 +106,6 @@
           <map key='[F_uof]' value='[by_puma.csv].[F_uof]' />
           <map key='[GenderNA_uof]' value='[by_puma.csv].[GenderNA_uof]' />
           <map key='[Geometry]' value='[beats_geo.geojson].[Geometry]' />
-          <map key='[HSGrad]' value='[by_puma.csv].[HSGrad]' />
           <map key='[HispLat]' value='[by_puma.csv].[HispLat]' />
           <map key='[HispLat_uof]' value='[by_puma.csv].[HispLat_uof]' />
           <map key='[M_uof]' value='[by_puma.csv].[M_uof]' />
@@ -119,6 +119,8 @@
           <map key='[PUMA]' value='[by_puma.csv].[PUMA]' />
           <map key='[PacIsl]' value='[by_puma.csv].[PacIsl]' />
           <map key='[PacIsl_uof]' value='[by_puma.csv].[PacIsl_uof]' />
+          <map key='[Pct_BachGrad]' value='[by_puma.csv].[Pct_BachGrad]' />
+          <map key='[Pct_HSGrad]' value='[by_puma.csv].[Pct_HSGrad]' />
           <map key='[PersonOfColor]' value='[by_puma.csv].[PersonOfColor]' />
           <map key='[Pop200PctBelowPov]' value='[by_puma.csv].[Pop200PctBelowPov]' />
           <map key='[RaceNA_uof]' value='[by_puma.csv].[RaceNA_uof]' />
@@ -277,36 +279,12 @@
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
-            <remote-name>HSGrad</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[HSGrad]</local-name>
-            <parent-name>[by_puma.csv]</parent-name>
-            <remote-alias>HSGrad</remote-alias>
-            <ordinal>10</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>BachGrad</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[BachGrad]</local-name>
-            <parent-name>[by_puma.csv]</parent-name>
-            <remote-alias>BachGrad</remote-alias>
-            <ordinal>11</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
             <remote-name>EngNotVWell</remote-name>
             <remote-type>20</remote-type>
             <local-name>[EngNotVWell]</local-name>
             <parent-name>[by_puma.csv]</parent-name>
             <remote-alias>EngNotVWell</remote-alias>
-            <ordinal>12</ordinal>
+            <ordinal>10</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
@@ -318,7 +296,7 @@
             <local-name>[Pop200PctBelowPov]</local-name>
             <parent-name>[by_puma.csv]</parent-name>
             <remote-alias>Pop200PctBelowPov</remote-alias>
-            <ordinal>13</ordinal>
+            <ordinal>11</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
@@ -330,8 +308,32 @@
             <local-name>[PersonOfColor]</local-name>
             <parent-name>[by_puma.csv]</parent-name>
             <remote-alias>PersonOfColor</remote-alias>
-            <ordinal>14</ordinal>
+            <ordinal>12</ordinal>
             <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Pct_HSGrad</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Pct_HSGrad]</local-name>
+            <parent-name>[by_puma.csv]</parent-name>
+            <remote-alias>Pct_HSGrad</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Pct_BachGrad</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Pct_BachGrad]</local-name>
+            <parent-name>[by_puma.csv]</parent-name>
+            <remote-alias>Pct_BachGrad</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
@@ -649,6 +651,10 @@
           <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[med:MedianHHIncome:qk]&quot;' value='Median household income (per year)' />
           <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Count_uof:qk]&quot;' value='% of UoF Incidents' />
           <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Total_Pop:qk]&quot;' value='% of Population' />
+          <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774745661444:qk]&quot;' value='No Bachelor&apos;s degree' />
+          <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774746763269:qk]&quot;' value='No high school degree' />
+          <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Pct_BachGrad:qk]&quot;' value='Bachelor&apos;s degree or higher' />
+          <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Pct_HSGrad:qk]&quot;' value='High school degree or higher' />
           <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Total_Pop:qk]&quot;' value='Total population' />
           <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662005104641:qk]&quot;' value='Asian' />
           <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662005157890:qk]&quot;' value='Black' />
@@ -663,13 +669,13 @@
           <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034448396:qk]&quot;' value='Pacific Islander ' />
           <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034489357:qk]&quot;' value='Race Unknown' />
           <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034509838:qk]&quot;' value='White ' />
-          <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662050631695:qk]&quot;' value='Proportion of population with Bachelor&apos;s degree or higher:' />
-          <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662050742288:qk]&quot;' value='Proportion of population with only HS degree:' />
-          <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662050922513:qk]&quot;' value='Proportion of population 200% below poverty' />
+          <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662050922513:qk]&quot;' value='200% below poverty' />
+          <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1820298690864541696:qk]&quot;' value='Not 200% below poverty' />
+          <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774748909576:qk]&quot;' value='Speaks English less than very well' />
+          <alias key='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774749306893:qk]&quot;' value='Speaks English very well' />
         </aliases>
       </column>
       <column caption='Asian uof' datatype='integer' name='[Asian_uof]' role='measure' type='quantitative' />
-      <column caption='Bach Grad' datatype='integer' name='[BachGrad]' role='measure' type='quantitative' />
       <column caption='Black uof' datatype='integer' name='[Black_uof]' role='measure' type='quantitative' />
       <column caption='Asian_prop_pop' datatype='real' name='[Calculation_1241304662005104641]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='SUM([Asian])/SUM([Total_Pop])' />
@@ -710,23 +716,25 @@
       <column caption='White_prop_uof' datatype='real' name='[Calculation_1241304662034509838]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='SUM([White_uof])/SUM([Count_uof])' />
       </column>
-      <column caption='BachGrad_prop' datatype='real' name='[Calculation_1241304662050631695]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='SUM([BachGrad])/SUM([Total_Pop])' />
-      </column>
-      <column caption='HSGrad_prop' datatype='real' name='[Calculation_1241304662050742288]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='SUM([HSGrad])/SUM([Total_Pop])' />
-      </column>
       <column caption='Pop200BelowPov_prop' datatype='real' name='[Calculation_1241304662050922513]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='SUM([Pop200PctBelowPov])/SUM([Total_Pop])' />
       </column>
       <column caption='PopNotBelowPov_prop' datatype='real' name='[Calculation_1820298690864541696]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='1-[Calculation_1241304662050922513]' />
       </column>
+      <column caption='Pct_NoBachGrad' datatype='real' name='[Calculation_210824774745661444]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='100-[Pct_BachGrad]' />
+      </column>
+      <column caption='Pct_NoHSGrad' datatype='real' name='[Calculation_210824774746763269]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='100-[Pct_HSGrad]' />
+      </column>
+      <column caption='EngNotVWell_prop' datatype='real' name='[Calculation_210824774748909576]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([EngNotVWell])/SUM([Total_Pop])' />
+      </column>
       <column caption='Count uof' datatype='integer' name='[Count_uof]' role='measure' type='quantitative' />
       <column caption='Eng Not V Well' datatype='integer' name='[EngNotVWell]' role='measure' type='quantitative' />
       <column caption='F uof' datatype='integer' name='[F_uof]' role='measure' type='quantitative' />
       <column caption='GenderNA uof' datatype='integer' name='[GenderNA_uof]' role='measure' type='quantitative' />
-      <column caption='HS Grad' datatype='integer' name='[HSGrad]' role='measure' type='quantitative' />
       <column caption='Hisp Lat' datatype='integer' name='[HispLat]' role='measure' type='quantitative' />
       <column caption='HispLat uof' datatype='integer' name='[HispLat_uof]' role='measure' type='quantitative' />
       <column caption='M uof' datatype='integer' name='[M_uof]' role='measure' type='quantitative' />
@@ -740,6 +748,8 @@
       <column caption='Puma' datatype='string' name='[PUMA]' role='dimension' type='nominal' />
       <column caption='Pac Isl' datatype='integer' name='[PacIsl]' role='measure' type='quantitative' />
       <column caption='PacIsl uof' datatype='integer' name='[PacIsl_uof]' role='measure' type='quantitative' />
+      <column datatype='real' name='[Pct_BachGrad]' role='measure' type='quantitative' />
+      <column datatype='real' name='[Pct_HSGrad]' role='measure' type='quantitative' />
       <column caption='Person Of Color' datatype='integer' name='[PersonOfColor]' role='measure' type='quantitative' />
       <column caption='RaceNA uof' datatype='integer' name='[RaceNA_uof]' role='measure' type='quantitative' />
       <column caption='Total Pop' datatype='integer' name='[Total_Pop]' role='measure' type='quantitative' />
@@ -766,6 +776,9 @@
       <column-instance column='[Count_uof]' derivation='Sum' name='[pcto:sum:Count_uof:qk]' pivot='key' type='quantitative'>
         <table-calc ordering-type='Rows' type='PctTotal' />
       </column-instance>
+      <column-instance column='[EngNotVWell]' derivation='Sum' name='[pcto:sum:EngNotVWell:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' type='PctTotal' />
+      </column-instance>
       <column-instance column='[Total_Pop]' derivation='Sum' name='[pcto:sum:Total_Pop:qk:1]' pivot='key' type='quantitative'>
         <table-calc ordering-field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' ordering-type='Field' type='PctTotal' />
       </column-instance>
@@ -774,13 +787,18 @@
       </column-instance>
       <column-instance column='[Asian_uof]' derivation='Sum' name='[sum:Asian_uof:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Black_uof]' derivation='Sum' name='[sum:Black_uof:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_210824774745661444]' derivation='Sum' name='[sum:Calculation_210824774745661444:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_210824774746763269]' derivation='Sum' name='[sum:Calculation_210824774746763269:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Count_uof]' derivation='Sum' name='[sum:Count_uof:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[EngNotVWell]' derivation='Sum' name='[sum:EngNotVWell:qk]' pivot='key' type='quantitative' />
       <column-instance column='[HispLat_uof]' derivation='Sum' name='[sum:HispLat_uof:qk]' pivot='key' type='quantitative' />
       <column-instance column='[MedianHHIncome]' derivation='Sum' name='[sum:MedianHHIncome:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Median_Age]' derivation='Sum' name='[sum:Median_Age:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Median_Gross_Rent]' derivation='Sum' name='[sum:Median_Gross_Rent:qk]' pivot='key' type='quantitative' />
       <column-instance column='[NatAm_uof]' derivation='Sum' name='[sum:NatAm_uof:qk]' pivot='key' type='quantitative' />
       <column-instance column='[PacIsl_uof]' derivation='Sum' name='[sum:PacIsl_uof:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Pct_BachGrad]' derivation='Sum' name='[sum:Pct_BachGrad:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Pct_HSGrad]' derivation='Sum' name='[sum:Pct_HSGrad:qk]' pivot='key' type='quantitative' />
       <column-instance column='[RaceNA_uof]' derivation='Sum' name='[sum:RaceNA_uof:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Total_Pop]' derivation='Sum' name='[sum:Total_Pop:qk]' pivot='key' type='quantitative' />
       <column-instance column='[White_uof]' derivation='Sum' name='[sum:White_uof:qk]' pivot='key' type='quantitative' />
@@ -797,18 +815,23 @@
       <column-instance column='[Calculation_1241304662034448396]' derivation='User' name='[usr:Calculation_1241304662034448396:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Calculation_1241304662034489357]' derivation='User' name='[usr:Calculation_1241304662034489357:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Calculation_1241304662034509838]' derivation='User' name='[usr:Calculation_1241304662034509838:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[Calculation_1241304662050631695]' derivation='User' name='[usr:Calculation_1241304662050631695:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[Calculation_1241304662050742288]' derivation='User' name='[usr:Calculation_1241304662050742288:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Calculation_1241304662050922513]' derivation='User' name='[usr:Calculation_1241304662050922513:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Calculation_1820298690864541696]' derivation='User' name='[usr:Calculation_1820298690864541696:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_210824774748909576]' derivation='User' name='[usr:Calculation_210824774748909576:qk]' pivot='key' type='quantitative' />
       <group caption='Action (PUMA (beats geo.geojson),Puma)' hidden='true' name='[Action (PUMA (beats geo.geojson),Puma)]' name-style='unqualified' user:auto-column='sheet_link'>
         <groupfilter function='crossjoin'>
           <groupfilter function='level-members' level='[PUMA (beats_geo.geojson)]' />
           <groupfilter function='level-members' level='[PUMA]' />
         </groupfilter>
       </group>
-      <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='false' units='records'>
-        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/Shayl/Documents/My Tableau Repository/Datasources/by_puma.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='03/02/2021 12:09:13 AM' username='tableau_internal_user'>
+      <group hidden='true' name='[Exclusions (Puma,PUMA (beats geo.geojson))]' name-style='unqualified' user:auto-column='exclude'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:PUMA:nk]' />
+          <groupfilter function='level-members' level='[none:PUMA (beats_geo.geojson):nk]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/Shayl/Documents/My Tableau Repository/Datasources/by_puma.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
           <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74' table='[Extract].[beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74]' type='table' />
           <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
             <relation name='by_puma.csv_2847C1D296DE4228BF47FF148863FD46' table='[Extract].[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]' type='table' />
@@ -817,7 +840,6 @@
           <cols>
             <map key='[Asian]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[Asian]' />
             <map key='[Asian_uof]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[Asian_uof]' />
-            <map key='[BachGrad]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[BachGrad]' />
             <map key='[Black]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[Black]' />
             <map key='[Black_uof]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[Black_uof]' />
             <map key='[Count_uof]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[Count_uof]' />
@@ -825,7 +847,6 @@
             <map key='[F_uof]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[F_uof]' />
             <map key='[GenderNA_uof]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[GenderNA_uof]' />
             <map key='[Geometry]' value='[beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74].[Geometry]' />
-            <map key='[HSGrad]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[HSGrad]' />
             <map key='[HispLat]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[HispLat]' />
             <map key='[HispLat_uof]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[HispLat_uof]' />
             <map key='[M_uof]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[M_uof]' />
@@ -839,6 +860,8 @@
             <map key='[PUMA]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[PUMA]' />
             <map key='[PacIsl]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[PacIsl]' />
             <map key='[PacIsl_uof]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[PacIsl_uof]' />
+            <map key='[Pct_BachGrad]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[Pct_BachGrad]' />
+            <map key='[Pct_HSGrad]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[Pct_HSGrad]' />
             <map key='[PersonOfColor]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[PersonOfColor]' />
             <map key='[Pop200PctBelowPov]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[Pop200PctBelowPov]' />
             <map key='[RaceNA_uof]' value='[by_puma.csv_2847C1D296DE4228BF47FF148863FD46].[RaceNA_uof]' />
@@ -856,9 +879,6 @@
             <map key='[st_area_sh]' value='[beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74].[st_area_sh]' />
             <map key='[st_length_]' value='[beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74].[st_length_]' />
           </cols>
-          <refresh>
-            <refresh-event add-from-file-path='by_puma' increment-value='%null%' refresh-type='create' rows-inserted='60' timestamp-start='2021-03-02 00:09:13.457' />
-          </refresh>
           <metadata-records>
             <metadata-record class='column'>
               <remote-name>PUMA</remote-name>
@@ -873,7 +893,6 @@
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RUS' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Total_Pop</remote-name>
@@ -887,7 +906,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>White</remote-name>
@@ -901,7 +919,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Black</remote-name>
@@ -915,7 +932,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>NatAm</remote-name>
@@ -929,7 +945,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Asian</remote-name>
@@ -943,7 +958,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>PacIsl</remote-name>
@@ -957,7 +971,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>OtherRace</remote-name>
@@ -971,7 +984,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>TwoPlusRace</remote-name>
@@ -985,7 +997,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>HispLat</remote-name>
@@ -999,35 +1010,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>HSGrad</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[HSGrad]</local-name>
-              <parent-name>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</parent-name>
-              <remote-alias>HSGrad</remote-alias>
-              <ordinal>10</ordinal>
-              <family>by_puma.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>5</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-            </metadata-record>
-            <metadata-record class='column'>
-              <remote-name>BachGrad</remote-name>
-              <remote-type>20</remote-type>
-              <local-name>[BachGrad]</local-name>
-              <parent-name>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</parent-name>
-              <remote-alias>BachGrad</remote-alias>
-              <ordinal>11</ordinal>
-              <family>by_puma.csv</family>
-              <local-type>integer</local-type>
-              <aggregation>Sum</aggregation>
-              <approx-count>5</approx-count>
-              <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>EngNotVWell</remote-name>
@@ -1035,13 +1017,12 @@
               <local-name>[EngNotVWell]</local-name>
               <parent-name>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</parent-name>
               <remote-alias>EngNotVWell</remote-alias>
-              <ordinal>12</ordinal>
+              <ordinal>10</ordinal>
               <family>by_puma.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Pop200PctBelowPov</remote-name>
@@ -1049,13 +1030,12 @@
               <local-name>[Pop200PctBelowPov]</local-name>
               <parent-name>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</parent-name>
               <remote-alias>Pop200PctBelowPov</remote-alias>
-              <ordinal>13</ordinal>
+              <ordinal>11</ordinal>
               <family>by_puma.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>PersonOfColor</remote-name>
@@ -1063,13 +1043,38 @@
               <local-name>[PersonOfColor]</local-name>
               <parent-name>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</parent-name>
               <remote-alias>PersonOfColor</remote-alias>
-              <ordinal>14</ordinal>
+              <ordinal>12</ordinal>
               <family>by_puma.csv</family>
               <local-type>integer</local-type>
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Pct_HSGrad</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Pct_HSGrad]</local-name>
+              <parent-name>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</parent-name>
+              <remote-alias>Pct_HSGrad</remote-alias>
+              <ordinal>13</ordinal>
+              <family>by_puma.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Pct_BachGrad</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Pct_BachGrad]</local-name>
+              <parent-name>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</parent-name>
+              <remote-alias>Pct_BachGrad</remote-alias>
+              <ordinal>14</ordinal>
+              <family>by_puma.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Median_Age</remote-name>
@@ -1083,7 +1088,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>MedianHHIncome</remote-name>
@@ -1097,7 +1101,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Median_Gross_Rent</remote-name>
@@ -1111,7 +1114,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Type_1</remote-name>
@@ -1125,7 +1127,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Type_2</remote-name>
@@ -1139,7 +1140,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Type_3</remote-name>
@@ -1153,7 +1153,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Type_4</remote-name>
@@ -1167,7 +1166,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>NatAm_uof</remote-name>
@@ -1181,7 +1179,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Asian_uof</remote-name>
@@ -1195,7 +1192,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Black_uof</remote-name>
@@ -1209,7 +1205,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>HispLat_uof</remote-name>
@@ -1223,7 +1218,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>PacIsl_uof</remote-name>
@@ -1237,7 +1231,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>RaceNA_uof</remote-name>
@@ -1251,7 +1244,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>White_uof</remote-name>
@@ -1265,7 +1257,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>F_uof</remote-name>
@@ -1279,7 +1270,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>M_uof</remote-name>
@@ -1293,7 +1283,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>GenderNA_uof</remote-name>
@@ -1307,7 +1296,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Count_uof</remote-name>
@@ -1321,7 +1309,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>id</remote-name>
@@ -1336,7 +1323,6 @@
               <approx-count>55</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='binary' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>beat</remote-name>
@@ -1351,7 +1337,6 @@
               <approx-count>55</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='binary' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>first_prec</remote-name>
@@ -1366,7 +1351,6 @@
               <approx-count>6</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='binary' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>st_area_sh</remote-name>
@@ -1380,7 +1364,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>55</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>st_length_</remote-name>
@@ -1394,7 +1377,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>55</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>PUMA</remote-name>
@@ -1409,7 +1391,6 @@
               <approx-count>6</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='binary' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Geometry</remote-name>
@@ -1423,7 +1404,6 @@
               <aggregation>Collect</aggregation>
               <approx-count>55</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
           </metadata-records>
         </connection>
@@ -1431,26 +1411,6 @@
       <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
       <style>
         <style-rule element='mark'>
-          <encoding attr='color' field='[none:PUMA (beats_geo.geojson):nk]' type='palette'>
-            <map to='#4e79a7'>
-              <bucket>&quot;&quot;</bucket>
-            </map>
-            <map to='#4f6980'>
-              <bucket>&quot;Downtown&quot;</bucket>
-            </map>
-            <map to='#638b66'>
-              <bucket>&quot;W&quot;</bucket>
-            </map>
-            <map to='#b66353'>
-              <bucket>&quot;NW&quot;</bucket>
-            </map>
-            <map to='#f47942'>
-              <bucket>&quot;NE&quot;</bucket>
-            </map>
-            <map to='#fbb04e'>
-              <bucket>&quot;SE&quot;</bucket>
-            </map>
-          </encoding>
           <encoding attr='color' field='[none:PUMA:nk]' palette='miller_stone_10_0' type='palette'>
             <map to='#4f6980'>
               <bucket>&quot;Downtown&quot;</bucket>
@@ -1482,6 +1442,12 @@
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Median_Gross_Rent:qk]&quot;</bucket>
             </map>
             <map to='#4e79a7'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Pct_BachGrad:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Pct_HSGrad:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Total_Pop:qk]&quot;</bucket>
             </map>
             <map to='#4e79a7'>
@@ -1492,6 +1458,9 @@
             </map>
             <map to='#4e79a7'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1820298690864541696:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774749306893:qk]&quot;</bucket>
             </map>
             <map to='#59a14f'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:PacIsl_uof:qk]&quot;</bucket>
@@ -1530,6 +1499,12 @@
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034489357:qk]&quot;</bucket>
             </map>
             <map to='#e15759'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:EngNotVWell:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:EngNotVWell:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662005190659:qk]&quot;</bucket>
             </map>
             <map to='#e15759'>
@@ -1545,7 +1520,28 @@
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034509838:qk]&quot;</bucket>
             </map>
             <map to='#f28e2b'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[none:Calculation_210824774749077513:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[none:Calculation_210824774749278220:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Calculation_210824774748631047:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Count_uof:qk:1]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774745661444:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774746763269:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774748598278:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774748631047:qk]&quot;</bucket>
             </map>
             <map to='#f28e2b'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]&quot;</bucket>
@@ -1562,11 +1558,40 @@
             <map to='#f28e2b'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662050922513:qk]&quot;</bucket>
             </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774748909576:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774749106186:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774749220875:qk]&quot;</bucket>
+            </map>
             <map to='#ff9da7'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[none:Calculation_1241304662034288647:qk]&quot;</bucket>
             </map>
             <map to='#ff9da7'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Asian_uof:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:PUMA (beats_geo.geojson):nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;&quot;</bucket>
+            </map>
+            <map to='#4f6980'>
+              <bucket>&quot;Downtown&quot;</bucket>
+            </map>
+            <map to='#638b66'>
+              <bucket>&quot;W&quot;</bucket>
+            </map>
+            <map to='#b66353'>
+              <bucket>&quot;NW&quot;</bucket>
+            </map>
+            <map to='#f47942'>
+              <bucket>&quot;NE&quot;</bucket>
+            </map>
+            <map to='#fbb04e'>
+              <bucket>&quot;SE&quot;</bucket>
             </map>
           </encoding>
         </style-rule>
@@ -1608,11 +1633,11 @@
                   <column datatype='integer' name='OtherRace' ordinal='7' />
                   <column datatype='integer' name='TwoPlusRace' ordinal='8' />
                   <column datatype='integer' name='HispLat' ordinal='9' />
-                  <column datatype='integer' name='HSGrad' ordinal='10' />
-                  <column datatype='integer' name='BachGrad' ordinal='11' />
-                  <column datatype='integer' name='EngNotVWell' ordinal='12' />
-                  <column datatype='integer' name='Pop200PctBelowPov' ordinal='13' />
-                  <column datatype='integer' name='PersonOfColor' ordinal='14' />
+                  <column datatype='integer' name='EngNotVWell' ordinal='10' />
+                  <column datatype='integer' name='Pop200PctBelowPov' ordinal='11' />
+                  <column datatype='integer' name='PersonOfColor' ordinal='12' />
+                  <column datatype='real' name='Pct_HSGrad' ordinal='13' />
+                  <column datatype='real' name='Pct_BachGrad' ordinal='14' />
                   <column datatype='real' name='Median_Age' ordinal='15' />
                   <column datatype='real' name='MedianHHIncome' ordinal='16' />
                   <column datatype='real' name='Median_Gross_Rent' ordinal='17' />
@@ -1656,6 +1681,14 @@
     <mapsource name='Tableau' />
   </mapsources>
   <actions>
+    <action caption='Highlight (Header)' name='[Action1]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Header' type='sheet' />
+      <command command='tsc:brush'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Header' />
+      </command>
+    </action>
     <action caption='Highlight 1 (generated)' name='[Action2]'>
       <activation auto-clear='true' type='on-select' />
       <source dashboard='Dashboard 1' type='sheet' />
@@ -1664,9 +1697,40 @@
         <param name='target' value='Dashboard 1' />
       </command>
     </action>
+    <action caption='Highlight (Economic)' name='[Action3]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Header' type='sheet' />
+      <command command='tsc:brush'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Economic' />
+      </command>
+    </action>
+    <action caption='Highlight (Social)' name='[Action4]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Header' type='sheet' />
+      <command command='tsc:brush'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Social' />
+      </command>
+    </action>
+    <action caption='Highlight (UoF)' name='[Action5]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Header' type='sheet' worksheet='PUMA map' />
+      <command command='tsc:brush'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='UoF' />
+      </command>
+    </action>
   </actions>
   <worksheets>
     <worksheet name='% Uof v Pop'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Number of UoF incidents vs. Total Population</run>
+          </formatted-text>
+        </title>
+      </layout-options>
       <table>
         <view>
           <datasources>
@@ -1704,6 +1768,13 @@
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='cols' value='false' />
           </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' value='PUMA'>
+              <formatted-text>
+                <run>PUMA</run>
+              </formatted-text>
+            </format>
+          </style-rule>
         </style>
         <panes>
           <pane selection-relaxation-option='selection-relaxation-allow'>
@@ -1739,6 +1810,119 @@
       </table>
       <simple-id uuid='{07EA096F-8FFD-44B7-AB83-973BBDAB35A1}' />
     </worksheet>
+    <worksheet name='BachGrad'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='12'>Proportion of population with a Bachelor&apos;s degree or higher</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='by_puma' name='federated.11g70zs1olx86610qz0380f5hdw7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.11g70zs1olx86610qz0380f5hdw7'>
+            <column caption='Pop200BelowPov_prop' datatype='real' name='[Calculation_1241304662050922513]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Pop200PctBelowPov])/SUM([Total_Pop])' />
+            </column>
+            <column caption='PopNotBelowPov_prop' datatype='real' name='[Calculation_1820298690864541696]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='1-[Calculation_1241304662050922513]' />
+            </column>
+            <column caption='Pct_NoBachGrad' datatype='real' name='[Calculation_210824774745661444]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='100-[Pct_BachGrad]' />
+            </column>
+            <column caption='Puma' datatype='string' name='[PUMA]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Pct_BachGrad]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Pop200PctBelowPov]' role='measure' type='quantitative' />
+            <column caption='Total Pop' datatype='integer' name='[Total_Pop]' role='measure' type='quantitative' />
+            <column-instance column='[PUMA]' derivation='None' name='[none:PUMA:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_210824774745661444]' derivation='Sum' name='[sum:Calculation_210824774745661444:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Pct_BachGrad]' derivation='Sum' name='[sum:Pct_BachGrad:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1241304662050922513]' derivation='User' name='[usr:Calculation_1241304662050922513:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1820298690864541696]' derivation='User' name='[usr:Calculation_1820298690864541696:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Pct_BachGrad:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774745661444:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Pct_BachGrad:qk]&quot;</bucket>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662050922513:qk]&quot;</bucket>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1820298690864541696:qk]&quot;</bucket>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774745661444:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='95' />
+            <format attr='border-style' scope='cols' value='solid' />
+            <format attr='border-style' scope='rows' value='solid' />
+            <format attr='border-color' scope='rows' value='#e6e6e6' />
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='123' />
+            <format attr='height' value='126' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-color' value='#e6e6e6' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' value='solid' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' />
+              <wedge-size column='[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>PUMA:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]>:	]]></run>
+                <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.2193922996520996' />
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#555555' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols>[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]</cols>
+      </table>
+      <simple-id uuid='{75799E9F-9FAD-4B0C-99A2-17B1C051FAEF}' />
+    </worksheet>
     <worksheet name='Below Pov'>
       <layout-options>
         <title>
@@ -1753,18 +1937,11 @@
             <datasource caption='by_puma' name='federated.11g70zs1olx86610qz0380f5hdw7' />
           </datasources>
           <datasource-dependencies datasource='federated.11g70zs1olx86610qz0380f5hdw7'>
-            <column caption='Bach Grad' datatype='integer' name='[BachGrad]' role='measure' type='quantitative' />
             <column caption='HispLat_prop_pop' datatype='real' name='[Calculation_1241304662005190659]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='SUM([HispLat])/SUM([Total_Pop])' />
             </column>
             <column caption='HispLat_prop_uof' datatype='real' name='[Calculation_1241304662034391050]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='SUM([HispLat_uof])/SUM([Count_uof])' />
-            </column>
-            <column caption='BachGrad_prop' datatype='real' name='[Calculation_1241304662050631695]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='SUM([BachGrad])/SUM([Total_Pop])' />
-            </column>
-            <column caption='HSGrad_prop' datatype='real' name='[Calculation_1241304662050742288]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='SUM([HSGrad])/SUM([Total_Pop])' />
             </column>
             <column caption='Pop200BelowPov_prop' datatype='real' name='[Calculation_1241304662050922513]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='SUM([Pop200PctBelowPov])/SUM([Total_Pop])' />
@@ -1773,7 +1950,6 @@
               <calculation class='tableau' formula='1-[Calculation_1241304662050922513]' />
             </column>
             <column caption='Count uof' datatype='integer' name='[Count_uof]' role='measure' type='quantitative' />
-            <column caption='HS Grad' datatype='integer' name='[HSGrad]' role='measure' type='quantitative' />
             <column caption='Hisp Lat' datatype='integer' name='[HispLat]' role='measure' type='quantitative' />
             <column caption='HispLat uof' datatype='integer' name='[HispLat_uof]' role='measure' type='quantitative' />
             <column caption='Puma' datatype='string' name='[PUMA]' role='dimension' type='nominal' />
@@ -1782,8 +1958,6 @@
             <column-instance column='[PUMA]' derivation='None' name='[none:PUMA:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_1241304662005190659]' derivation='User' name='[usr:Calculation_1241304662005190659:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_1241304662034391050]' derivation='User' name='[usr:Calculation_1241304662034391050:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_1241304662050631695]' derivation='User' name='[usr:Calculation_1241304662050631695:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_1241304662050742288]' derivation='User' name='[usr:Calculation_1241304662050742288:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_1241304662050922513]' derivation='User' name='[usr:Calculation_1241304662050922513:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_1820298690864541696]' derivation='User' name='[usr:Calculation_1820298690864541696:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
@@ -1813,6 +1987,7 @@
             <format attr='border-style' scope='cols' value='solid' />
             <format attr='border-style' scope='rows' value='solid' />
             <format attr='border-color' scope='rows' value='#e6e6e6' />
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='122' />
           </style-rule>
           <style-rule element='header'>
             <format attr='border-style' value='solid' />
@@ -1846,12 +2021,14 @@
               <style-rule element='pane'>
                 <format attr='minheight' value='-1' />
                 <format attr='maxheight' value='-1' />
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
               </style-rule>
             </style>
           </pane>
         </panes>
-        <rows>[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]</rows>
-        <cols />
+        <rows />
+        <cols>[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]</cols>
       </table>
       <simple-id uuid='{8B183E9B-0099-4987-9356-66B3F3508A6E}' />
     </worksheet>
@@ -1886,6 +2063,7 @@
           </style-rule>
           <style-rule element='label'>
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[med:MedianHHIncome:qk]' value='C1033%' />
+            <format attr='text-orientation' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='-90' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='cols' value='false' />
@@ -1979,6 +2157,107 @@
       </table>
       <simple-id uuid='{FBB700C7-A566-48DC-A2DA-BD2DDDEC1BB5}' />
     </worksheet>
+    <worksheet name='HSGrad'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='12'>Proportion of population with a high school degree or higher (includes equivalency)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='by_puma' name='federated.11g70zs1olx86610qz0380f5hdw7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.11g70zs1olx86610qz0380f5hdw7'>
+            <column caption='Pct_NoHSGrad' datatype='real' name='[Calculation_210824774746763269]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='100-[Pct_HSGrad]' />
+            </column>
+            <column caption='Puma' datatype='string' name='[PUMA]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Pct_HSGrad]' role='measure' type='quantitative' />
+            <column-instance column='[PUMA]' derivation='None' name='[none:PUMA:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_210824774746763269]' derivation='Sum' name='[sum:Calculation_210824774746763269:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Pct_HSGrad]' derivation='Sum' name='[sum:Pct_HSGrad:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Pct_HSGrad:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774746763269:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Pct_HSGrad:qk]&quot;</bucket>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774746763269:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='95' />
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='124' />
+            <format attr='height' value='121' />
+            <format attr='border-style' scope='cols' value='solid' />
+            <format attr='border-style' scope='rows' value='solid' />
+            <format attr='border-color' scope='rows' value='#e6e6e6' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-color' value='#e6e6e6' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' value='solid' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' />
+              <wedge-size column='[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>PUMA:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]>:	]]></run>
+                <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.2193922996520996' />
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#555555' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols>[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]</cols>
+      </table>
+      <simple-id uuid='{A8A46A9E-7A1B-4CE7-A87F-25A446AB69F3}' />
+    </worksheet>
     <worksheet name='PUMA map'>
       <table>
         <view>
@@ -1989,6 +2268,7 @@
             <mapsource name='Tableau' />
           </mapsources>
           <datasource-dependencies datasource='federated.11g70zs1olx86610qz0380f5hdw7'>
+            <column caption='Count uof' datatype='integer' name='[Count_uof]' role='measure' type='quantitative' />
             <column datatype='spatial' name='[Geometry]' role='measure' type='nominal' />
             <column caption='PUMA (beats geo.geojson)' datatype='string' name='[PUMA (beats_geo.geojson)]' role='dimension' type='nominal' />
             <column caption='Puma' datatype='string' name='[PUMA]' role='dimension' type='nominal' />
@@ -1996,38 +2276,67 @@
             <column-instance column='[Geometry]' derivation='Collect' name='[clct:Geometry:nk]' pivot='key' type='nominal' />
             <column-instance column='[PUMA (beats_geo.geojson)]' derivation='None' name='[none:PUMA (beats_geo.geojson):nk]' pivot='key' type='nominal' />
             <column-instance column='[PUMA]' derivation='None' name='[none:PUMA:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Count_uof]' derivation='Sum' name='[sum:Count_uof:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Total_Pop]' derivation='Sum' name='[sum:Total_Pop:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
-          <filter class='categorical' column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]'>
-            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+          <filter class='categorical' column='[federated.11g70zs1olx86610qz0380f5hdw7].[Exclusions (Puma,PUMA (beats geo.geojson))]'>
+            <groupfilter function='crossjoin' user:ui-enumeration='all' user:ui-exclude='true' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:PUMA:nk]' />
               <groupfilter function='level-members' level='[none:PUMA (beats_geo.geojson):nk]' />
-              <groupfilter function='member' level='[none:PUMA (beats_geo.geojson):nk]' member='&quot;&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]'>
+            <groupfilter function='level-members' level='[none:PUMA (beats_geo.geojson):nk]' user:ui-enumeration='all' user:ui-exclude='true' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:PUMA:nk]' />
+              <groupfilter function='member' level='[none:PUMA:nk]' member='%null%' />
             </groupfilter>
           </filter>
           <slices>
             <column>[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]</column>
+            <column>[federated.11g70zs1olx86610qz0380f5hdw7].[Exclusions (Puma,PUMA (beats geo.geojson))]</column>
+            <column>[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]</column>
           </slices>
           <aggregation value='true' />
         </view>
         <style>
-          <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.11g70zs1olx86610qz0380f5hdw7].[Longitude (generated)]' field-type='quantitative' max='-13602799.328132365' min='-13634632.557562664' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.11g70zs1olx86610qz0380f5hdw7].[Latitude (generated)]' field-type='quantitative' max='6065435.7241901094' min='6023688.4944808399' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]' palette='red_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='size' field='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]' value='Total number of UoF&#10;Incidents'>
+              <formatted-text>
+                <run>Total number of UoF&#10;Incidents</run>
+              </formatted-text>
+            </format>
+            <format attr='color' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='PUMA'>
+              <formatted-text>
+                <run>PUMA</run>
+              </formatted-text>
+            </format>
           </style-rule>
           <style-rule element='map'>
             <format attr='washout' value='0.0' />
             <format attr='wrap' value='false' />
           </style-rule>
           <style-rule element='data-highlighter-title'>
-            <format attr='title' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='Highlight PUMA'>
-              <formatted-text>
-                <run>Highlight PUMA</run>
-              </formatted-text>
-            </format>
+            <format attr='title' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='Highlight PUMA' />
           </style-rule>
         </style>
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
+        <panes _.fcp.Layers.true...customization-axis='layer'>
+          <_.fcp.Layers.true...pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <tooltip column='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Total_Pop:qk]' />
+              <lod column='[federated.11g70zs1olx86610qz0380f5hdw7].[clct:Geometry:nk]' />
+            </encodings>
+          </_.fcp.Layers.true...pane>
+          <pane _.fcp.Layers.true...generated-title='beats_geo.geojson' id='0' selection-relaxation-option='selection-relaxation-allow'>
             <view>
               <breakdown value='auto' />
             </view>
@@ -2035,6 +2344,7 @@
             <encodings>
               <color column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' />
               <tooltip column='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Total_Pop:qk]' />
+              <tooltip column='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]' />
               <text column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' />
               <lod column='[federated.11g70zs1olx86610qz0380f5hdw7].[clct:Geometry:nk]' />
               <lod column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' />
@@ -2047,6 +2357,9 @@
                 <run>Æ&#10;</run>
                 <run fontcolor='#787878'>Total population:&#9;</run>
                 <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Total_Pop:qk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Number of UoF incidents:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]>]]></run>
               </formatted-text>
             </customized-tooltip>
             <style>
@@ -2059,9 +2372,45 @@
                 <format attr='mark-labels-show' value='true' />
                 <format attr='mark-labels-cull' value='true' />
                 <format attr='mark-transparency' value='216' />
+                <format attr='has-stroke' value='true' />
               </style-rule>
             </style>
           </pane>
+          <_.fcp.Layers.true...pane generated-title='beats_geo.geojson (2)' id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <size column='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]' />
+              <lod column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' />
+              <lod column='[federated.11g70zs1olx86610qz0380f5hdw7].[clct:Geometry:nk]' />
+              <lod column='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]' />
+              <tooltip column='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Total_Pop:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>PUMA:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Total population:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Total_Pop:qk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Number of UoF incidents:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='2.9944751262664795' />
+                <format attr='mark-color' value='#ce532e' />
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#555555' />
+                <format attr='mark-transparency' value='183' />
+              </style-rule>
+            </style>
+          </_.fcp.Layers.true...pane>
         </panes>
         <rows>[federated.11g70zs1olx86610qz0380f5hdw7].[Latitude (generated)]</rows>
         <cols>[federated.11g70zs1olx86610qz0380f5hdw7].[Longitude (generated)]</cols>
@@ -2091,7 +2440,6 @@
           <datasource-dependencies datasource='federated.11g70zs1olx86610qz0380f5hdw7'>
             <column datatype='integer' name='[Asian]' role='measure' type='quantitative' />
             <column caption='Asian uof' datatype='integer' name='[Asian_uof]' role='measure' type='quantitative' />
-            <column caption='Bach Grad' datatype='integer' name='[BachGrad]' role='measure' type='quantitative' />
             <column datatype='integer' name='[Black]' role='measure' type='quantitative' />
             <column caption='Black uof' datatype='integer' name='[Black_uof]' role='measure' type='quantitative' />
             <column caption='Asian_prop_pop' datatype='real' name='[Calculation_1241304662005104641]' role='measure' type='quantitative'>
@@ -2116,7 +2464,6 @@
             <column caption='Eng Not V Well' datatype='integer' name='[EngNotVWell]' role='measure' type='quantitative' />
             <column caption='F uof' datatype='integer' name='[F_uof]' role='measure' type='quantitative' />
             <column caption='GenderNA uof' datatype='integer' name='[GenderNA_uof]' role='measure' type='quantitative' />
-            <column caption='HS Grad' datatype='integer' name='[HSGrad]' role='measure' type='quantitative' />
             <column caption='Hisp Lat' datatype='integer' name='[HispLat]' role='measure' type='quantitative' />
             <column caption='HispLat uof' datatype='integer' name='[HispLat_uof]' role='measure' type='quantitative' />
             <column caption='M uof' datatype='integer' name='[M_uof]' role='measure' type='quantitative' />
@@ -2130,14 +2477,12 @@
             <column datatype='integer' name='[White]' role='measure' type='quantitative' />
             <column-instance column='[PUMA]' derivation='None' name='[none:PUMA:nk]' pivot='key' type='nominal' />
             <column-instance column='[Asian_uof]' derivation='Sum' name='[sum:Asian_uof:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[BachGrad]' derivation='Sum' name='[sum:BachGrad:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Black]' derivation='Sum' name='[sum:Black:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Black_uof]' derivation='Sum' name='[sum:Black_uof:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Count_uof]' derivation='Sum' name='[sum:Count_uof:qk]' pivot='key' type='quantitative' />
             <column-instance column='[EngNotVWell]' derivation='Sum' name='[sum:EngNotVWell:qk]' pivot='key' type='quantitative' />
             <column-instance column='[F_uof]' derivation='Sum' name='[sum:F_uof:qk]' pivot='key' type='quantitative' />
             <column-instance column='[GenderNA_uof]' derivation='Sum' name='[sum:GenderNA_uof:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[HSGrad]' derivation='Sum' name='[sum:HSGrad:qk]' pivot='key' type='quantitative' />
             <column-instance column='[HispLat]' derivation='Sum' name='[sum:HispLat:qk]' pivot='key' type='quantitative' />
             <column-instance column='[HispLat_uof]' derivation='Sum' name='[sum:HispLat_uof:qk]' pivot='key' type='quantitative' />
             <column-instance column='[M_uof]' derivation='Sum' name='[sum:M_uof:qk]' pivot='key' type='quantitative' />
@@ -2193,7 +2538,8 @@
         <style>
           <style-rule element='cell'>
             <format attr='width' value='195' />
-            <format attr='height' value='197' />
+            <format attr='height' value='143' />
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='121' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662005104641:qk]' value='p0.00%' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662005157890:qk]' value='p0.00%' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662005190659:qk]' value='p0.00%' />
@@ -2204,6 +2550,12 @@
           </style-rule>
           <style-rule element='label'>
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]' value='*0.00%' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='cols' value='#d4d4d4' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='1' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='cols' value='false' />
@@ -2228,6 +2580,8 @@
                 <format attr='size' value='1' />
                 <format attr='mark-labels-cull' value='true' />
                 <format attr='mark-labels-show' value='false' />
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#555555' />
               </style-rule>
               <style-rule element='pane'>
                 <format attr='minwidth' value='-1' />
@@ -2328,6 +2682,7 @@
         </view>
         <style>
           <style-rule element='cell'>
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='121' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034317320:qk]' value='p0.00%' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034362377:qk]' value='p0.00%' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034419723:qk]' value='p0.00%' />
@@ -2336,6 +2691,13 @@
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034489357:qk]' value='p0.00%' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034509838:qk]' value='p0.00%' />
             <format attr='border-style' scope='cols' value='solid' />
+            <format attr='height' value='132' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='cols' value='#d4d4d4' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='1' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='cols' value='false' />
@@ -2359,6 +2721,14 @@
             <style>
               <style-rule element='mark'>
                 <format attr='size' value='1' />
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#555555' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
               </style-rule>
             </style>
           </pane>
@@ -2456,6 +2826,119 @@
         <cols>([federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk] / [federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names])</cols>
       </table>
       <simple-id uuid='{17E0FC07-7FCF-4D11-A30A-F4F82A28DD8D}' />
+    </worksheet>
+    <worksheet name='Speaks English'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='12'>Proportion of population that speaks English less than very well</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='by_puma' name='federated.11g70zs1olx86610qz0380f5hdw7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.11g70zs1olx86610qz0380f5hdw7'>
+            <column caption='100-[Eng Not V Well]' datatype='integer' name='[Calculation_210824774748631047]' role='measure' type='quantitative' user:unnamed='HSGrad (2)'>
+              <calculation class='tableau' formula='100-[EngNotVWell]' />
+            </column>
+            <column caption='EngNotVWell_prop' datatype='real' name='[Calculation_210824774748909576]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([EngNotVWell])/SUM([Total_Pop])' />
+            </column>
+            <column caption='(1-[EngNotVWell_prop])' datatype='real' name='[Calculation_210824774749306893]' role='measure' type='quantitative' user:unnamed='HSGrad (2)'>
+              <calculation class='tableau' formula='(1-[Calculation_210824774748909576])' />
+            </column>
+            <column caption='Eng Not V Well' datatype='integer' name='[EngNotVWell]' role='measure' type='quantitative' />
+            <column caption='Puma' datatype='string' name='[PUMA]' role='dimension' type='nominal' />
+            <column caption='Total Pop' datatype='integer' name='[Total_Pop]' role='measure' type='quantitative' />
+            <column-instance column='[PUMA]' derivation='None' name='[none:PUMA:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_210824774748631047]' derivation='Sum' name='[pcto:sum:Calculation_210824774748631047:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[Calculation_210824774748909576]' derivation='User' name='[usr:Calculation_210824774748909576:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_210824774749306893]' derivation='User' name='[usr:Calculation_210824774749306893:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774748909576:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774749306893:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774748909576:qk]&quot;</bucket>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Calculation_210824774748631047:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='95' />
+            <format attr='border-style' scope='cols' value='solid' />
+            <format attr='border-style' scope='rows' value='solid' />
+            <format attr='border-color' scope='rows' value='#e6e6e6' />
+            <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774748909576:qk]' value='p0.00%' />
+            <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774749306893:qk]' value='p0.00%' />
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='122' />
+            <format attr='height' value='127' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-color' value='#e6e6e6' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' value='solid' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' />
+              <wedge-size column='[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>PUMA:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]>:	]]></run>
+                <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.2193922996520996' />
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#555555' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols>[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]</cols>
+      </table>
+      <simple-id uuid='{2D8A5A48-7F0F-404E-A1BD-B0AF7DFFFF0F}' />
     </worksheet>
     <worksheet name='Summary'>
       <table>
@@ -2653,8 +3136,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1900' minheight='1900' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='57' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98340' id='56' param='vert' w='98426' x='787' y='830'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='87' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98340' id='86' param='vert' w='98426' x='787' y='830'>
                 <zone _.fcp.SetMembershipControl.false...type='highlighter' _.fcp.SetMembershipControl.true...type-v2='highlighter' h='13692' id='44' name='PUMA map' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='14273' x='56396' y='830'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -2757,6 +3240,672 @@
         </devicelayout>
       </devicelayouts>
       <simple-id uuid='{BDEFF933-C46A-4F3E-83D1-27C6D8FA4679}' />
+    </dashboard>
+    <dashboard name='Economic'>
+      <style />
+      <size maxheight='800' maxwidth='800' minheight='800' minwidth='800' preset-index='4' sizing-mode='fixed' />
+      <zones>
+        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' friendly-name='Economic factors' h='100000' id='4' w='100000' x='0' y='0'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='88875' id='7' param='horz' w='98000' x='1000' y='10125'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='88875' id='5' w='78000' x='1000' y='10125'>
+              <zone h='52250' id='3' name='HH income' w='39000' x='1000' y='10125'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='52250' id='10' name='HH rent' w='39000' x='40000' y='10125'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='36625' id='12' name='Below Pov' w='78000' x='1000' y='62375'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' fixed-size='160' h='88875' id='17' is-fixed='true' w='20000' x='79000' y='10125'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='52250' id='6' param='vert' w='20000' x='79000' y='10125'>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='15750' id='8' name='HH income' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='20000' x='79000' y='10125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='36625' id='18' param='vert' w='20000' x='79000' y='62375'>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='6000' id='13' name='Below Pov' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='20000' x='79000' y='62375'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='20125' id='27' w='20000' x='79000' y='68375'>
+                  <formatted-text>
+                    <run>200% below poverty refers to households whose incomes are 200% or more below the poverty threshold.
+Poverty thresholds are calculated based on the size of the family and age of the members.</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='9125' id='14' w='98000' x='1000' y='1000'>
+            <formatted-text>
+              <run fontsize='18'>Economic Factors</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1150' minheight='1150' sizing-mode='vscroll' />
+          <zones>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='47' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='46' param='vert' w='98000' x='1000' y='1000'>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='9125' id='14' w='98000' x='1000' y='1000'>
+                  <formatted-text>
+                    <run fontsize='18'>Economic Factors</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='52250' id='3' is-fixed='true' name='HH income' w='39000' x='1000' y='10125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='15750' id='8' name='HH income' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='20000' x='79000' y='10125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='52250' id='10' is-fixed='true' name='HH rent' w='39000' x='40000' y='10125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='36625' id='12' is-fixed='true' name='Below Pov' w='78000' x='1000' y='62375'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='6000' id='13' name='Below Pov' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='20000' x='79000' y='62375'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='20125' id='27' w='20000' x='79000' y='68375'>
+                  <formatted-text>
+                    <run>200% below poverty refers to households whose incomes are 200% or more below the poverty threshold.
+Poverty thresholds are calculated based on the size of the family and age of the members.</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{EDD736A6-B4CC-42BD-90F9-496E728A8027}' />
+    </dashboard>
+    <dashboard name='Header'>
+      <style />
+      <size maxheight='800' maxwidth='800' minheight='800' minwidth='800' preset-index='4' sizing-mode='fixed' />
+      <zones>
+        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='39' param='horz' w='98000' x='1000' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='30' param='horz' w='98000' x='1000' y='1000'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='7' param='horz' w='98000' x='1000' y='1000'>
+                <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='98000' id='5' w='98000' x='1000' y='1000'>
+                  <zone h='98000' id='3' name='PUMA map' show-title='false' w='55696' x='1000' y='1000'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='21375' id='8' name='PUMA map' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='21152' x='56696' y='56250'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone _.fcp.SetMembershipControl.false...type='highlighter' _.fcp.SetMembershipControl.true...type-v2='highlighter' h='21375' id='9' name='PUMA map' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='42304' x='56696' y='77625'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='55250' id='33' w='42304' x='56696' y='1000'>
+                    <formatted-text>
+                      <run bold='true' fontcolor='#333333' fontsize='12'>What are PUMAs?</run>
+                      <run>Æ&#10;&#10;</run>
+                      <run fontcolor='#333333' fontsize='10'>The U.S. Census Bureau provides extracts of raw data from a small sample (5%) of population and housing unit records for public use. These data extracts are referred to as </run>
+                      <run fontcolor='#333333' fontsize='10' italic='true'>&quot;public use microdata sample&quot;</run>
+                      <run fontcolor='#333333' fontsize='10'> files, and are only available for selected geographic areas (State, Region, Division, and PUMA).</run>
+                      <run>Æ&#10;&#10;</run>
+                      <run bold='true' fontcolor='#333333' fontsize='10'>Public Use Microdata Areas</run>
+                      <run fontcolor='#333333' fontsize='10'>, or PUMAs, are the most detailed geographic areas available. There are five PUMAs in Seattle.</run>
+                      <run>Æ&#10;&#10;</run>
+                      <run fontcolor='#333333' fontsize='10'>This data is from the American Community Survey (2013-2017). </run>
+                    </formatted-text>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone _.fcp.SetMembershipControl.false...type='size' _.fcp.SetMembershipControl.true...type-v2='size' h='21375' id='40' name='PUMA map' pane-specification-id='2' param='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]' w='21152' x='77848' y='56250'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='60' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='59' param='vert' w='98000' x='1000' y='1000'>
+                <zone _.fcp.SetMembershipControl.false...type='highlighter' _.fcp.SetMembershipControl.true...type-v2='highlighter' h='21375' id='9' name='PUMA map' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='42304' x='56696' y='77625'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='98000' id='3' is-fixed='true' name='PUMA map' show-title='false' w='55696' x='1000' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='21375' id='8' name='PUMA map' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='21152' x='56696' y='56250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='size' _.fcp.SetMembershipControl.true...type-v2='size' h='21375' id='40' name='PUMA map' pane-specification-id='2' param='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]' w='21152' x='77848' y='56250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='55250' id='33' w='42304' x='56696' y='1000'>
+                  <formatted-text>
+                    <run bold='true' fontcolor='#333333' fontsize='12'>What are PUMAs?</run>
+                    <run>Æ&#10;&#10;</run>
+                    <run fontcolor='#333333' fontsize='10'>The U.S. Census Bureau provides extracts of raw data from a small sample (5%) of population and housing unit records for public use. These data extracts are referred to as </run>
+                    <run fontcolor='#333333' fontsize='10' italic='true'>&quot;public use microdata sample&quot;</run>
+                    <run fontcolor='#333333' fontsize='10'> files, and are only available for selected geographic areas (State, Region, Division, and PUMA).</run>
+                    <run>Æ&#10;&#10;</run>
+                    <run bold='true' fontcolor='#333333' fontsize='10'>Public Use Microdata Areas</run>
+                    <run fontcolor='#333333' fontsize='10'>, or PUMAs, are the most detailed geographic areas available. There are five PUMAs in Seattle.</run>
+                    <run>Æ&#10;&#10;</run>
+                    <run fontcolor='#333333' fontsize='10'>This data is from the American Community Survey (2013-2017). </run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{3FFFFFEB-3EEF-4557-A703-D5C636F1D2BC}' />
+    </dashboard>
+    <dashboard name='Social'>
+      <style />
+      <size maxheight='800' maxwidth='800' minheight='800' minwidth='800' preset-index='4' sizing-mode='fixed' />
+      <zones>
+        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='8' param='horz' w='98000' x='1000' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='98000' id='6' w='79000' x='1000' y='1000'>
+              <zone h='27000' id='5' name='HSGrad' w='79000' x='1000' y='9875'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='26125' id='10' name='BachGrad' w='79000' x='1000' y='36875'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='36000' id='11' name='Speaks English' w='79000' x='1000' y='63000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' h='8875' id='3' w='79000' x='1000' y='1000'>
+                <formatted-text>
+                  <run fontsize='18'>Social Factors</run>
+                </formatted-text>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' fixed-size='152' h='98000' id='16' is-fixed='true' w='19000' x='80000' y='1000'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='62000' id='18' is-fixed='true' w='19000' x='80000' y='1000'>
+                <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='26125' id='19' param='vert' w='19000' x='80000' y='36875'>
+                  <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' fixed-size='218' h='26125' id='14' is-fixed='true' name='BachGrad' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='19000' x='80000' y='36875'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' fixed-size='134' h='28098' id='9' is-fixed='true' name='HSGrad' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='19000' x='80000' y='8777'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' h='7777' id='20' w='19000' x='80000' y='1000'>
+                  <formatted-text>
+                    <run>Æ </run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='36000' id='17' param='vert' w='19000' x='80000' y='63000'>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='6000' id='15' name='Speaks English' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='19000' x='80000' y='63000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1100' minheight='1100' sizing-mode='vscroll' />
+          <zones>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='48' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='47' param='vert' w='98000' x='1000' y='1000'>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' h='8875' id='3' w='79000' x='1000' y='1000'>
+                  <formatted-text>
+                    <run fontsize='18'>Social Factors</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' h='7777' id='20' w='19000' x='80000' y='1000'>
+                  <formatted-text>
+                    <run>Æ </run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='208' h='27000' id='5' is-fixed='true' name='HSGrad' w='79000' x='1000' y='9875'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' fixed-size='134' h='28098' id='9' name='HSGrad' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='19000' x='80000' y='8777'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='201' h='26125' id='10' is-fixed='true' name='BachGrad' w='79000' x='1000' y='36875'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' fixed-size='218' h='26125' id='14' name='BachGrad' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='19000' x='80000' y='36875'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='36000' id='11' is-fixed='true' name='Speaks English' w='79000' x='1000' y='63000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='6000' id='15' name='Speaks English' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='19000' x='80000' y='63000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{66FDD47D-2E54-4AA4-A2A7-63E5AB2A2DCA}' />
+    </dashboard>
+    <dashboard name='UoF'>
+      <style />
+      <size maxheight='800' maxwidth='800' minheight='800' minwidth='800' preset-index='4' sizing-mode='fixed' />
+      <zones>
+        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='91500' id='7' param='horz' w='98000' x='1000' y='7500'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='91500' id='5' w='78000' x='1000' y='7500'>
+              <zone h='27488' id='3' name='Race_Pop_Pie' w='78000' x='1000' y='7500'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='25834' id='9' name='Race_UoF_Pie' w='78000' x='1000' y='34988'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='38178' id='10' name='% Uof v Pop' w='78000' x='1000' y='60822'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' fixed-size='160' h='91500' id='31' is-fixed='true' w='20000' x='79000' y='7500'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='53375' id='6' param='vert' w='20000' x='79000' y='7500'>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='20750' id='13' name='Race_UoF_Pie' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' w='20000' x='79000' y='7500'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='38125' id='32' param='vert' w='20000' x='79000' y='60875'>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='15750' id='11' name='% Uof v Pop' pane-specification-id='1' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' w='20000' x='79000' y='60875'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='6500' id='26' w='98000' x='1000' y='1000'>
+            <formatted-text>
+              <run fontsize='18'>Use of Force</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='950' minheight='950' sizing-mode='vscroll' />
+          <zones>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='36' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='35' param='vert' w='98000' x='1000' y='1000'>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='6500' id='26' w='98000' x='1000' y='1000'>
+                  <formatted-text>
+                    <run fontsize='18'>Use of Force</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='212' h='27488' id='3' is-fixed='true' name='Race_Pop_Pie' w='78000' x='1000' y='7500'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='199' h='25834' id='9' is-fixed='true' name='Race_UoF_Pie' w='78000' x='1000' y='34988'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='20750' id='13' name='Race_UoF_Pie' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' w='20000' x='79000' y='7500'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='38178' id='10' is-fixed='true' name='% Uof v Pop' w='78000' x='1000' y='60822'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='15750' id='11' name='% Uof v Pop' pane-specification-id='1' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' w='20000' x='79000' y='60875'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{4C44ADA7-A548-4D2C-81CD-D85D5D0802AC}' />
     </dashboard>
   </dashboards>
   <windows source-height='30'>
@@ -2871,6 +4020,7 @@
           <strip size='160'>
             <card pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' type='color' />
             <card param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' type='highlighter' />
+            <card pane-specification-id='2' param='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]' type='size' />
           </strip>
         </edge>
       </cards>
@@ -2963,6 +4113,93 @@
       </cards>
       <simple-id uuid='{641AA435-FBE0-4EC8-A4B3-59E9DA5C8E62}' />
     </window>
+    <window class='worksheet' name='BachGrad'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='191'>
+            <card pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3D3AA835-F437-4A82-BFB3-418C690C7D84}' />
+    </window>
+    <window class='worksheet' name='HSGrad'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{8C3C4BF4-B940-4CD9-AA57-D4F32733311F}' />
+    </window>
+    <window class='worksheet' name='Speaks English'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{77A62D77-6359-46A2-8FEC-282CA6E9F8DC}' />
+    </window>
     <window class='worksheet' name='HH rent'>
       <cards>
         <edge name='left'>
@@ -3021,7 +4258,7 @@
       </cards>
       <simple-id uuid='{A70BC7CF-B4DB-4D7F-8489-D03763F9CFDE}' />
     </window>
-    <window class='dashboard' maximized='true' name='Dashboard 1'>
+    <window class='dashboard' name='Dashboard 1'>
       <viewpoints>
         <viewpoint name='% Uof v Pop' />
         <viewpoint name='Below Pov' />
@@ -3042,8 +4279,50 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='18' />
+      <active id='-1' />
       <simple-id uuid='{671DB8AE-4F8E-4FB4-AEB3-B747073594AA}' />
+    </window>
+    <window class='dashboard' name='Header'>
+      <viewpoints>
+        <viewpoint name='PUMA map'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{4D96F5CA-D063-487A-A83F-8A7620774CE9}' />
+    </window>
+    <window class='dashboard' name='Economic'>
+      <viewpoints>
+        <viewpoint name='Below Pov' />
+        <viewpoint name='HH income'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='HH rent'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{5C7856CB-FF63-430E-8492-F97E5051EB46}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Social'>
+      <viewpoints>
+        <viewpoint name='BachGrad' />
+        <viewpoint name='HSGrad' />
+        <viewpoint name='Speaks English' />
+      </viewpoints>
+      <active id='9' />
+      <simple-id uuid='{50EA0477-EF5E-45FB-8104-32125081A44F}' />
+    </window>
+    <window class='dashboard' name='UoF'>
+      <viewpoints>
+        <viewpoint name='% Uof v Pop'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Race_Pop_Pie' />
+        <viewpoint name='Race_UoF_Pie' />
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{3FE23FA5-ABE7-4FB1-A904-E5155259F7BF}' />
     </window>
   </windows>
 </workbook>
