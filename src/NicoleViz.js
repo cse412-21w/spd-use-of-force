@@ -72,9 +72,24 @@ function makeViz() {
       .attr('transform', `translate(${margin.left}, 0)`)
       .call(d3.axisLeft(y));
 
-  // var updateBars = function(data) {
+  var dropdown = d3.select("#dropDown")
+    .insert("select", "svg")
+    .on("change", dropdownChange);
 
-  // }
+  dropdown.selectAll("option")
+      .data(cereals)
+    .enter().append("option")
+      .attr("value", function (d) { return d; })
+      .text(function (d) {
+          return d[0].toUpperCase() + d.slice(1,d.length); // capitalize 1st letter
+      });
+  
+  var dropdownChange = function() {
+    var newCereal = d3.select(this).property('value'),
+        newData   = cerealMap[newCereal];
+
+    updateBars(newData);
+  };
 
 }
 
