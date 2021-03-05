@@ -176,8 +176,19 @@ function makeViz() {
 
   var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height - margin.bottom, ")")).call(d3.axisBottom(x)).append('text').attr('text-anchor', 'end').attr('fill', 'white').attr('font-size', '12px').attr('font-weight', 'bold').attr('x', width - margin.right).attr('y', height / 2).text('total UOF Percents'); // position and populate the y-axis
 
-  var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ", 0)")).call(d3.axisLeft(y)); // var updateBars = function(data) {
-  // }
+  var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ", 0)")).call(d3.axisLeft(y));
+  var dropdown = d3.select("#dropDown").insert("select", "svg").on("change", dropdownChange);
+  dropdown.selectAll("option").data(cereals).enter().append("option").attr("value", function (d) {
+    return d;
+  }).text(function (d) {
+    return d[0].toUpperCase() + d.slice(1, d.length); // capitalize 1st letter
+  });
+
+  var dropdownChange = function dropdownChange() {
+    var newCereal = d3.select(this).property('value'),
+        newData = cerealMap[newCereal];
+    updateBars(newData);
+  };
 }
 
 function update(data) {
@@ -186,4 +197,4 @@ function update(data) {
   u.enter().append("rect").merge(u).transition().duration(1000).attr("y", y(data)).attr("height", height / 2 - y(data));
 }
 },{"../static/by_race.csv":"vpAz"}]},{},["Rk44"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.2385cfa3.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.f3b68a01.js.map
