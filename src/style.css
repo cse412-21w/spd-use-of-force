@@ -1,17 +1,23 @@
 * { padding: 0; margin: 0; }
+@font-face {
+  font-family: bentonSansBook;
+  src: local('Benton Sans Book'),
+  url('../static/fonts/bentonSansBook.otf') format('opentype');
+}
  body {
   margin: 0 auto 0 auto;
   padding: 0;
   max-width: 1200px;
-  font-family: "Avenir", "Avenir Next", Helvetica Neue, Arial;
+  font-family: bentonSansBook, "Merriweather", Helvetica Neue, Arial;
   font-size: 0.95em;
 }
- a, a:visited { text-decoration: none; color: #7533f4; }
-a:hover { text-decoration: underline; color: #f4b014; }
+ a, a:visited { text-decoration: none; color: #2a5783; }
+a:hover { text-decoration: underline; color: #F28E2B; }
  h1, h2, h3, h4, h5 {
-  color: #492a7c;
+  color: #666666;
   background-color: inherit;
   font-weight: normal;
+  font-family: bentonSansBook, "Merriweather", Helvetica Neue, Arial;
   padding: 0 0 5px 0;
   margin: 15px 0 0 0;
   border: none;
@@ -29,7 +35,7 @@ p { margin: 0 0 10px 0; }
   background-color: #ffffff;
 }
  .title, .title h1, .title a {
-  color: #492a7c;
+  color: #333333;
   font-size: 24pt;
   margin-bottom: 20px;
   margin-top: 5px;
@@ -42,8 +48,8 @@ p { margin: 0 0 10px 0; }
   font-size: 12px;
 }
 .footer a {
-  color: #21346B;
+  color: #4E79A7;
 }
 .footer a:hover {
-  color: #ce3333;
+  color: #F28E2B;
 }
