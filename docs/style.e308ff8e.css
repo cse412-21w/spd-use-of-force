@@ -5,11 +5,11 @@
   url('/bentonSansBook.263b21da.otf') format('opentype');
 }
  body {
-  margin: 0 auto 0 auto;
+  margin: 40px 20px 20px 40px;
   padding: 0;
   max-width: 1200px;
   font-family: bentonSansBook, "Merriweather", Helvetica Neue, Arial;
-  font-size: 0.95em;
+  font-size: 1em;
 }
  a, a:visited { text-decoration: none; color: #2a5783; }
 a:hover { text-decoration: underline; color: #F28E2B; }
@@ -23,11 +23,13 @@ a:hover { text-decoration: underline; color: #F28E2B; }
   border: none;
   clear: right;
 }
-h1 { font-size: 24pt; margin:  5px 0 10px 0; line-height: 28px; }
-h2 { font-size: 14pt; margin: 30px 0 15px 0; letter-spacing: 0.01em; border-bottom: 1px solid #ccc;  line-height: 20px;}
+h1 { font-size: 24pt; margin:  5px 0 5px 0; line-height: 28px; }
+h2 { font-size: 14pt; margin: 5px 0 10px 0; letter-spacing: 0.01em; border-bottom: 1px solid #ccc;  line-height: 20px;}
 h3 { font-size: 13pt; }
 h4 { font-size: 12pt; }
 h5 { font-size: 11pt; }
+section { margin: 20px 0 10px 0; }
+ul { margin: 0 0 0 40px}
 p { margin: 0 0 10px 0; }
  .content {
   margin: 0;
@@ -36,9 +38,9 @@ p { margin: 0 0 10px 0; }
 }
  .title, .title h1, .title a {
   color: #333333;
-  font-size: 24pt;
-  margin-bottom: 20px;
-  margin-top: 5px;
+  font-size: 30pt;
+  margin-bottom: 15px;
+  margin-top: 0;
 }
  .footer {
   border-top: 1px solid #ccc;

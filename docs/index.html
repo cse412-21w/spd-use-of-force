@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>CSE 412 Project Demo</title>
-        <link rel="stylesheet" href="https://cse412-21w.github.io/spd-use-of-force/style.d4c50093.css">
+        <link rel="stylesheet" href="https://cse412-21w.github.io/spd-use-of-force/style.0ed33052.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <!-- For using d3 -->
         <script src="https://d3js.org/d3.v6.min.js"></script>
@@ -45,7 +45,6 @@
         <p>Has it succeeded? Let's take a look at the data.</p>
       </section>
       <section id="timeline">
-        <h1>Timeline</h1>
         <div id="view"></div>
       </section>
       <section>
@@ -60,6 +59,7 @@
         </p>
       </section>
       <section>
+        <h2> Where did this data come from? </h2>
         <p>This data comes from the City of Seattle
           <a href="https://data.seattle.gov/Public-Safety/Use-Of-Force/ppi5-g2bj."> open data portal</a>.
           You can find more information about the dataset 
@@ -85,12 +85,8 @@
         </p>
     </section>
     
-      <section id="Profiles">
-        <h1>A closer look at the context:</h1>
-      </section>
-
       <section id="tableauDemo"> 
-        <h2>Neighborhood profiles:</h2>
+        <h1>A closer look at the context:</h1>
         <div class="tableauPlaceholder" id="viz1614982680911" style="position: relative"><noscript><a href="#"><img alt=" " src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pu&#47;pumas_profiles&#47;Header&#47;1_rss.png" style="border: none"></a></noscript><object class="tableauViz" style="display:none;"><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F"> <param name="embed_code_version" value="3"> <param name="site_root" value=""><param name="name" value="pumas_profiles&#47;Header"><param name="tabs" value="no"><param name="toolbar" value="yes"><param name="static_image" value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pu&#47;pumas_profiles&#47;Header&#47;1.png"> <param name="animate_transition" value="yes"><param name="display_static_image" value="yes"><param name="display_spinner" value="yes"><param name="display_overlay" value="yes"><param name="display_count" value="yes"><param name="language" value="en"><param name="filter" value="publish=yes"></object></div>                <script>var divElement = document.getElementById('viz1614982680911');
 var vizElement = divElement.getElementsByTagName('object')[0];
 
@@ -108,7 +104,7 @@ if (divElement.offsetWidth > 800) {
 var scriptElement = document.createElement('script');
 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
 vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-        </section>
+      </section>
       
       <section>
         <p>Profiles for different areas in Seattle, to give additional context and granularity.
@@ -124,9 +120,9 @@ vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
     
       <section id="Bar chart">
         <h1>So what does all this mean?</h1>
-        <h3>Comparing the proportion of different races in the Seattle population with the proportion
+        <h2>Comparing the proportion of different races in the Seattle population with the proportion
           of different races in the UoF data:
-        </h3>
+        </h2>
         <!-- <select id = "dropDown">
           <option value="pop_percent">Population Percent</option>
           <option value="uof_percent">Use of Force Percent</option> 
