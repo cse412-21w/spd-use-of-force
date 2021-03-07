@@ -2,7 +2,7 @@
 @font-face {
   font-family: bentonSansBook;
   src: local('Benton Sans Book'),
-  url('/bentonSansBook.263b21da.otf') format('opentype');
+  url('https://cse412-21w.github.io/spd-use-of-force/bentonSansBook.3a75330e.otf') format('opentype');
 }
  body {
   margin: 40px 20px 20px 40px;
@@ -56,4 +56,4 @@ p { margin: 0 0 10px 0; }
   color: #F28E2B;
 }
 
-/*# sourceMappingURL=/style.e308ff8e.css.map */
+/*# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/style.0ed33052.css.map */

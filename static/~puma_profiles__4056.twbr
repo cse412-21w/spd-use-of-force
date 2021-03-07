@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<!-- build 20204.21.0114.0916                               -->
-<workbook source-build='2020.4.1 (20204.21.0114.0916)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+<!-- build 20204.21.0217.1203                               -->
+<workbook source-build='2020.4.2 (20204.21.0217.1203)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
     <AutoCreateAndUpdateDSDPhoneLayouts />
     <_.fcp.Layers.true...Layers />
@@ -19,7 +19,7 @@
     <ZoneBackgroundTransparency />
     <ZoneFriendlyName />
   </document-format-change-manifest>
-  <repository-location id='profiles_social' path='/workbooks' revision='1.0' />
+  <repository-location derived-from='https://public.tableau.com/workbooks/profiles_social?rev=1.0' id='pumas_profiles' path='/workbooks' revision='1.4' />
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
     <preference name='ui.shelf.height' value='26' />
@@ -29,10 +29,10 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='by_puma' name='textscan.0s4volw04hs4w51fnw3yq19nlaax'>
-            <connection class='textscan' directory='C:/Users/Shayl/Documents/GitHub/spd-use-of-force/static' filename='by_puma.csv' password='' server='' workgroup-auth-mode='as-is' />
+            <connection class='textscan' directory='C:/Users/Shayl/Documents/GitHub/spd-use-of-force/static' filename='by_puma.csv' server='' workgroup-auth-mode='as-is' />
           </named-connection>
           <named-connection caption='beats_geo' name='ogrdirect.0ei45zb1oxif8510a61q202zq76b'>
-            <connection class='ogrdirect' directory='C:/Users/Shayl/Documents/GitHub/spd-use-of-force/static' filename='beats_geo.geojson' ogr-grid-shift-folder='C:\Program Files\Tableau\Tableau 2020.4\local\proj4' password='' server='' tablename='' workgroup-auth-mode='as-is' />
+            <connection class='ogrdirect' directory='C:/Users/Shayl/Documents/GitHub/spd-use-of-force/static' filename='beats_geo.geojson' ogr-grid-shift-folder='C:\Program Files\Tableau\Tableau 2020.4\local\proj4' server='' tablename='' workgroup-auth-mode='as-is' />
           </named-connection>
         </named-connections>
         <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='ogrdirect.0ei45zb1oxif8510a61q202zq76b' name='beats_geo.geojson' table='[beats_geo.geojson]' type='table'>
@@ -831,7 +831,7 @@
         </groupfilter>
       </group>
       <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='true' units='records'>
-        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/Shayl/Documents/My Tableau Repository/Datasources/by_puma.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='03/04/2021 12:18:36 AM' username='tableau_internal_user'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/Shayl/Documents/GitHub/spd-use-of-force/static/puma_profiles.twb Files/Data/Datasources/by_puma.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='03/04/2021 12:18:36 AM' username='tableau_internal_user'>
           <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74' table='[Extract].[beats_geo.geojson_05EBBF00A12A46519BFB2D4913450B74]' type='table' />
           <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
             <relation name='by_puma.csv_2847C1D296DE4228BF47FF148863FD46' table='[Extract].[by_puma.csv_2847C1D296DE4228BF47FF148863FD46]' type='table' />
@@ -1454,6 +1454,26 @@
       <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
       <style>
         <style-rule element='mark'>
+          <encoding attr='color' field='[none:PUMA (beats_geo.geojson):nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;&quot;</bucket>
+            </map>
+            <map to='#4f6980'>
+              <bucket>&quot;Downtown&quot;</bucket>
+            </map>
+            <map to='#638b66'>
+              <bucket>&quot;W&quot;</bucket>
+            </map>
+            <map to='#b66353'>
+              <bucket>&quot;NW&quot;</bucket>
+            </map>
+            <map to='#f47942'>
+              <bucket>&quot;NE&quot;</bucket>
+            </map>
+            <map to='#fbb04e'>
+              <bucket>&quot;SE&quot;</bucket>
+            </map>
+          </encoding>
           <encoding attr='color' field='[none:PUMA:nk]' palette='miller_stone_10_0' type='palette'>
             <map to='#4f6980'>
               <bucket>&quot;Downtown&quot;</bucket>
@@ -1482,13 +1502,16 @@
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Total_Pop:qk:1]&quot;</bucket>
             </map>
             <map to='#4e79a7'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Total_Pop:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774745661444:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774746763269:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Median_Gross_Rent:qk]&quot;</bucket>
-            </map>
-            <map to='#4e79a7'>
-              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Pct_BachGrad:qk]&quot;</bucket>
-            </map>
-            <map to='#4e79a7'>
-              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Pct_HSGrad:qk]&quot;</bucket>
             </map>
             <map to='#4e79a7'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Total_Pop:qk]&quot;</bucket>
@@ -1575,10 +1598,7 @@
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Count_uof:qk:1]&quot;</bucket>
             </map>
             <map to='#f28e2b'>
-              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774745661444:qk]&quot;</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774746763269:qk]&quot;</bucket>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Count_uof:qk]&quot;</bucket>
             </map>
             <map to='#f28e2b'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Calculation_210824774748598278:qk]&quot;</bucket>
@@ -1591,6 +1611,12 @@
             </map>
             <map to='#f28e2b'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:MedianHHIncome:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Pct_BachGrad:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Pct_HSGrad:qk]&quot;</bucket>
             </map>
             <map to='#f28e2b'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662005157890:qk]&quot;</bucket>
@@ -1615,26 +1641,6 @@
             </map>
             <map to='#ff9da7'>
               <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Asian_uof:qk]&quot;</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[none:PUMA (beats_geo.geojson):nk]' type='palette'>
-            <map to='#4e79a7'>
-              <bucket>&quot;&quot;</bucket>
-            </map>
-            <map to='#4f6980'>
-              <bucket>&quot;Downtown&quot;</bucket>
-            </map>
-            <map to='#638b66'>
-              <bucket>&quot;W&quot;</bucket>
-            </map>
-            <map to='#b66353'>
-              <bucket>&quot;NW&quot;</bucket>
-            </map>
-            <map to='#f47942'>
-              <bucket>&quot;NE&quot;</bucket>
-            </map>
-            <map to='#fbb04e'>
-              <bucket>&quot;SE&quot;</bucket>
             </map>
           </encoding>
         </style-rule>
@@ -1732,14 +1738,6 @@
         <param name='target' value='Header' />
       </command>
     </action>
-    <action caption='Highlight 1 (generated)' name='[Action2]'>
-      <activation auto-clear='true' type='on-select' />
-      <source dashboard='Dashboard 1' type='sheet' />
-      <command command='tsc:brush'>
-        <param name='field-captions' value='Puma' />
-        <param name='target' value='Dashboard 1' />
-      </command>
-    </action>
     <action caption='Highlight (Economic)' name='[Action3]'>
       <activation auto-clear='true' type='on-select' />
       <source dashboard='Header' type='sheet' />
@@ -1770,10 +1768,11 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run>Number of UoF incidents vs. Total Population</run>
+            <run>Comparing proportions of population vs. of Use of Force incidents</run>
           </formatted-text>
         </title>
       </layout-options>
+      <repository-location id='UofvPop' path='/workbooks/pumas_profiles' revision='' />
       <table>
         <view>
           <datasources>
@@ -1786,9 +1785,25 @@
             <column caption='Total Pop' datatype='integer' name='[Total_Pop]' role='measure' type='quantitative' />
             <column-instance column='[PUMA (beats_geo.geojson)]' derivation='None' name='[none:PUMA (beats_geo.geojson):nk]' pivot='key' type='nominal' />
             <column-instance column='[PUMA]' derivation='None' name='[none:PUMA:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Count_uof]' derivation='Sum' name='[sum:Count_uof:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Total_Pop]' derivation='Sum' name='[sum:Total_Pop:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Count_uof]' derivation='Sum' name='[pcto:sum:Count_uof:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[Total_Pop]' derivation='Sum' name='[pcto:sum:Total_Pop:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Total_Pop:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Count_uof:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Total_Pop:qk]&quot;</bucket>
+              <bucket>&quot;[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Count_uof:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
           <filter class='categorical' column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]'>
             <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
               <groupfilter function='member' level='[none:PUMA (beats_geo.geojson):nk]' member='&quot;Downtown&quot;' />
@@ -1800,28 +1815,45 @@
           </filter>
           <slices>
             <column>[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]</column>
+            <column>[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]</column>
           </slices>
           <aggregation value='true' />
         </view>
         <style>
           <style-rule element='axis'>
-            <format attr='title' class='0' field='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]' scope='rows' value='Total UoF Incidents' />
-            <format attr='title' class='0' field='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Total_Pop:qk]' scope='rows' value='Total Population' />
+            <format attr='title' class='0' field='[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]' scope='rows' value='' />
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]' value='60' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Count_uof:qk]' value='p0.00%' />
+            <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[pcto:sum:Total_Pop:qk]' value='p0.00%' />
+            <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]' value='p0.00%' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-color' value='#d4d4d4' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' value='false' />
+            <format attr='wrap' field='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' value='auto' />
+            <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]' value='p0.00%' />
           </style-rule>
           <style-rule element='pane'>
             <format attr='band-color' scope='cols' value='#d4d4d4' />
+            <format attr='border-color' data-class='total' value='#d4d4d4' />
           </style-rule>
           <style-rule element='table'>
+            <format attr='band-level' scope='cols' value='1' />
             <format attr='band-size' scope='cols' value='1' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='cols' value='false' />
           </style-rule>
           <style-rule element='table-div'>
-            <format attr='stroke-color' scope='rows' value='#666666' />
+            <format attr='stroke-color' scope='rows' value='#d4d4d4' />
           </style-rule>
-          <style-rule element='legend-title-text'>
-            <format attr='color' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' value='PUMA' />
+          <style-rule element='header-div'>
+            <format attr='stroke-color' scope='cols' value='#d4d4d4' />
           </style-rule>
         </style>
         <panes>
@@ -1831,32 +1863,17 @@
             </view>
             <mark class='Automatic' />
             <encodings>
-              <color column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' />
+              <color column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' />
             </encodings>
-          </pane>
-          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='has-stroke' value='true' />
-                <format attr='stroke-color' value='#555555' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Total_Pop:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' />
-            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>PUMA:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]>:	]]></run>
+                <run bold='true'><![CDATA[<[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
             <style>
               <style-rule element='mark'>
                 <format attr='has-stroke' value='true' />
@@ -1865,8 +1882,8 @@
             </style>
           </pane>
         </panes>
-        <rows>([federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk] + [federated.11g70zs1olx86610qz0380f5hdw7].[sum:Total_Pop:qk])</rows>
-        <cols>[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]</cols>
+        <rows>[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]</rows>
+        <cols>([federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk] / ([federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk] / [federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]))</cols>
       </table>
       <simple-id uuid='{07EA096F-8FFD-44B7-AB83-973BBDAB35A1}' />
     </worksheet>
@@ -1878,6 +1895,7 @@
           </formatted-text>
         </title>
       </layout-options>
+      <repository-location id='BachGrad' path='/workbooks/pumas_profiles' revision='' />
       <table>
         <view>
           <datasources>
@@ -1925,11 +1943,11 @@
         <style>
           <style-rule element='cell'>
             <format attr='height' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='95' />
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='149' />
+            <format attr='height' value='116' />
             <format attr='border-style' scope='cols' value='solid' />
             <format attr='border-style' scope='rows' value='solid' />
             <format attr='border-color' scope='rows' value='#e6e6e6' />
-            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='123' />
-            <format attr='height' value='116' />
           </style-rule>
           <style-rule element='header'>
             <format attr='border-style' value='solid' />
@@ -1937,6 +1955,10 @@
           </style-rule>
           <style-rule element='pane'>
             <format attr='border-style' value='solid' />
+            <format attr='band-color' scope='cols' value='#d4d4d4' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='1' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='cols' value='false' />
@@ -1965,7 +1987,7 @@
             </customized-tooltip>
             <style>
               <style-rule element='mark'>
-                <format attr='size' value='1.2193922996520996' />
+                <format attr='size' value='1.3073480129241943' />
                 <format attr='has-stroke' value='true' />
                 <format attr='stroke-color' value='#555555' />
               </style-rule>
@@ -1987,10 +2009,11 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run fontsize='12'>Proportion of population 200% or more below poverty</run>
+            <run fontcolor='#555555' fontsize='12'>Proportion of population 200% or more below poverty</run>
           </formatted-text>
         </title>
       </layout-options>
+      <repository-location id='BelowPov' path='/workbooks/pumas_profiles' revision='' />
       <table>
         <view>
           <datasources>
@@ -2044,11 +2067,11 @@
         <style>
           <style-rule element='cell'>
             <format attr='height' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='95' />
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='149' />
+            <format attr='height' value='116' />
             <format attr='border-style' scope='cols' value='solid' />
             <format attr='border-style' scope='rows' value='solid' />
             <format attr='border-color' scope='rows' value='#e6e6e6' />
-            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='124' />
-            <format attr='height' value='113' />
           </style-rule>
           <style-rule element='header'>
             <format attr='border-style' value='solid' />
@@ -2056,6 +2079,10 @@
           </style-rule>
           <style-rule element='pane'>
             <format attr='border-style' value='solid' />
+            <format attr='band-color' scope='cols' value='#d4d4d4' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='1' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='cols' value='false' />
@@ -2075,7 +2102,7 @@
             </encodings>
             <style>
               <style-rule element='mark'>
-                <format attr='size' value='1.2193922996520996' />
+                <format attr='size' value='1.3073480129241943' />
                 <format attr='has-stroke' value='true' />
                 <format attr='stroke-color' value='#555555' />
               </style-rule>
@@ -2097,10 +2124,11 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run>Median Household Income (over 12 months)</run>
+            <run fontcolor='#555555' fontsize='14'>Median Household Income (over 12 months)</run>
           </formatted-text>
         </title>
       </layout-options>
+      <repository-location id='HHincome' path='/workbooks/pumas_profiles' revision='' />
       <table>
         <view>
           <datasources>
@@ -2118,13 +2146,31 @@
           <style-rule element='axis'>
             <format attr='title' class='0' field='[federated.11g70zs1olx86610qz0380f5hdw7].[med:MedianHHIncome:qk]' scope='rows' value='Median HH Income' />
             <encoding attr='space' class='0' field='[federated.11g70zs1olx86610qz0380f5hdw7].[med:MedianHHIncome:qk]' field-type='quantitative' max='80000.0' min='0.0' range-type='fixed' scope='rows' type='space' />
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
           </style-rule>
           <style-rule element='cell'>
             <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='64' />
+            <format attr='border-color' scope='cols' value='#e6e6e6' />
+            <format attr='border-style' scope='cols' value='solid' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-color' value='#d4d4d4' />
+            <format attr='band-color' scope='cols' value='#e6e6e6' />
+            <format attr='background-color' scope='cols' value='#00000000' />
           </style-rule>
           <style-rule element='label'>
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[med:MedianHHIncome:qk]' value='C1033%' />
             <format attr='text-orientation' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='0' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='cols' value='#d4d4d4' />
+            <format attr='border-color' scope='cols' value='#d4d4d4' />
+            <format attr='border-style' scope='cols' value='solid' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='1' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='cols' value='false' />
@@ -2133,12 +2179,26 @@
             <format attr='fill-above' id='refline0' value='#00000000' />
             <format attr='fill-below' id='refline0' value='#00000000' />
           </style-rule>
+          <style-rule element='table-div'>
+            <format attr='line-visibility' scope='rows' value='on' />
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+            <format attr='stroke-color' scope='rows' value='#d4d4d4' />
+            <format attr='stroke-color' scope='cols' value='#d4d4d4' />
+            <format attr='line-visibility' scope='cols' value='on' />
+            <format attr='line-pattern-only' scope='cols' value='solid' />
+            <format attr='div-level' scope='rows' value='0' />
+            <format attr='div-level' scope='cols' value='1' />
+          </style-rule>
+          <style-rule element='header-div'>
+            <format attr='stroke-color' scope='cols' value='#d4d4d4' />
+            <format attr='line-visibility' scope='cols' value='on' />
+            <format attr='line-pattern-only' scope='cols' value='solid' />
+          </style-rule>
           <style-rule element='legend-title-text'>
-            <format attr='color' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='PUMA'>
-              <formatted-text>
-                <run>PUMA</run>
-              </formatted-text>
-            </format>
+            <format attr='color' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='PUMA' />
+          </style-rule>
+          <style-rule element='axis-title'>
+            <format attr='color' field='[federated.11g70zs1olx86610qz0380f5hdw7].[med:MedianHHIncome:qk]' value='#555555' />
           </style-rule>
         </style>
         <panes>
@@ -2152,6 +2212,10 @@
             </encodings>
             <reference-line axis-column='[federated.11g70zs1olx86610qz0380f5hdw7].[med:MedianHHIncome:qk]' enable-instant-analytics='true' formula='constant' id='refline0' label='Median' label-type='custom' scope='per-table' value='59741.0' value-column='[federated.11g70zs1olx86610qz0380f5hdw7].[med:MedianHHIncome:qk]' z-order='1' />
             <style>
+              <style-rule element='mark'>
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#555555' />
+              </style-rule>
               <style-rule element='pane'>
                 <format attr='minwidth' value='-1' />
                 <format attr='maxwidth' value='-1' />
@@ -2168,10 +2232,11 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run>Median Household Rent (per month)</run>
+            <run fontcolor='#555555' fontsize='14'>Median Household Rent (per month)</run>
           </formatted-text>
         </title>
       </layout-options>
+      <repository-location id='HHrent' path='/workbooks/pumas_profiles' revision='' />
       <table>
         <view>
           <datasources>
@@ -2189,10 +2254,24 @@
           <style-rule element='axis'>
             <format attr='title' class='0' field='[federated.11g70zs1olx86610qz0380f5hdw7].[med:Median_Gross_Rent:qk]' scope='rows' value='Median Rent (per month)' />
             <encoding attr='space' class='0' field='[federated.11g70zs1olx86610qz0380f5hdw7].[med:Median_Gross_Rent:qk]' field-type='quantitative' max='1300.0' min='0.0' range-type='fixed' scope='rows' type='space' />
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-color' value='#d4d4d4' />
+            <format attr='border-style' value='solid' />
           </style-rule>
           <style-rule element='label'>
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[med:Median_Gross_Rent:qk]' value='C1033%' />
             <format attr='text-orientation' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='0' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='cols' value='#d4d4d4' />
+            <format attr='border-color' value='#d4d4d4' />
+            <format attr='border-style' value='solid' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='1' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='cols' value='false' />
@@ -2200,6 +2279,20 @@
           <style-rule element='refline'>
             <format attr='fill-above' id='refline0' value='#00000000' />
             <format attr='fill-below' id='refline0' value='#00000000' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='line-visibility' scope='rows' value='on' />
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+            <format attr='stroke-color' scope='rows' value='#d4d4d4' />
+            <format attr='stroke-color' scope='cols' value='#d4d4d4' />
+            <format attr='line-visibility' scope='cols' value='on' />
+            <format attr='line-pattern-only' scope='cols' value='solid' />
+          </style-rule>
+          <style-rule element='header-div'>
+            <format attr='stroke-color' scope='rows' value='#d4d4d4' />
+          </style-rule>
+          <style-rule element='axis-title'>
+            <format attr='color' field='[federated.11g70zs1olx86610qz0380f5hdw7].[med:Median_Gross_Rent:qk]' value='#666666' />
           </style-rule>
         </style>
         <panes>
@@ -2212,6 +2305,12 @@
               <color column='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' />
             </encodings>
             <reference-line axis-column='[federated.11g70zs1olx86610qz0380f5hdw7].[med:Median_Gross_Rent:qk]' enable-instant-analytics='true' formula='constant' id='refline0' label='Median' label-type='custom' scope='per-pane' value='1065.5' value-column='[federated.11g70zs1olx86610qz0380f5hdw7].[med:Median_Gross_Rent:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#555555' />
+              </style-rule>
+            </style>
           </pane>
         </panes>
         <rows>[federated.11g70zs1olx86610qz0380f5hdw7].[med:Median_Gross_Rent:qk]</rows>
@@ -2227,6 +2326,7 @@
           </formatted-text>
         </title>
       </layout-options>
+      <repository-location id='HSGrad' path='/workbooks/pumas_profiles' revision='' />
       <table>
         <view>
           <datasources>
@@ -2262,19 +2362,23 @@
         <style>
           <style-rule element='cell'>
             <format attr='height' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='95' />
-            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='124' />
-            <format attr='height' value='121' />
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='149' />
+            <format attr='height' value='116' />
             <format attr='border-style' scope='cols' value='solid' />
             <format attr='border-style' scope='rows' value='solid' />
             <format attr='border-color' scope='rows' value='#e6e6e6' />
           </style-rule>
           <style-rule element='header'>
+            <format attr='height' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='19' />
             <format attr='border-style' value='solid' />
             <format attr='border-color' value='#e6e6e6' />
-            <format attr='height' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='19' />
           </style-rule>
           <style-rule element='pane'>
             <format attr='border-style' value='solid' />
+            <format attr='band-color' scope='cols' value='#d4d4d4' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='1' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='cols' value='false' />
@@ -2303,7 +2407,7 @@
             </customized-tooltip>
             <style>
               <style-rule element='mark'>
-                <format attr='size' value='1.2193922996520996' />
+                <format attr='size' value='1.2853591442108154' />
                 <format attr='has-stroke' value='true' />
                 <format attr='stroke-color' value='#555555' />
               </style-rule>
@@ -2322,6 +2426,7 @@
       <simple-id uuid='{A8A46A9E-7A1B-4CE7-A87F-25A446AB69F3}' />
     </worksheet>
     <worksheet name='PUMA map'>
+      <repository-location id='PUMAmap' path='/workbooks/pumas_profiles' revision='' />
       <table>
         <view>
           <datasources>
@@ -2484,9 +2589,7 @@
       <layout-options export-center-vert='true' export-smart-breaks='false'>
         <title>
           <formatted-text>
-            <run fontsize='14'>Racial Distribution of Population</run>
-            <run>Æ&#10;</run>
-            <run fontsize='12'>&lt;Page Name&gt;</run>
+            <run fontsize='12'>Racial Distribution of Population</run>
           </formatted-text>
         </title>
         <caption>
@@ -2495,6 +2598,7 @@
           </formatted-text>
         </caption>
       </layout-options>
+      <repository-location id='Race_Pop_Pie' path='/workbooks/pumas_profiles' revision='' />
       <table>
         <view>
           <datasources>
@@ -2602,7 +2706,7 @@
           <style-rule element='cell'>
             <format attr='width' value='195' />
             <format attr='height' value='117' />
-            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='121' />
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='149' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662005104641:qk]' value='p0.00%' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662005157890:qk]' value='p0.00%' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662005190659:qk]' value='p0.00%' />
@@ -2611,11 +2715,17 @@
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662005268486:qk]' value='p0.00%' />
             <format attr='border-style' scope='cols' value='solid' />
           </style-rule>
+          <style-rule element='header'>
+            <format attr='border-color' value='#d4d4d4' />
+            <format attr='border-style' value='solid' />
+          </style-rule>
           <style-rule element='label'>
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[Multiple Values]' value='*0.00%' />
           </style-rule>
           <style-rule element='pane'>
             <format attr='band-color' scope='cols' value='#d4d4d4' />
+            <format attr='border-color' value='#d4d4d4' />
+            <format attr='border-style' value='solid' />
           </style-rule>
           <style-rule element='table'>
             <format attr='band-size' scope='cols' value='1' />
@@ -2640,7 +2750,7 @@
             </encodings>
             <style>
               <style-rule element='mark'>
-                <format attr='size' value='1' />
+                <format attr='size' value='1.3293370008468628' />
                 <format attr='mark-labels-cull' value='true' />
                 <format attr='mark-labels-show' value='false' />
                 <format attr='has-stroke' value='true' />
@@ -2664,12 +2774,11 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run fontsize='14'>Racial Distribution of Subjects of UoF Incidents</run>
-            <run>Æ&#10;</run>
-            <run fontsize='12'>&lt;Page Name&gt;</run>
+            <run fontsize='12'>Racial Distribution of Subjects of UoF Incidents</run>
           </formatted-text>
         </title>
       </layout-options>
+      <repository-location id='Race_UoF_Pie' path='/workbooks/pumas_profiles' revision='' />
       <table>
         <view>
           <datasources>
@@ -2745,7 +2854,8 @@
         </view>
         <style>
           <style-rule element='cell'>
-            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='121' />
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='149' />
+            <format attr='height' value='117' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034317320:qk]' value='p0.00%' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034362377:qk]' value='p0.00%' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034419723:qk]' value='p0.00%' />
@@ -2754,10 +2864,15 @@
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034489357:qk]' value='p0.00%' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_1241304662034509838:qk]' value='p0.00%' />
             <format attr='border-style' scope='cols' value='solid' />
-            <format attr='height' value='108' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-color' value='#d4d4d4' />
+            <format attr='border-style' value='solid' />
           </style-rule>
           <style-rule element='pane'>
             <format attr='band-color' scope='cols' value='#d4d4d4' />
+            <format attr='border-color' value='#d4d4d4' />
+            <format attr='border-style' value='solid' />
           </style-rule>
           <style-rule element='table'>
             <format attr='band-size' scope='cols' value='1' />
@@ -2783,7 +2898,7 @@
             </encodings>
             <style>
               <style-rule element='mark'>
-                <format attr='size' value='1' />
+                <format attr='size' value='1.3293370008468628' />
                 <format attr='has-stroke' value='true' />
                 <format attr='stroke-color' value='#555555' />
               </style-rule>
@@ -2809,6 +2924,7 @@
           </formatted-text>
         </title>
       </layout-options>
+      <repository-location id='SpeaksEnglish' path='/workbooks/pumas_profiles' revision='' />
       <table>
         <view>
           <datasources>
@@ -2854,13 +2970,13 @@
         <style>
           <style-rule element='cell'>
             <format attr='height' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='95' />
+            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='149' />
+            <format attr='height' value='116' />
             <format attr='border-style' scope='cols' value='solid' />
             <format attr='border-style' scope='rows' value='solid' />
             <format attr='border-color' scope='rows' value='#e6e6e6' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774748909576:qk]' value='p0.00%' />
             <format attr='text-format' field='[federated.11g70zs1olx86610qz0380f5hdw7].[usr:Calculation_210824774749306893:qk]' value='p0.00%' />
-            <format attr='width' field='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' value='123' />
-            <format attr='height' value='114' />
           </style-rule>
           <style-rule element='header'>
             <format attr='border-style' value='solid' />
@@ -2868,6 +2984,10 @@
           </style-rule>
           <style-rule element='pane'>
             <format attr='border-style' value='solid' />
+            <format attr='band-color' scope='cols' value='#d4d4d4' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='1' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='cols' value='false' />
@@ -2896,7 +3016,7 @@
             </customized-tooltip>
             <style>
               <style-rule element='mark'>
-                <format attr='size' value='1.2193922996520996' />
+                <format attr='size' value='1.2853591442108154' />
                 <format attr='has-stroke' value='true' />
                 <format attr='stroke-color' value='#555555' />
               </style-rule>
@@ -2916,224 +3036,8 @@
     </worksheet>
   </worksheets>
   <dashboards>
-    <dashboard name='Dashboard 1'>
-      <style>
-        <style-rule element='dash-text'>
-          <format attr='vertical-align' id='dash-text_14' value='top' />
-          <format attr='vertical-align' id='dash-text_15' value='top' />
-        </style-rule>
-      </style>
-      <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' preset-index='9' sizing-mode='fixed' />
-      <zones>
-        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
-          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98340' id='47' param='horz' w='98426' x='787' y='830'>
-            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98340' id='43' param='horz' w='98426' x='787' y='830'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='98340' id='41' w='98426' x='787' y='830'>
-                <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='41494' id='7' param='horz' w='98426' x='787' y='57676'>
-                  <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='41494' id='5' w='98426' x='787' y='57676'>
-                    <zone h='20747' id='3' name='Race_Pop_Pie' w='41336' x='787' y='57676'>
-                      <zone-style>
-                        <format attr='border-color' value='#000000' />
-                        <format attr='border-style' value='none' />
-                        <format attr='border-width' value='0' />
-                        <format attr='margin' value='4' />
-                      </zone-style>
-                    </zone>
-                    <zone h='20747' id='12' name='Race_UoF_Pie' w='41336' x='787' y='78423'>
-                      <zone-style>
-                        <format attr='border-color' value='#000000' />
-                        <format attr='border-style' value='none' />
-                        <format attr='border-width' value='0' />
-                        <format attr='margin' value='4' />
-                      </zone-style>
-                    </zone>
-                    <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='41494' id='25' name='Race_UoF_Pie' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' w='14471' x='42123' y='57676'>
-                      <zone-style>
-                        <format attr='border-color' value='#000000' />
-                        <format attr='border-style' value='none' />
-                        <format attr='border-width' value='0' />
-                        <format attr='margin' value='4' />
-                      </zone-style>
-                    </zone>
-                    <zone h='41494' id='45' name='% Uof v Pop' show-title='false' w='42619' x='56594' y='57676'>
-                      <zone-style>
-                        <format attr='border-color' value='#000000' />
-                        <format attr='border-style' value='none' />
-                        <format attr='border-width' value='0' />
-                        <format attr='margin' value='4' />
-                      </zone-style>
-                    </zone>
-                  </zone>
-                </zone>
-                <zone h='56846' id='18' name='PUMA map' show-title='false' w='41336' x='787' y='830'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                  </zone-style>
-                </zone>
-                <zone h='21162' id='30' name='HH income' show-title='false' w='28546' x='42123' y='36514'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                  </zone-style>
-                </zone>
-                <zone h='21992' id='33' name='HH rent' show-title='false' w='28546' x='42123' y='14522'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                  </zone-style>
-                </zone>
-                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='13692' id='31' name='HH income' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='14273' x='42123' y='830'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                  </zone-style>
-                </zone>
-                <zone h='56846' id='34' name='Below Pov' w='28544' x='70669' y='830'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                  </zone-style>
-                </zone>
-                <zone _.fcp.SetMembershipControl.false...type='highlighter' _.fcp.SetMembershipControl.true...type-v2='highlighter' h='13692' id='44' name='PUMA map' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='14273' x='56396' y='830'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                  </zone-style>
-                </zone>
-              </zone>
-            </zone>
-          </zone>
-          <zone-style>
-            <format attr='border-color' value='#000000' />
-            <format attr='border-style' value='none' />
-            <format attr='border-width' value='0' />
-            <format attr='margin' value='8' />
-          </zone-style>
-        </zone>
-      </zones>
-      <devicelayouts>
-        <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='1900' minheight='1900' sizing-mode='vscroll' />
-          <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='99' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98340' id='98' param='vert' w='98426' x='787' y='830'>
-                <zone _.fcp.SetMembershipControl.false...type='highlighter' _.fcp.SetMembershipControl.true...type-v2='highlighter' h='13692' id='44' name='PUMA map' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='14273' x='56396' y='830'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone fixed-size='280' h='56846' id='18' is-fixed='true' name='PUMA map' show-title='false' w='41336' x='787' y='830'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone fixed-size='280' h='56846' id='34' is-fixed='true' name='Below Pov' w='28544' x='70669' y='830'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone fixed-size='204' h='21992' id='33' is-fixed='true' name='HH rent' show-title='false' w='28546' x='42123' y='14522'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone fixed-size='196' h='21162' id='30' is-fixed='true' name='HH income' show-title='false' w='28546' x='42123' y='36514'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='13692' id='31' name='HH income' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='14273' x='42123' y='830'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone fixed-size='192' h='20747' id='3' is-fixed='true' name='Race_Pop_Pie' w='41336' x='787' y='57676'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone fixed-size='280' h='41494' id='45' is-fixed='true' name='% Uof v Pop' show-title='false' w='42619' x='56594' y='57676'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone fixed-size='192' h='20747' id='12' is-fixed='true' name='Race_UoF_Pie' w='41336' x='787' y='78423'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='41494' id='25' name='Race_UoF_Pie' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' w='14471' x='42123' y='57676'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-              </zone>
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='8' />
-              </zone-style>
-            </zone>
-          </zones>
-        </devicelayout>
-      </devicelayouts>
-      <simple-id uuid='{BDEFF933-C46A-4F3E-83D1-27C6D8FA4679}' />
-    </dashboard>
     <dashboard name='Economic'>
+      <repository-location id='Economic' path='/workbooks/pumas_profiles' revision='' />
       <style />
       <size maxheight='800' maxwidth='800' minheight='800' minwidth='800' preset-index='4' sizing-mode='fixed' />
       <zones>
@@ -3223,8 +3127,8 @@ Poverty thresholds are calculated based on the size of the family and age of the
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1150' minheight='1150' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='59' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='58' param='vert' w='98000' x='1000' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='71' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='70' param='vert' w='98000' x='1000' y='1000'>
                 <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='9125' id='14' w='98000' x='1000' y='1000'>
                   <formatted-text>
                     <run fontsize='18'>Economic Factors</run>
@@ -3309,77 +3213,51 @@ Poverty thresholds are calculated based on the size of the family and age of the
       <simple-id uuid='{EDD736A6-B4CC-42BD-90F9-496E728A8027}' />
     </dashboard>
     <dashboard name='Header'>
+      <repository-location id='Header' path='/workbooks/pumas_profiles' revision='' />
       <style />
-      <size maxheight='2400' maxwidth='800' minheight='2400' minwidth='800' preset-index='4' sizing-mode='fixed' />
+      <size maxheight='2500' maxwidth='1000' minheight='2500' minwidth='1000' preset-index='4' sizing-mode='fixed' />
       <zones>
         <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' friendly-name='Header' h='100000' id='4' w='100000' x='0' y='0'>
-          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='99334' id='92' param='horz' w='98000' x='1000' y='333'>
-            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='99334' id='87' param='horz' w='98000' x='1000' y='333'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='99334' id='74' param='horz' w='98000' x='1000' y='333'>
-                <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='99334' id='72' w='98000' x='1000' y='333'>
-                  <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='22249' id='39' param='horz' w='98000' x='1000' y='333'>
-                    <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='22249' id='30' param='horz' w='98000' x='1000' y='333'>
-                      <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='22249' id='7' param='horz' w='98000' x='1000' y='333'>
-                        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='22249' id='5' w='98000' x='1000' y='333'>
-                          <zone h='22249' id='3' name='PUMA map' show-title='false' w='55692' x='1000' y='333'>
-                            <zone-style>
-                              <format attr='border-color' value='#000000' />
-                              <format attr='border-style' value='none' />
-                              <format attr='border-width' value='0' />
-                              <format attr='margin' value='4' />
-                            </zone-style>
-                          </zone>
-                          <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='7102' id='8' name='PUMA map' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='21152' x='56692' y='12929'>
-                            <zone-style>
-                              <format attr='border-color' value='#000000' />
-                              <format attr='border-style' value='none' />
-                              <format attr='border-width' value='0' />
-                              <format attr='margin' value='4' />
-                            </zone-style>
-                          </zone>
-                          <zone _.fcp.SetMembershipControl.false...type='highlighter' _.fcp.SetMembershipControl.true...type-v2='highlighter' h='2551' id='9' name='PUMA map' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='42308' x='56692' y='20031'>
-                            <zone-style>
-                              <format attr='border-color' value='#000000' />
-                              <format attr='border-style' value='none' />
-                              <format attr='border-width' value='0' />
-                              <format attr='margin' value='4' />
-                            </zone-style>
-                          </zone>
-                          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='12596' id='33' w='42308' x='56692' y='333'>
-                            <formatted-text>
-                              <run bold='true' fontcolor='#333333' fontsize='12'>What are PUMAs?</run>
-                              <run>Æ&#10;&#10;</run>
-                              <run fontcolor='#333333' fontsize='10'>The U.S. Census Bureau provides extracts of raw data from a small sample (5%) of population and housing unit records for public use. These data extracts are referred to as </run>
-                              <run fontcolor='#333333' fontsize='10' italic='true'>&quot;public use microdata sample&quot;</run>
-                              <run fontcolor='#333333' fontsize='10'> files, and are only available for selected geographic areas (State, Region, Division, and PUMA).</run>
-                              <run>Æ&#10;&#10;</run>
-                              <run bold='true' fontcolor='#333333' fontsize='10'>Public Use Microdata Areas</run>
-                              <run fontcolor='#333333' fontsize='10'>, or PUMAs, are the most detailed geographic areas available. There are five PUMAs in Seattle.</run>
-                              <run>Æ&#10;&#10;</run>
-                              <run fontcolor='#333333' fontsize='10'>This data is from the American Community Survey (2013-2017). </run>
-                            </formatted-text>
-                            <zone-style>
-                              <format attr='border-color' value='#000000' />
-                              <format attr='border-style' value='none' />
-                              <format attr='border-width' value='0' />
-                              <format attr='margin' value='4' />
-                            </zone-style>
-                          </zone>
-                          <zone _.fcp.SetMembershipControl.false...type='size' _.fcp.SetMembershipControl.true...type-v2='size' h='7102' id='40' name='PUMA map' pane-specification-id='2' param='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]' w='21156' x='77844' y='12929'>
-                            <zone-style>
-                              <format attr='border-color' value='#000000' />
-                              <format attr='border-style' value='none' />
-                              <format attr='border-width' value='0' />
-                              <format attr='margin' value='4' />
-                            </zone-style>
-                          </zone>
-                        </zone>
-                      </zone>
-                    </zone>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='94650' id='92' param='horz' w='98400' x='800' y='5030'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='94650' id='72' w='98400' x='800' y='5030'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='18130' id='39' param='horz' w='98400' x='800' y='5030'>
+                <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='18130' id='5' w='98400' x='800' y='5030'>
+                  <zone h='18130' id='3' name='PUMA map' show-title='false' w='55919' x='800' y='5030'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
                   </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' h='1334' id='70' w='98000' x='1000' y='22582'>
+                  <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='6663' id='8' name='PUMA map' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='21238' x='56719' y='14560'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone _.fcp.SetMembershipControl.false...type='highlighter' _.fcp.SetMembershipControl.true...type-v2='highlighter' h='1937' id='9' name='PUMA map' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' w='42481' x='56719' y='21223'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='9530' id='33' w='42481' x='56719' y='5030'>
                     <formatted-text>
-                      <run fontsize='18'>Economic factors</run>
+                      <run bold='true' fontcolor='#333333' fontsize='12'>What are PUMAs?</run>
+                      <run>Æ&#10;&#10;</run>
+                      <run fontcolor='#333333' fontsize='10'>The U.S. Census Bureau provides extracts of raw data from a small sample (5%) of population and housing unit records for public use. These data extracts are referred to as </run>
+                      <run fontcolor='#333333' fontsize='10' italic='true'>&quot;public use microdata sample&quot;</run>
+                      <run fontcolor='#333333' fontsize='10'> files, and are only available for selected geographic areas (State, Region, Division, and PUMA).</run>
+                      <run>Æ&#10;&#10;</run>
+                      <run bold='true' fontcolor='#333333' fontsize='10'>Public Use Microdata Areas</run>
+                      <run fontcolor='#333333' fontsize='10'>, or PUMAs, are the most detailed geographic areas available. There are five PUMAs in Seattle.</run>
+                      <run>Æ&#10;&#10;</run>
+                      <run fontcolor='#333333' fontsize='10'>This data is from the American Community Survey (2013-2017). </run>
                     </formatted-text>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
@@ -3388,185 +3266,7 @@ Poverty thresholds are calculated based on the size of the family and age of the
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone h='11001' id='71' name='HH income' w='49000' x='1000' y='23916'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='11001' id='76' name='HH rent' w='49000' x='50000' y='23916'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='7499' id='78' name='Below Pov' w='78875' x='1000' y='34917'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' h='1333' id='80' w='78875' x='1000' y='42416'>
-                    <formatted-text>
-                      <run fontsize='18'>Social Factors</run>
-                    </formatted-text>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='8876' id='81' name='HSGrad' w='78875' x='1000' y='43749'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='7707' id='82' name='BachGrad' w='78875' x='1000' y='52625'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='7584' id='83' name='Speaks English' w='78875' x='1000' y='60332'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' h='1333' id='84' w='78875' x='1000' y='67916'>
-                    <formatted-text>
-                      <run fontsize='18'>Use of Force</run>
-                    </formatted-text>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='8083' id='85' name='Race_Pop_Pie' w='78875' x='1000' y='69249'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='7668' id='89' name='Race_UoF_Pie' w='78875' x='1000' y='77332'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='14667' id='90' name='% Uof v Pop' w='98000' x='1000' y='85000'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='2000' id='96' name='Below Pov' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='19125' x='79875' y='36500'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='3125' id='93' name='HSGrad' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='19125' x='79875' y='46375'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5957' id='94' name='BachGrad' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='19125' x='79875' y='54375'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5833' id='95' name='Speaks English' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='19125' x='79875' y='62083'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='9333' id='98' name='Race_UoF_Pie' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' w='19125' x='79875' y='72000'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='4084' id='99' w='19125' x='79875' y='67916'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='3667' id='101' w='19125' x='79875' y='81333'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' h='7875' id='102' w='19125' x='79875' y='38500'>
-                    <formatted-text>
-                      <run>200% below poverty refers to households whose incomes are 200% or more below the poverty threshold.
-Poverty thresholds are calculated based on the size of the family and age of the members.</run>
-                    </formatted-text>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='1583' id='104' w='19125' x='79875' y='34917'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='4875' id='105' w='19125' x='79875' y='49500'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='1751' id='106' w='19125' x='79875' y='60332'>
+                  <zone _.fcp.SetMembershipControl.false...type='size' _.fcp.SetMembershipControl.true...type-v2='size' h='6663' id='40' name='PUMA map' pane-specification-id='2' param='[federated.11g70zs1olx86610qz0380f5hdw7].[sum:Count_uof:qk]' w='21243' x='77957' y='14560'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -3576,7 +3276,225 @@ Poverty thresholds are calculated based on the size of the family and age of the
                   </zone>
                 </zone>
               </zone>
+              <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='1880' id='70' w='98400' x='800' y='23160'>
+                <formatted-text>
+                  <run fontcolor='#333333' fontsize='18'>What about economic factors?</run>
+                </formatted-text>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='11280' id='71' name='HH income' w='49200' x='800' y='25040'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='11280' id='76' name='HH rent' w='49200' x='50000' y='25040'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='7320' id='78' name='Below Pov' w='75600' x='800' y='36320'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='2160' id='80' w='75600' x='800' y='43640'>
+                <formatted-text>
+                  <run fontcolor='#333333' fontsize='18'>What about social factors?</run>
+                </formatted-text>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='7760' id='81' name='HSGrad' w='75600' x='800' y='45800'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='7600' id='82' name='BachGrad' w='75600' x='800' y='53560'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='7320' id='83' name='Speaks English' w='75600' x='800' y='61160'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='1720' id='84' w='75600' x='800' y='68480'>
+                <formatted-text>
+                  <run fontcolor='#333333' fontsize='18'>How does all this compare to the use of force data?</run>
+                </formatted-text>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='7840' id='85' name='Race_Pop_Pie' w='75600' x='800' y='70200'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='7400' id='89' name='Race_UoF_Pie' w='75600' x='800' y='78040'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='14240' id='90' name='% Uof v Pop' w='98400' x='800' y='85440'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='1960' id='96' name='Below Pov' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='22800' x='76400' y='38000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='4358' id='93' name='HSGrad' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='22800' x='76400' y='47520'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='4920' id='94' name='BachGrad' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='22800' x='76400' y='55200'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='6866' id='95' name='Speaks English' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' show-title='false' w='22800' x='76400' y='62560'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='10369' id='98' name='Race_UoF_Pie' pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' w='22800' x='76400' y='71840'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='2414' id='99' w='22800' x='76400' y='69426'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='3231' id='101' w='22800' x='76400' y='82209'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' h='4760' id='102' w='22800' x='76400' y='39960'>
+                <formatted-text>
+                  <run>200% below poverty refers to households whose incomes are 200% or more below the poverty threshold.
+Poverty thresholds are calculated based on the size of the family and age of the members.</run>
+                </formatted-text>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='1680' id='104' w='22800' x='76400' y='36320'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='3322' id='105' w='22800' x='76400' y='51878'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='2440' id='106' w='22800' x='76400' y='60120'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='2800' id='108' w='22800' x='76400' y='44720'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
             </zone>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='4710' id='107' w='98400' x='800' y='320'>
+            <formatted-text>
+              <run fontcolor='#333333' fontsize='20'>How does the use of force in the Seattle Police Department vary by neighorhood?</run>
+              <run>Æ&#10;</run>
+              <run fontsize='14'>Click on specific regions of the map to see how the data changes!</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
           </zone>
           <zone-style>
             <format attr='border-color' value='#000000' />
@@ -3663,6 +3581,7 @@ Poverty thresholds are calculated based on the size of the family and age of the
       <simple-id uuid='{3FFFFFEB-3EEF-4557-A703-D5C636F1D2BC}' />
     </dashboard>
     <dashboard name='Social'>
+      <repository-location id='Social' path='/workbooks/pumas_profiles' revision='' />
       <style />
       <size maxheight='800' maxwidth='800' minheight='800' minwidth='800' preset-index='4' sizing-mode='fixed' />
       <zones>
@@ -3761,8 +3680,8 @@ Poverty thresholds are calculated based on the size of the family and age of the
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1100' minheight='1100' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='60' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='59' param='vert' w='98000' x='1000' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='72' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='71' param='vert' w='98000' x='1000' y='1000'>
                 <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' h='8875' id='3' w='79000' x='1000' y='1000'>
                   <formatted-text>
                     <run fontsize='18'>Social Factors</run>
@@ -3855,6 +3774,7 @@ Poverty thresholds are calculated based on the size of the family and age of the
       <simple-id uuid='{66FDD47D-2E54-4AA4-A2A7-63E5AB2A2DCA}' />
     </dashboard>
     <dashboard name='UoF'>
+      <repository-location id='UoF' path='/workbooks/pumas_profiles' revision='' />
       <style />
       <size maxheight='800' maxwidth='800' minheight='800' minwidth='800' preset-index='4' sizing-mode='fixed' />
       <zones>
@@ -3898,7 +3818,7 @@ Poverty thresholds are calculated based on the size of the family and age of the
                 </zone>
               </zone>
               <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='38125' id='32' param='vert' w='20000' x='79000' y='60875'>
-                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='15750' id='11' name='% Uof v Pop' pane-specification-id='1' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' w='20000' x='79000' y='60875'>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='2750' id='11' name='% Uof v Pop' pane-specification-id='1' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' w='20000' x='79000' y='60875'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -3932,8 +3852,8 @@ Poverty thresholds are calculated based on the size of the family and age of the
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='950' minheight='950' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='48' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='47' param='vert' w='98000' x='1000' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='60' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='59' param='vert' w='98000' x='1000' y='1000'>
                 <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='6500' id='26' w='98000' x='1000' y='1000'>
                   <formatted-text>
                     <run fontsize='18'>Use of Force</run>
@@ -3982,7 +3902,7 @@ Poverty thresholds are calculated based on the size of the family and age of the
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='15750' id='11' name='% Uof v Pop' pane-specification-id='1' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' w='20000' x='79000' y='60875'>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='2750' id='11' name='% Uof v Pop' pane-specification-id='1' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' w='20000' x='79000' y='60875'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4006,64 +3926,6 @@ Poverty thresholds are calculated based on the size of the family and age of the
     </dashboard>
   </dashboards>
   <windows source-height='30'>
-    <window class='worksheet' name='Race_UoF_Pie'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-            <card type='measures' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{8A77EFC0-0E53-4A97-80B3-B1FC31F1A388}' />
-    </window>
-    <window class='worksheet' name='Race_Pop_Pie'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-            <card type='measures' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{03A491DF-69BD-4E39-A8F6-92FD95AC0A9B}' />
-    </window>
     <window class='worksheet' name='PUMA map'>
       <cards>
         <edge name='left'>
@@ -4268,6 +4130,64 @@ Poverty thresholds are calculated based on the size of the family and age of the
       </cards>
       <simple-id uuid='{77A62D77-6359-46A2-8FEC-282CA6E9F8DC}' />
     </window>
+    <window class='worksheet' name='Race_Pop_Pie'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{03A491DF-69BD-4E39-A8F6-92FD95AC0A9B}' />
+    </window>
+    <window class='worksheet' name='Race_UoF_Pie'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{8A77EFC0-0E53-4A97-80B3-B1FC31F1A388}' />
+    </window>
     <window class='worksheet' name='% Uof v Pop'>
       <cards>
         <edge name='left'>
@@ -4275,6 +4195,7 @@ Poverty thresholds are calculated based on the size of the family and age of the
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
+            <card type='measures' />
           </strip>
         </edge>
         <edge name='top'>
@@ -4291,35 +4212,11 @@ Poverty thresholds are calculated based on the size of the family and age of the
         <edge name='right'>
           <strip size='160'>
             <card param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' type='highlighter' />
-            <card pane-specification-id='1' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA (beats_geo.geojson):nk]' type='color' />
+            <card pane-specification-id='0' param='[federated.11g70zs1olx86610qz0380f5hdw7].[none:PUMA:nk]' type='color' />
           </strip>
         </edge>
       </cards>
       <simple-id uuid='{A70BC7CF-B4DB-4D7F-8489-D03763F9CFDE}' />
-    </window>
-    <window class='dashboard' name='Dashboard 1'>
-      <viewpoints>
-        <viewpoint name='% Uof v Pop' />
-        <viewpoint name='Below Pov' />
-        <viewpoint name='HH income'>
-          <zoom type='entire-view' />
-        </viewpoint>
-        <viewpoint name='HH rent'>
-          <zoom type='entire-view' />
-        </viewpoint>
-        <viewpoint name='PUMA map'>
-          <zoom type='entire-view' />
-          <default-map-tool-selection tool='1' />
-        </viewpoint>
-        <viewpoint name='Race_Pop_Pie'>
-          <zoom type='entire-view' />
-        </viewpoint>
-        <viewpoint name='Race_UoF_Pie'>
-          <zoom type='entire-view' />
-        </viewpoint>
-      </viewpoints>
-      <active id='18' />
-      <simple-id uuid='{671DB8AE-4F8E-4FB4-AEB3-B747073594AA}' />
     </window>
     <window class='dashboard' maximized='true' name='Header'>
       <viewpoints>
@@ -4342,7 +4239,7 @@ Poverty thresholds are calculated based on the size of the family and age of the
         <viewpoint name='Race_UoF_Pie' />
         <viewpoint name='Speaks English' />
       </viewpoints>
-      <active id='33' />
+      <active id='107' />
       <device-preview selected='Desktop' />
       <simple-id uuid='{4D96F5CA-D063-487A-A83F-8A7620774CE9}' />
     </window>
@@ -4356,7 +4253,7 @@ Poverty thresholds are calculated based on the size of the family and age of the
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='27' />
+      <active id='-1' />
       <simple-id uuid='{5C7856CB-FF63-430E-8492-F97E5051EB46}' />
     </window>
     <window class='dashboard' name='Social'>

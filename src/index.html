@@ -18,24 +18,34 @@
 
     <body>
       <section class="title">
-        <a href="/">CSE 412 Demo</a>
+        <a href="/">Police Violence In Seattle</a>
       </section>
       <section>
-        <h2>Final Project</h2>
-      </section>
-      
-      <section id = "timeline">
-        <h3>Timeline</h3>
-        <div id="view"></div>
+        <h2>On average, there are 1,723 incidents of police violence in Seattle every year</h2>
       </section>
 
       <section>
-        <p>Line graph showing the use of force incidents over time. It's important to be able to see how
-          the use of force in the SPD has changed over time, and to be able to switch between different
-          levels of granularity. When you look at the use of force over the course of several years, it
-          looks like the number of incidents have dropped dramatically since George Floyd’s death; in
-          reality, when you look more closely at the months surrounding May 2020, the data just got more
-          extreme.</p>
+        <p>With the rise of the Black Lives Matter movement, and more recently, the protests following the
+          death of George Floyd on May 25th, 2020, the issue of police violence has risen prominently in the
+          public consciousness.</p>
+        <p> Though Seattle is thought of as a progressive city, its police department has a long and bloody
+          history. In 2011, an investigation by the Department of Justice found that the SPD had engaged in a
+          <a href='https://www.justice.gov/opa/pr/justice-department-releases-investigative-findings-seattle-police-department'>
+            "pattern or practice of excessive force that violates the Constitution and federal law"</a>.
+          Since then, the SPD has at least in theory made efforts to curb the issue. One story that made
+          headlines was the <a href='https://www.seattletimes.com/seattle-news/politics/family-of-charleena-lyles-unhappy-seattle-police-wont-participate-in-community-forum/'>
+          death of Charleena Lyles</a>, a Black woman who was fatally shot in front of her children by
+          Seattle police in 2017 after she reported a burglary. More recently, following the George Floyd
+          protests this summer, the SPD was <a href='https://www.npr.org/2020/12/08/944479936/seattle-police-ruled-in-contempt-for-firing-less-lethal-weapons-at-blm-protester'>
+            ruled in contempt</a> by a federal judge for violating an order barring the use of force on
+            peaceful protestors.</p>
+        <p>Every one of these incidents - the DoJ report, the death of Charleena Lyles, the BLM protests
+          this summer - has sparked a conversation around the role of police violence and its disproportionate
+          impact on minorities. Every time, the SPD promises to do better. </p>
+        <p>Has it succeeded? Let's take a look at the data.</p>
+      </section>
+      <section id = "timeline">
+        <div id="view"></div>
       </section>
       <section>
         <p>We want this visualization to be heavily interactive, attention-grabber - use brushing/linking
@@ -48,11 +58,41 @@
           of force. 
         </p>
       </section>
+      <section>
+        <h2> Where did this data come from? </h2>
+        <p>This data comes from the City of Seattle
+          <a href='https://data.seattle.gov/Public-Safety/Use-Of-Force/ppi5-g2bj.'> open data portal</a>.
+          It records all incidents where members of the Seattle Police Department used force on a member of the
+          public, starting from January 2014 and continuing up to the present. It includes information on location,
+          date and time of the incident, race and gender of the subject, and the level of force.
+          You can find more information about the dataset 
+          <a href='https://www.seattle.gov/police/information-and-data/use-of-force-data'>here</a>.</p>
+        <p> The Use of Force (UoF) dataset recognizes four levels of force:
+          <ul>
+            <li> Type I: force that causes transitory pain or the complaint of transitory pain, not
+              including handcuff discomfort, which is reported separately.
+            </li>
+            <li> Type II: force that causes or is reasonably expected to cause physical injury greater
+              than transitory pain but less than great or substantial bodily harm.
+            </li>
+            <li> Type III: force that causes or is reasonably expected to cause great bodily harm,
+              substantial bodily harm, loss of consciousness, or death.
+            </li>
+            <li> Type IV: Type IV: officer-involved shooting.
+            </li>
+          </ul>
+        </p>
+        <p> It's worth noting how much the trend changes depending on what period of time you look at.</p>
+        <p> Clearly, not all races are affected equally by police violence. But maybe that can be explained
+          by the demographics of the neighborhoods? What about economic factors, do those play a role?
+        </p>
+    </section>
     
-      <section id = "Profiles">
-        <h3>Second visualization:</h3>
+      <section id = "tableauDemo"> 
+        <h1>A closer look at the context:</h1>
+        <div class='tableauPlaceholder' id='viz1614982680911' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pu&#47;pumas_profiles&#47;Header&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='pumas_profiles&#47;Header' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pu&#47;pumas_profiles&#47;Header&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1614982680911');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='2527px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='2527px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
       </section>
-
+      
       <section>
         <p>Profiles for different areas in Seattle, to give additional context and granularity.
           Show a map of Seattle separated by neighborhood, be able to click on each neighborhood to
@@ -60,21 +100,16 @@
           English-speaking, etc., as well as the frequency and breakdown of UoF incidents.</p>
       </section>
       <section>
-        <p>Current status: have the first few visuals, the Tableau dashboard works well for this.
-          Can click on one of the PUMAs from any of the visualizations and have it highlight that PUMA
-          in every visualization. At the moment it feels a bit like a pile of visualizations with no
-          real organization or narrative, want to clean it up more. Also need to figure out how to upload
-          a Tableau Public visual while keeping the data source live rather than an extract.
+        <p>Current status: preliminary narrative and formatting is done. Still need to figure out how
+          to keep the dataset live.
         </p>
       </section>
-      
-      <section id = "tableauDemo"> 
-        <h4>Neighborhood profiles:</h4>
-        <div class='tableauPlaceholder' id='viz1614823174860' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pu&#47;pumas_profiles&#47;Header&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='pumas_profiles&#47;Header' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pu&#47;pumas_profiles&#47;Header&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1614823174860');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='800px';vizElement.style.height='2427px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='800px';vizElement.style.height='2427px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-        </section>
     
       <section id = "Bar chart">
-        <h3>Third visualization:</h3>
+        <h1>So what does all this mean?</h1>
+        <h2>Comparing the proportion of different races in the Seattle population with the proportion
+          of different races in the UoF data:
+        </h2>
         <!-- <select id = "dropDown">
           <option value="pop_percent">Population Percent</option>
           <option value="uof_percent">Use of Force Percent</option> 

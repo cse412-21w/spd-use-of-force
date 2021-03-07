@@ -176,8 +176,19 @@ function makeViz() {
 
   var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height - margin.bottom, ")")).call(d3.axisBottom(x)).append('text').attr('text-anchor', 'end').attr('fill', 'white').attr('font-size', '12px').attr('font-weight', 'bold').attr('x', width - margin.right).attr('y', height / 2).text('total UOF Percents'); // position and populate the y-axis
 
-  var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ", 0)")).call(d3.axisLeft(y)); // var updateBars = function(data) {
-  // }
+  var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ", 0)")).call(d3.axisLeft(y));
+  var dropdown = d3.select("#dropDown").insert("select", "svg").on("change", dropdownChange);
+  dropdown.selectAll("option").data(cereals).enter().append("option").attr("value", function (d) {
+    return d;
+  }).text(function (d) {
+    return d[0].toUpperCase() + d.slice(1, d.length); // capitalize 1st letter
+  });
+
+  var dropdownChange = function dropdownChange() {
+    var newCereal = d3.select(this).property('value'),
+        newData = cerealMap[newCereal];
+    updateBars(newData);
+  };
 }
 
 function update(data) {
@@ -213,7 +224,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53081" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49378" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
