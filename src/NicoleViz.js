@@ -9,23 +9,26 @@ var height = 700;
 var width = 950;
 var margin = ({top: 10, right: 10, bottom: 35, left: 35});
 var dataArray = [];
-var uof_percet = [];
-var pop_percent = [];
-var difference = [];
 
 d3.csv(by_race).then(function(data) {
   data.forEach(function(d){
     dataArray.push(d);
   })
-  uof_percent = dataArray.map(d => d.uof_percent);
-  pop_percent = dataArray.map(d => d.pop_percent);
-  difference = dataArray.map(d => d.difference);
-  
-  // makeMenu();
+
   makeViz();
 });
 
 function makeViz() {
+
+  let dropDown = document.querySelector("#dropDown");
+
+  dropDown.addEventListener('change', (event) => {
+    let dataType = event.target.value;
+    
+    update(dataArray.map(d => d[dataType]));
+  })
+
+
   // scale functions
   var x = d3.scaleBand()
     .domain(dataArray.map(d => d.race))
@@ -33,7 +36,7 @@ function makeViz() {
 
   var y = d3.scaleLinear() 
     .domain([-1, 1])
-    .range([height - margin.bottom, margin.top]);
+    .range([height, margin.top]);
 
   container = d3.select('#staticBar')
       .append('svg')
@@ -51,7 +54,7 @@ function makeViz() {
       .attr('x', d => x(d.race))  
       .attr('y', d => (y(d.uof_percent)))
       .attr('width', x.bandwidth())
-      .attr('height', d => height / 2 - y(d.uof_percent))
+      .attr('height', d => height / 2 - y(d.uof_percent) + margin.top / 2)
       
       .style('fill', 'steelblue')
       .style('stroke', 'white');
@@ -76,31 +79,13 @@ function makeViz() {
 
 }
 
-// function makeMenu() {
-//   var dropdown = d3.select("#dropDown")
-//     .insert("select", "svg")
-//     .on("change", dropdownChange);
-
-//   dropdown.selectAll("option")
-//       .data(cereals)
-//     .enter().append("option")
-//       .attr("value", function (d) { return d; })
-//       .text(function (d) {
-//           return d[0].toUpperCase() + d.slice(1,d.length); // capitalize 1st letter
-//       });
-  
-//   var dropdownChange = function() {
-//     var newCereal = d3.select(this).property('value'),
-//         newData   = cerealMap[newCereal];
-
-//     updateBars(newData);
-//   };
-// }
-
 function update(data) {
+  console.log(data);
   var y = d3.scaleLinear() 
     .domain([-1, 1])
-    .range([height - margin.bottom, margin.top]);
+    .range([height, margin.top]);
+
+    console.log(y(+data));
 
   var u = container.selectAll("rect")
     .data(data);

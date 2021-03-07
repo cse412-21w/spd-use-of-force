@@ -182,9 +182,9 @@ pop_count <- c(sum(by_puma$White), sum(by_puma$Black), sum(by_puma$NatAm),
 pop_percent <- pop_count / total_population
 
 #combine columns into dataframe
-by_race <- data.frame(uof_percent = uof_percent, pop_percent = pop_percent,
+by_race <- data.frame(race = race, uof_percent = uof_percent, pop_percent = pop_percent,
                      difference = uof_percent - pop_percent)
-rownames(by_race) <- race
+
 
 #transpose the data so each row is uof/pop percent and each column is race
 #hoping this will make animation easier
