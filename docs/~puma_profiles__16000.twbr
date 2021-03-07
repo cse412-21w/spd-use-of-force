@@ -4239,7 +4239,7 @@ Poverty thresholds are calculated based on the size of the family and age of the
         <viewpoint name='Race_UoF_Pie' />
         <viewpoint name='Speaks English' />
       </viewpoints>
-      <active id='107' />
+      <active id='-1' />
       <device-preview selected='Desktop' />
       <simple-id uuid='{4D96F5CA-D063-487A-A83F-8A7620774CE9}' />
     </window>
