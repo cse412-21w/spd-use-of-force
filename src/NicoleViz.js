@@ -20,6 +20,8 @@ d3.csv(by_race).then(function(data) {
   uof_percent = dataArray.map(d => d.uof_percent);
   pop_percent = dataArray.map(d => d.pop_percent);
   difference = dataArray.map(d => d.difference);
+  
+  // makeMenu();
   makeViz();
 });
 
@@ -72,28 +74,28 @@ function makeViz() {
       .attr('transform', `translate(${margin.left}, 0)`)
       .call(d3.axisLeft(y));
 
-  var dropdown = d3.select("#dropDown")
-    .insert("select", "svg")
-    .on("change", dropdownChange);
-
-  dropdown.selectAll("option")
-      .data(cereals)
-    .enter().append("option")
-      .attr("value", function (d) { return d; })
-      .text(function (d) {
-          return d[0].toUpperCase() + d.slice(1,d.length); // capitalize 1st letter
-      });
-  
-  var dropdownChange = function() {
-    var newCereal = d3.select(this).property('value'),
-        newData   = cerealMap[newCereal];
-
-    updateBars(newData);
-  };
-
 }
 
+// function makeMenu() {
+//   var dropdown = d3.select("#dropDown")
+//     .insert("select", "svg")
+//     .on("change", dropdownChange);
 
+//   dropdown.selectAll("option")
+//       .data(cereals)
+//     .enter().append("option")
+//       .attr("value", function (d) { return d; })
+//       .text(function (d) {
+//           return d[0].toUpperCase() + d.slice(1,d.length); // capitalize 1st letter
+//       });
+  
+//   var dropdownChange = function() {
+//     var newCereal = d3.select(this).property('value'),
+//         newData   = cerealMap[newCereal];
+
+//     updateBars(newData);
+//   };
+// }
 
 function update(data) {
   var y = d3.scaleLinear() 
