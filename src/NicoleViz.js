@@ -57,18 +57,18 @@ function makeViz() {
       .data(dataArray)
       .join('rect')
       .attr('x', d => x(d.race))  
-      // .attr('y', d => (y(d.difference)))
+      .attr('y', d => (y(d.pop_percent)))
       .attr('width', x.bandwidth())
-      // .attr('height', d => height / 2 - y(d.difference) + margin.top / 2)
-      .attr("y", (d) => {
-        if(d.difference > 0) {
-          return y(d.difference)
-        } else {
-          return y(-1)/2
-        }})
-      .attr('height', d => 
-            d3.max([height / 2 - y(d.difference), 
-            -(height / 2 - y(d.difference))]))
+      .attr('height', d => height / 2 - y(d.pop_percent) + margin.top / 2)
+      // .attr("y", (d) => {
+      //   if(d.difference > 0) {
+      //     return y(d.pop_percent)
+      //   } else {
+      //     return y(-1)/2
+      //   }})
+      // .attr('height', d => 
+      //       d3.max([height / 2 - y(d.pop_percent), 
+      //       -(height / 2 - y(d.pop_percent))]))
       
       .style('fill', 'steelblue')
       .style('stroke', 'white');
@@ -101,21 +101,18 @@ function update(data) {
   u
     .enter()
     .append("rect")
-    .merge(u);
-    console.log(data);
-    console.log(y(data));
-  u
+    .merge(u)
     .transition()
     .duration(1000)
       .attr("y", (d) => {
-        if(data > 0) {
-          return y(data);
+        if(d > 0) {
+          return y(d)
         } else {
-          return y(-1)/2;
+          return y(-1)/2
         }})
       .attr('height', d => 
-            d3.max([height / 2 - y(data), 
-            -(height / 2 - y(data))]))
+            d3.max([height / 2 - y(d), 
+            -(height / 2 - y(d))]));
 
-
+  
 }
