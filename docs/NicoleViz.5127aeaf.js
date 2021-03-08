@@ -140,59 +140,44 @@ var margin = {
   left: 35
 };
 var dataArray = [];
-var uof_percet = [];
-var pop_percent = [];
-var difference = [];
 d3.csv(_by_race.default).then(function (data) {
   data.forEach(function (d) {
     dataArray.push(d);
-  });
-  uof_percent = dataArray.map(function (d) {
-    return d.uof_percent;
-  });
-  pop_percent = dataArray.map(function (d) {
-    return d.pop_percent;
-  });
-  difference = dataArray.map(function (d) {
-    return d.difference;
   });
   makeViz();
 });
 
 function makeViz() {
-  // scale functions
+  var dropDown = document.querySelector("#dropDown");
+  dropDown.addEventListener('change', function (event) {
+    var dataType = event.target.value;
+    update(dataArray.map(function (d) {
+      return d[dataType];
+    }));
+  }); // scale functions
+
   var x = d3.scaleBand().domain(dataArray.map(function (d) {
     return d.race;
   })).range([margin.left, width - margin.right]);
-  var y = d3.scaleLinear().domain([-1, 1]).range([height - margin.bottom, margin.top]);
+  var y = d3.scaleLinear().domain([-1, 1]).range([height, margin.top]);
   container = d3.select('#staticBar').append('svg').attr("id", "basic-chart").attr('width', width).attr('height', height).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var bars = container.append('svg').selectAll('rect').data(dataArray).join('rect').attr('x', function (d) {
     return x(d.race);
   }).attr('y', function (d) {
     return y(d.uof_percent);
   }).attr('width', x.bandwidth()).attr('height', function (d) {
-    return height / 2 - y(d.uof_percent);
+    return height / 2 - y(d.uof_percent) + margin.top / 2;
   }).style('fill', 'steelblue').style('stroke', 'white'); // position and populate the x-axis
 
   var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height - margin.bottom, ")")).call(d3.axisBottom(x)).append('text').attr('text-anchor', 'end').attr('fill', 'white').attr('font-size', '12px').attr('font-weight', 'bold').attr('x', width - margin.right).attr('y', height / 2).text('total UOF Percents'); // position and populate the y-axis
 
   var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ", 0)")).call(d3.axisLeft(y));
-  var dropdown = d3.select("#dropDown").insert("select", "svg").on("change", dropdownChange);
-  dropdown.selectAll("option").data(cereals).enter().append("option").attr("value", function (d) {
-    return d;
-  }).text(function (d) {
-    return d[0].toUpperCase() + d.slice(1, d.length); // capitalize 1st letter
-  });
-
-  var dropdownChange = function dropdownChange() {
-    var newCereal = d3.select(this).property('value'),
-        newData = cerealMap[newCereal];
-    updateBars(newData);
-  };
 }
 
 function update(data) {
-  var y = d3.scaleLinear().domain([-1, 1]).range([height - margin.bottom, margin.top]);
+  console.log(data);
+  var y = d3.scaleLinear().domain([-1, 1]).range([height, margin.top]);
+  console.log(y(+data));
   var u = container.selectAll("rect").data(data);
   u.enter().append("rect").merge(u).transition().duration(1000).attr("y", y(data)).attr("height", height / 2 - y(data));
 }
@@ -224,7 +209,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49470" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61292" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
