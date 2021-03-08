@@ -3,12 +3,15 @@ import by_race from '../static/by_race.csv'
 
 //set up height, width, margin
 var container;
-var race;
-var uof_percent;
-var height = 700;
-var width = 950;
-var margin = ({top: 10, right: 10, bottom: 35, left: 35});
+var height = 500;
+var width = 700;
+var margin = ({top: 10, right: 10, bottom: 35, left: 20});
 var dataArray = [];
+var color;
+
+var y = d3.scaleLinear() 
+    .domain([-1, 1])
+    .range([height, margin.top]);
 
 d3.csv(by_race).then(function(data) {
   data.forEach(function(d){
@@ -19,6 +22,8 @@ d3.csv(by_race).then(function(data) {
 });
 
 function makeViz() {
+
+  var color = d3.scaleOrdinal(d3.schemeTableau10).domain(dataArray.map(d => d.race)); 
 
   let dropDown = document.querySelector("#dropDown");
 
@@ -34,9 +39,6 @@ function makeViz() {
     .domain(dataArray.map(d => d.race))
     .range([margin.left, width - margin.right]);
 
-  var y = d3.scaleLinear() 
-    .domain([-1, 1])
-    .range([height, margin.top]);
 
   container = d3.select('#staticBar')
       .append('svg')
@@ -52,11 +54,11 @@ function makeViz() {
       .data(dataArray)
       .join('rect')
       .attr('x', d => x(d.race))  
-      .attr('y', d => (y(d.uof_percent)))
+      .attr('y', d => (y(d.pop_percent)))
       .attr('width', x.bandwidth())
-      .attr('height', d => height / 2 - y(d.uof_percent) + margin.top / 2)
-      
-      .style('fill', 'steelblue')
+      .attr('height', d => height / 2 - y(d.pop_percent) + margin.top / 2)
+
+      .style('fill', d => color(d.race))
       .style('stroke', 'white');
 
   // position and populate the x-axis
@@ -80,12 +82,6 @@ function makeViz() {
 }
 
 function update(data) {
-  console.log(data);
-  var y = d3.scaleLinear() 
-    .domain([-1, 1])
-    .range([height, margin.top]);
-
-    console.log(y(+data));
 
   var u = container.selectAll("rect")
     .data(data);
@@ -96,8 +92,15 @@ function update(data) {
     .merge(u)
     .transition()
     .duration(1000)
-      .attr("y", y(data))
-      .attr("height", height / 2 - y(data))
+      .attr("y", (d) => {
+        if(d > 0) {
+          return y(d)
+        } else {
+          return y(-1)/2
+        }})
+      .attr('height', d => 
+            d3.max([height / 2 - y(d), 
+            -(height / 2 - y(d))]));
 
-
+  
 }
