@@ -3,12 +3,11 @@ import by_race from '../static/by_race.csv'
 
 //set up height, width, margin
 var container;
-var race;
-var uof_percent;
-var height = 700;
-var width = 950;
-var margin = ({top: 10, right: 10, bottom: 35, left: 35});
+var height = 500;
+var width = 700;
+var margin = ({top: 10, right: 10, bottom: 35, left: 20});
 var dataArray = [];
+var color;
 
 var y = d3.scaleLinear() 
     .domain([-1, 1])
@@ -24,6 +23,8 @@ d3.csv(by_race).then(function(data) {
 
 function makeViz() {
 
+  var color = d3.scaleOrdinal(d3.schemeTableau10).domain(dataArray.map(d => d.race)); 
+
   let dropDown = document.querySelector("#dropDown");
 
   dropDown.addEventListener('change', (event) => {
@@ -37,10 +38,6 @@ function makeViz() {
   var x = d3.scaleBand()
     .domain(dataArray.map(d => d.race))
     .range([margin.left, width - margin.right]);
-
-  // var y = d3.scaleLinear() 
-  //   .domain([-1, 1])
-  //   .range([height, margin.top]);
 
 
   container = d3.select('#staticBar')
@@ -60,17 +57,8 @@ function makeViz() {
       .attr('y', d => (y(d.pop_percent)))
       .attr('width', x.bandwidth())
       .attr('height', d => height / 2 - y(d.pop_percent) + margin.top / 2)
-      // .attr("y", (d) => {
-      //   if(d.difference > 0) {
-      //     return y(d.pop_percent)
-      //   } else {
-      //     return y(-1)/2
-      //   }})
-      // .attr('height', d => 
-      //       d3.max([height / 2 - y(d.pop_percent), 
-      //       -(height / 2 - y(d.pop_percent))]))
-      
-      .style('fill', 'steelblue')
+
+      .style('fill', d => color(d.race))
       .style('stroke', 'white');
 
   // position and populate the x-axis
