@@ -129,17 +129,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //import data
 //set up height, width, margin
 var container;
-var race;
-var uof_percent;
-var height = 700;
-var width = 950;
+var height = 500;
+var width = 700;
 var margin = {
   top: 10,
   right: 10,
   bottom: 35,
-  left: 35
+  left: 20
 };
 var dataArray = [];
+var color;
 var y = d3.scaleLinear().domain([-1, 1]).range([height, margin.top]);
 d3.csv(_by_race.default).then(function (data) {
   data.forEach(function (d) {
@@ -149,6 +148,9 @@ d3.csv(_by_race.default).then(function (data) {
 });
 
 function makeViz() {
+  var color = d3.scaleOrdinal(d3.schemeTableau10).domain(dataArray.map(function (d) {
+    return d.race;
+  }));
   var dropDown = document.querySelector("#dropDown");
   dropDown.addEventListener('change', function (event) {
     var dataType = event.target.value;
@@ -159,10 +161,7 @@ function makeViz() {
 
   var x = d3.scaleBand().domain(dataArray.map(function (d) {
     return d.race;
-  })).range([margin.left, width - margin.right]); // var y = d3.scaleLinear() 
-  //   .domain([-1, 1])
-  //   .range([height, margin.top]);
-
+  })).range([margin.left, width - margin.right]);
   container = d3.select('#staticBar').append('svg').attr("id", "basic-chart").attr('width', width).attr('height', height).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var bars = container.append('svg').selectAll('rect').data(dataArray).join('rect').attr('x', function (d) {
     return x(d.race);
@@ -170,16 +169,9 @@ function makeViz() {
     return y(d.pop_percent);
   }).attr('width', x.bandwidth()).attr('height', function (d) {
     return height / 2 - y(d.pop_percent) + margin.top / 2;
-  }) // .attr("y", (d) => {
-  //   if(d.difference > 0) {
-  //     return y(d.pop_percent)
-  //   } else {
-  //     return y(-1)/2
-  //   }})
-  // .attr('height', d => 
-  //       d3.max([height / 2 - y(d.pop_percent), 
-  //       -(height / 2 - y(d.pop_percent))]))
-  .style('fill', 'steelblue').style('stroke', 'white'); // position and populate the x-axis
+  }).style('fill', function (d) {
+    return color(d.race);
+  }).style('stroke', 'white'); // position and populate the x-axis
 
   var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height - margin.bottom, ")")).call(d3.axisBottom(x)).append('text').attr('text-anchor', 'end').attr('fill', 'white').attr('font-size', '12px').attr('font-weight', 'bold').attr('x', width - margin.right).attr('y', height / 2).text('total UOF Percents'); // position and populate the y-axis
 
@@ -199,4 +191,4 @@ function update(data) {
   });
 }
 },{"../static/by_race.csv":"vpAz"}]},{},["Rk44"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.e058b9fc.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.24c191b0.js.map
