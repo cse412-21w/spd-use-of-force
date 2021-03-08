@@ -10,6 +10,10 @@ var width = 950;
 var margin = ({top: 10, right: 10, bottom: 35, left: 35});
 var dataArray = [];
 
+var y = d3.scaleLinear() 
+    .domain([-1, 1])
+    .range([height, margin.top]);
+
 d3.csv(by_race).then(function(data) {
   data.forEach(function(d){
     dataArray.push(d);
@@ -34,9 +38,10 @@ function makeViz() {
     .domain(dataArray.map(d => d.race))
     .range([margin.left, width - margin.right]);
 
-  var y = d3.scaleLinear() 
-    .domain([-1, 1])
-    .range([height, margin.top]);
+  // var y = d3.scaleLinear() 
+  //   .domain([-1, 1])
+  //   .range([height, margin.top]);
+
 
   container = d3.select('#staticBar')
       .append('svg')
@@ -52,9 +57,18 @@ function makeViz() {
       .data(dataArray)
       .join('rect')
       .attr('x', d => x(d.race))  
-      .attr('y', d => (y(d.uof_percent)))
+      // .attr('y', d => (y(d.difference)))
       .attr('width', x.bandwidth())
-      .attr('height', d => height / 2 - y(d.uof_percent) + margin.top / 2)
+      // .attr('height', d => height / 2 - y(d.difference) + margin.top / 2)
+      .attr("y", (d) => {
+        if(d.difference > 0) {
+          return y(d.difference)
+        } else {
+          return y(-1)/2
+        }})
+      .attr('height', d => 
+            d3.max([height / 2 - y(d.difference), 
+            -(height / 2 - y(d.difference))]))
       
       .style('fill', 'steelblue')
       .style('stroke', 'white');
@@ -80,12 +94,6 @@ function makeViz() {
 }
 
 function update(data) {
-  console.log(data);
-  var y = d3.scaleLinear() 
-    .domain([-1, 1])
-    .range([height, margin.top]);
-
-    console.log(y(+data));
 
   var u = container.selectAll("rect")
     .data(data);
@@ -93,11 +101,21 @@ function update(data) {
   u
     .enter()
     .append("rect")
-    .merge(u)
+    .merge(u);
+    console.log(data);
+    console.log(y(data));
+  u
     .transition()
     .duration(1000)
-      .attr("y", y(data))
-      .attr("height", height / 2 - y(data))
+      .attr("y", (d) => {
+        if(data > 0) {
+          return y(data);
+        } else {
+          return y(-1)/2;
+        }})
+      .attr('height', d => 
+            d3.max([height / 2 - y(data), 
+            -(height / 2 - y(data))]))
 
 
 }
