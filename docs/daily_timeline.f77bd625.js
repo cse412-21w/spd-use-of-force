@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"timeline.js":[function(require,module,exports) {
+})({"daily_timeline.js":[function(require,module,exports) {
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -143,7 +143,6 @@ var options = {
 vl.register(vega, vegaLite, options); // Again, We use d3.csv() to process data
 
 var uof = [];
-var race = ["American Indian/Alaska Native", "Asian", "Black or African American", "Hispanic or Latino", "Nat Hawaiian/Oth Pac Islander", "Not Specified", "White"];
 d3.json("https://data.seattle.gov/resource/ppi5-g2bj.json?$limit=20000").then(function (data) {
   var levels = ["Level 1 - Use of Force", "Level 2 - Use of Force", "Level 3 - Use of Force", "Level 3 - OIS"];
   var parser = d3.timeParse('%Y-%m-%dT%H:%M:%S.%L');
@@ -155,46 +154,35 @@ d3.json("https://data.seattle.gov/resource/ppi5-g2bj.json?$limit=20000").then(fu
       incident_type: 1 + levels.indexOf(incident.incident_type),
       occured_date_time: parser(incident.occured_date_time),
       Occurance_Date: year(parser(incident.occured_date_time)),
-      blah: bb(parser(incident.occured_date_time)),
-      byMonth_Date: bb(parser(incident.occured_date_time)),
-      total: incident.subject_race,
-      Date: mm(parser(incident.occured_date_time))
+      blah: bb(parser(incident.occured_date_time))
     });
   }); // console.log(uof); // This line was used to check values stored in uof after processing. feel free to delete.
 
-  drawTimeline();
-  drawDaily(); // your other functions goes here. 
+  drawTimeline(); // your other functions goes here. 
 });
 
 function drawTimeline() {
-  var selection = vl.selectSingle('Select').fields('subject_race').init({
-    subject_race: race[5]
-  }).bind(vl.menu(race));
-  var single_Line = vl.markLine({
-    point: false
-  }).data(uof).select(selection).encode(vl.x().fieldT('byMonth_Date').title("Month, Year").timeUnit("yearmonth"), vl.y().count("subject_race").title("Counts"), vl.color().field("subject_race"), vl.opacity().if(selection, vl.value(1.0)).value(0.10), vl.tooltip([{
-    "aggregate": "count",
-    "field": "subject_race"
-  }, "subject_race", "Occurance_Date"])); // layer you made for highlighting the line when selecting a state in the menu, store it in const b
+  // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
+  // your visualization goes here
+  var hover = vl.selectSingle().encodings('x') // limit selection to x-axis value
+  .on('mouseover') // select on mouseover events
+  .nearest(true) // select data point nearest the cursor
+  .empty('none'); // empty selection includes no data points 
 
-  var b = vl.data(uof).layer(single_Line).title("Monthly Counts, by Race").width(700).height(400);
-  var hover2 = vl.selectSingle().encodings('x').on('mouseover').nearest(true).empty('none');
-  var line_ = vl.markLine().data(uof).transform(vl.filter(selection)) // new 
-  .encode(vl.opacity().value(1), vl.x().fieldT('byMonth_Date').title("Month, Year").timeUnit("yearmonth"), vl.y().count("subject_race").title("Counts"));
-  var line = vl.markLine().data(uof).transform(vl.filter(selection)) // new
-  .select(vl.selectInterval().bind('scales').encodings('x') // Just adding a line of code, how amazing!
-  ).encode(vl.opacity().value(0), vl.x().fieldT('byMonth_Date').title("Month, Year").timeUnit("yearmonth"), vl.y().count("subject_race").title("Counts"), vl.color().fieldN("subject_race"));
-  var base = line_.transform(vl.filter(hover2), vl.filter(selection)); // New: 2 filter in transform()
+  var line = vl.markLine().data(uof).encode(vl.x().fieldT('blah').title("Date").timeUnit("yearmonth"), vl.y().count("subject_race").title("Counts"), vl.color().field("subject_race")); // shared base for new layers, filtered to hover selection
+
+  var base = line.transform(vl.filter(hover)); // mark properties for text label layers
 
   var label = {
-    align: 'center',
-    dx: 7,
-    dy: -10
+    align: 'left',
+    dx: 5,
+    dy: -5
   };
   var white = {
     stroke: 'white',
     strokeWidth: 2
   };
+  var dateBase = base.transform(vl.filter(hover));
   var dateLabel = {
     align: 'center',
     dx: 5,
@@ -204,76 +192,124 @@ function drawTimeline() {
     stroke: 'white',
     strokeWidth: 2
   };
-  var tooltipBase = base.transform(vl.filter(hover2));
-  var tooltip = vl.layer(tooltipBase.markText({
+  var tooltipBase = base.transform(vl.filter(hover));
+  var tooltip = vl.layer( // tooltipBase.markRule({ strokeWidth: 0.5 }),
+  tooltipBase.markText({
     align: "center"
-  }).select(vl.selectInterval().bind()).encode(vl.y().value(15), vl.text().fieldT("byMonth_Date").timeUnit("yearmonth"), vl.color().value("black")));
-  var a = vl.data(uof) // store your hover part in const a
-  .layer(vl.markRule({
+  }).encode(vl.y().value(0), vl.text().fieldT("blah").timeUnit("yearmonth"), vl.color().value("black")));
+  vl.data(uof).layer(line, // add a rule mark to serve as a guide line
+  vl.markRule({
     color: '#aaa'
-  }).transform(vl.filter(hover2)).encode(vl.x().fieldT('byMonth_Date').timeUnit("yearmonth")), //line_.markCircle({color: "gray"})
-  line_.markCircle().select(hover2).encode(vl.opacity().if(hover2, vl.value(1)).value(0), vl.color().fieldN("subject_race")), base.markText(label, white).encode(vl.text().count('subject_race')), base.markText(label).encode(vl.text().count('subject_race')), tooltip).title("Total Monthly Counts").width(600).height(400); // combine 2 layer
-
-  return vl.layer(b, a, line).render().then(function (viewElement) {
+  }).transform(vl.filter(hover)).encode(vl.x().fieldT('blah').timeUnit("yearmonth")), // add circle marks for selected time points, hide unselected points
+  line.markCircle().select(hover) // use as anchor points for selection
+  .encode(vl.opacity().if(hover, vl.value(1)).value(0)), // add white stroked text to provide a legible background for labels
+  base.markText(label, white).encode(vl.text().count('subject_race')), // add text labels for stock prices
+  base.markText(label).encode(vl.text().count('subject_race')), //    dateBase.markText(dateLabel, white1).encode(vl.text().count('subject_race')),
+  //  dateBase.markText(dateLabel).encode(vl.text().fieldT('blah').timeUnit("yearmonthdate"))
+  tooltip).width(700).height(350).title("Monthly Counts of Use of Force Incidents").render().then(function (viewElement) {
     // render returns a promise to a DOM element containing the chart
     // viewElement.value contains the Vega View object instance
-    document.getElementById('view1').appendChild(viewElement);
+    document.getElementById('view').appendChild(viewElement);
   });
-}
 
-function drawDaily() {
-  var selection = vl.selectSingle('Select').fields('subject_race').init({
-    subject_race: race[5]
-  }).bind(vl.menu(race));
-  var single_Line = vl.markLine({
-    point: false
-  }).data(uof).select(selection).encode(vl.x().fieldT('Date').title("Month, Day, Year").timeUnit("yearmonthdate"), vl.y().count("subject_race").title("Counts"), vl.color().field("subject_race"), vl.opacity().if(selection, vl.value(1.0)).value(0.10), vl.tooltip([{
-    "aggregate": "count",
-    "field": "subject_race"
-  }, "subject_race", "Occurance_Date"])); // layer you made for highlighting the line when selecting a state in the menu, store it in const b
+  function drawTimeline() {
+    // var sunshine = add_data(vl, sunshine.csv, format_type = NULL);
+    // your visualization goes here
+    var hover = vl.selectSingle().encodings('x') // limit selection to x-axis value
+    .on('mouseover') // select on mouseover events
+    .nearest(true) // select data point nearest the cursor
+    .empty('none'); // empty selection includes no data points 
 
-  var b = vl.data(uof).layer(single_Line).title("Daily Counts, by Race").width(700).height(400);
-  var hover2 = vl.selectSingle().encodings('x').on('mouseover').nearest(true).empty('none');
-  var line_ = vl.markLine().data(uof).transform(vl.filter(selection)) // new 
-  .encode(vl.opacity().value(1), vl.x().fieldT('Date').title("Month, Day, Year").timeUnit("yearmonthdate"), vl.y().count("subject_race").title("Counts"));
-  var line = vl.markLine().data(uof).transform(vl.filter(selection)) // new
-  .select(vl.selectInterval().bind('scales').encodings('x') // Just adding a line of code, how amazing!
-  ).encode(vl.opacity().value(0), vl.x().fieldT('Date').title("Month, Day, Year").timeUnit("yearmonthdate"), vl.y().count("subject_race").title("Counts"), vl.color().fieldN("subject_race"));
-  var base = line_.transform(vl.filter(hover2), vl.filter(selection)); // New: 2 filter in transform()
+    var line = vl.markLine().data(uof).encode(vl.x().fieldT('blah').title("Date").timeUnit("yearmonth"), vl.y().count("subject_race").title("Counts"), vl.color().field("subject_race")); // shared base for new layers, filtered to hover selection
 
-  var label = {
-    align: 'center',
-    dx: 7,
-    dy: -10
-  };
-  var white = {
-    stroke: 'white',
-    strokeWidth: 2
-  };
-  var dateLabel = {
-    align: 'center',
-    dx: 5,
-    dy: -5
-  };
-  var white1 = {
-    stroke: 'white',
-    strokeWidth: 2
-  };
-  var tooltipBase = base.transform(vl.filter(hover2));
-  var tooltip = vl.layer(tooltipBase.markText({
-    align: "center"
-  }).select(vl.selectInterval().bind()).encode(vl.y().value(15), vl.text().fieldT("Date").timeUnit("yearmonthdate"), vl.color().value("black")));
-  var a = vl.data(uof) // store your hover part in const a
-  .layer(vl.markRule({
-    color: '#aaa'
-  }).transform(vl.filter(hover2)).encode(vl.x().fieldT('Date').timeUnit("yearmonthdate")), //line_.markCircle({color: "gray"})
-  line_.markCircle().select(hover2).encode(vl.opacity().if(hover2, vl.value(1)).value(0), vl.color().fieldN("subject_race")), base.markText(label, white).encode(vl.text().count('subject_race')), base.markText(label).encode(vl.text().count('subject_race')), tooltip).title("Daily Counts, by Race").width(600).height(400); // combine 2 layer
+    var base = line.transform(vl.filter(hover)); // mark properties for text label layers
 
-  return vl.layer(b, a, line).render().then(function (viewElement) {
-    // render returns a promise to a DOM element containing the chart
-    // viewElement.value contains the Vega View object instance
-    document.getElementById('view2').appendChild(viewElement);
-  });
+    var label = {
+      align: 'left',
+      dx: 5,
+      dy: -5
+    };
+    var white = {
+      stroke: 'white',
+      strokeWidth: 2
+    };
+    var dateBase = base.transform(vl.filter(hover));
+    var dateLabel = {
+      align: 'center',
+      dx: 5,
+      dy: -5
+    };
+    var white1 = {
+      stroke: 'white',
+      strokeWidth: 2
+    };
+    var tooltipBase = base.transform(vl.filter(hover));
+    var tooltip = vl.layer( // tooltipBase.markRule({ strokeWidth: 0.5 }),
+    tooltipBase.markText({
+      align: "center"
+    }).encode(vl.y().value(0), vl.text().fieldT("blah").timeUnit("yearmonth"), vl.color().value("black")));
+    vl.data(uof).layer(line, // add a rule mark to serve as a guide line
+    vl.markRule({
+      color: '#aaa'
+    }).transform(vl.filter(hover)).encode(vl.x().fieldT('blah')), // add circle marks for selected time points, hide unselected points
+    line.markCircle().select(hover) // use as anchor points for selection
+    .encode(vl.opacity().if(hover, vl.value(1)).value(0)), // add white stroked text to provide a legible background for labels
+    base.markText(label, white).encode(vl.text().count('subject_race')), // add text labels for stock prices
+    base.markText(label).encode(vl.text().count('subject_race')), //    dateBase.markText(dateLabel, white1).encode(vl.text().count('subject_race')),
+    //  dateBase.markText(dateLabel).encode(vl.text().fieldT('blah').timeUnit("yearmonthdate"))
+    tooltip).width(700).height(350).title("Monthly Counts of Use of Force Incidents").render().then(function (viewElement) {
+      // render returns a promise to a DOM element containing the chart
+      // viewElement.value contains the Vega View object instance
+      document.getElementById('view5').appendChild(viewElement);
+    });
+
+    function drawDaily() {
+      var hover = vl.selectSingle().encodings('x') // limit selection to x-axis value
+      .on('mouseover') // select on mouseover events
+      .nearest(true) // select data point nearest the cursor
+      .empty('none'); // empty selection includes no data points 
+
+      var line_ = vl.markLine().data(uof).encode(vl.opacity().value(1), vl.x().fieldT('Date').title("Date (Month, Day, Year)").timeUnit("yearmonthdate"), vl.y().count("subject_race").title("UoF Counts"), vl.color().value("blue"));
+      var line = vl.markLine().data(uof).select(vl.selectInterval().bind('scales').encodings('x') // Just adding a line of code, how amazing!
+      ).encode(vl.opacity().value(0), vl.x().fieldT('Date').title("Date (Month, Day, Year)").timeUnit("yearmonthdate"), vl.y().count("subject_race").title("UoF Counts")); // shared base for new layers, filtered to hover selection
+
+      var base = line_.transform(vl.filter(hover)); // mark properties for text label layers
+
+      var label = {
+        align: 'center',
+        dx: 7,
+        dy: -15
+      };
+      var white = {
+        stroke: 'white',
+        strokeWidth: 2
+      };
+      var dateBase = base.transform(vl.filter(hover));
+      var dateLabel = {
+        align: 'center',
+        dx: 5,
+        dy: -5
+      };
+      var white1 = {
+        stroke: 'white',
+        strokeWidth: 2
+      };
+      var tooltipBase = base.transform(vl.filter(hover));
+      var tooltip = vl.layer( // tooltipBase.markRule({ strokeWidth: 0.5 }),
+      tooltipBase.markText({
+        align: "center"
+      }).select(vl.selectInterval().bind() // Just adding a line of code, how amazing!
+      ).encode(vl.y().value(15), vl.text().fieldT("Date").timeUnit("yearmonthdate"), vl.color().value("black")));
+      vl.data(stuff).layer(line, line_, line_.markCircle().select(hover) // use as anchor points for selection
+      .encode(vl.opacity().if(hover, vl.value(1)).value(0)), base.markText(label, white).encode(vl.text().count('subject_race')), base.markText(label).encode(vl.text().count('subject_race')), vl.markRule({
+        color: '#aaa'
+      }).transform(vl.filter(hover)).encode(vl.x().fieldT('Date').timeUnit("yearmonthdate")), tooltip).title("Daily Counts, Total").width(700).height(400).render().then(function (viewElement) {
+        // render returns a promise to a DOM element containing the chart
+        // viewElement.value contains the Vega View object instance
+        document.getElementById('view').appendChild(viewElement);
+      });
+    }
+  }
 }
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -303,7 +339,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53360" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52310" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -479,5 +515,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","timeline.js"], null)
-//# sourceMappingURL=/timeline.02a44989.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","daily_timeline.js"], null)
+//# sourceMappingURL=/daily_timeline.f77bd625.js.map
