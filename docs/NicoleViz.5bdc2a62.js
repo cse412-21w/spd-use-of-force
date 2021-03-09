@@ -139,7 +139,7 @@ var margin = {
 };
 var dataArray = [];
 var color;
-var y = d3.scaleLinear().domain([-80, 80]).range([height - margin.bottom, margin.top]);
+var y = d3.scaleLinear().domain([-40, 80]).range([height - margin.bottom, margin.top]);
 d3.csv(_by_race.default).then(function (data) {
   data.forEach(function (d) {
     dataArray.push(d);
@@ -161,21 +161,21 @@ function makeViz() {
 
   var x = d3.scaleBand().domain(dataArray.map(function (d) {
     return d.race;
-  })).range([margin.left, width - margin.right]).paddingOuter(.15).paddingInner(.05);
+  })).range([margin.left, width - margin.right]).paddingOuter(.15).paddingInner(.1);
   container = d3.select('#staticBar').append('svg').attr('width', width).attr('height', height).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var bars = container.append('svg').selectAll('rect').data(dataArray).join('rect').attr('x', function (d) {
     return x(d.race);
   }).attr('y', function (d) {
     return y(d.pop_percent);
   }).attr('width', x.bandwidth()).attr('height', function (d) {
-    return height / 2 - margin.top - y(d.pop_percent) - 2.5;
+    return height * 2 / 3 - 1 / 2 * margin.bottom - 1.6 - y(d.pop_percent);
   }).style('fill', function (d) {
     return color(d.race);
   }).style("opacity", .95); // .style('stroke', 'darkgrey')
   // .style('stroke-width', 2);
   // position and populate the x-axis
 
-  var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height / 2 - margin.top - 2.5, ")")).call(d3.axisBottom(x)); // position and populate the y-axis
+  var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height * 2 / 3 - 1 / 2 * margin.bottom - 1.6, ")")).call(d3.axisBottom(x)); // position and populate the y-axis
 
   var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ",0)")).call(d3.axisLeft(y));
 }
@@ -186,11 +186,11 @@ function update(data) {
     if (d > 0) {
       return y(d);
     } else {
-      return y(-80) / 2 + margin.top / 2;
+      return height * 2 / 3 - 1 / 2 * margin.bottom - 1.6;
     }
   }).attr('height', function (d) {
-    return d3.max([height / 2 - margin.top - y(d) - 2.5, -(height / 2 - margin.top - y(d) - 2.5)]);
+    return d3.max([height * 2 / 3 - 1 / 2 * margin.bottom - 1.6 - y(d), -(height * 2 / 3 - 1 / 2 * margin.bottom - 1.6 - y(d))]);
   });
 }
 },{"../static/by_race.csv":"vpAz"}]},{},["Rk44"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.0e5c029c.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.5bdc2a62.js.map
