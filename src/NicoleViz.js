@@ -10,14 +10,14 @@ var dataArray = [];
 var color;
 
 var y = d3.scaleLinear() 
-    .domain([-1, 1])
+    .domain([-100, 100])
     .range([height, margin.top]);
 
 d3.csv(by_race).then(function(data) {
   data.forEach(function(d){
     dataArray.push(d);
   })
-
+  console.log(dataArray)
   makeViz();
 });
 
@@ -56,7 +56,7 @@ function makeViz() {
       .attr('x', d => x(d.race))  
       .attr('y', d => (y(d.pop_percent)))
       .attr('width', x.bandwidth())
-      .attr('height', d => height / 2 - y(d.pop_percent) + margin.top / 2)
+      .attr('height', d => height / 2 - y(d.pop_percent) + margin.top)
 
       .style('fill', d => color(d.race))
       .style('stroke', 'white');
