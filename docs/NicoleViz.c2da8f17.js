@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"vpAz":[function(require,module,exports) {
-module.exports = "https://cse412-21w.github.io/spd-use-of-force/by_race.8928076d.csv";
+module.exports = "https://cse412-21w.github.io/spd-use-of-force/by_race.104bfcfe.csv";
 },{}],"Rk44":[function(require,module,exports) {
 "use strict";
 
@@ -139,11 +139,12 @@ var margin = {
 };
 var dataArray = [];
 var color;
-var y = d3.scaleLinear().domain([-1, 1]).range([height, margin.top]);
+var y = d3.scaleLinear().domain([-100, 100]).range([height, margin.top]);
 d3.csv(_by_race.default).then(function (data) {
   data.forEach(function (d) {
     dataArray.push(d);
   });
+  console.log(dataArray);
   makeViz();
 });
 
@@ -168,7 +169,7 @@ function makeViz() {
   }).attr('y', function (d) {
     return y(d.pop_percent);
   }).attr('width', x.bandwidth()).attr('height', function (d) {
-    return height / 2 - y(d.pop_percent) + margin.top / 2;
+    return height / 2 - y(d.pop_percent) + margin.top;
   }).style('fill', function (d) {
     return color(d.race);
   }).style('stroke', 'white'); // position and populate the x-axis
@@ -191,4 +192,4 @@ function update(data) {
   });
 }
 },{"../static/by_race.csv":"vpAz"}]},{},["Rk44"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.24c191b0.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.c2da8f17.js.map
