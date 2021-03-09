@@ -20,6 +20,7 @@ vl.register(vega, vegaLite, options);
 
 // Again, We use d3.csv() to process data
 var uof = [];
+var racee = ["White", "Black or African American", "Not Specified", "Hispanic or Latino", "Asian", "American Indian/Alaska Native", "Nat Hawaiian/Oth Pac Islander"]
 
 var race = ["American Indian/Alaska Native", "Asian", "Black or African American", "Hispanic or Latino", "Nat Hawaiian/Oth Pac Islander", "Not Specified", "White"];
 
@@ -49,8 +50,8 @@ d3.json("https://data.seattle.gov/resource/ppi5-g2bj.json?$limit=20000").then(fu
   function drawTimeline() {
    const selection = vl.selectSingle('Select')
     .fields('subject_race')
-    .init({subject_race: race[5]})
-    .bind(vl.menu(race));
+    .init({subject_race: racee[0]})
+    .bind(vl.menu(racee));
   
   const single_Line = vl.markLine({point: false})  
     .data(uof)
@@ -147,8 +148,8 @@ d3.json("https://data.seattle.gov/resource/ppi5-g2bj.json?$limit=20000").then(fu
 function drawDaily() {
   const selection = vl.selectSingle('Select')
     .fields('subject_race')
-    .init({subject_race: race[5]})
-    .bind(vl.menu(race));
+    .init({subject_race: racee[0]})
+    .bind(vl.menu(racee));
   
   const single_Line = vl.markLine({point: false})  
     .data(uof)
