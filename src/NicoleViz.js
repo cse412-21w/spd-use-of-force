@@ -59,9 +59,9 @@ function makeViz() {
       .attr('height', d => height / 2 - margin.top - y(d.pop_percent) - 2.5)
 
       .style('fill', d => color(d.race))
-      .style("opacity", .85)
-      .style('stroke', 'darkgrey')
-      .style('stroke-width', 2);
+      .style("opacity", .95)
+      // .style('stroke', 'darkgrey')
+      // .style('stroke-width', 2);
 
   // position and populate the x-axis
   var xAxis = container.append('g')

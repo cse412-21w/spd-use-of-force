@@ -182,8 +182,8 @@ pop_count <- c(sum(by_puma$White), sum(by_puma$Black), sum(by_puma$NatAm),
 pop_percent <- pop_count / total_population
 
 #combine columns into dataframe
-by_race <- data.frame(race = race, uof_percent = uof_percent, pop_percent = pop_percent,
-                     difference = uof_percent - pop_percent)
+by_race <- data.frame(race = race, uof_percent = uof_percent * 100, pop_percent = pop_percent * 100,
+                     difference = uof_percent * 100 - pop_percent * 100)
 
 
 #transpose the data so each row is uof/pop percent and each column is race
@@ -195,8 +195,8 @@ by_percent <- data.frame(White = double(3), Black = double(3),
 
 
 for(i in 1:7) {
-  by_percent[, i] <- c(uof_count[i]/total_uof_count, pop_count[i] / total_population, 
-                       uof_count[i]/total_uof_count - pop_count[i] / total_population)
+  by_percent[, i] <- c(uof_count[i]/total_uof_count * 100, pop_count[i] / total_population * 100, 
+                       uof_count[i]/total_uof_count * 100 - pop_count[i] / total_population * 100)
 }
 rownames(by_percent)<- c("uof_count", "pop_count", "difference")
 
