@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"vpAz":[function(require,module,exports) {
-module.exports = "https://cse412-21w.github.io/spd-use-of-force/by_race.104bfcfe.csv";
+module.exports = "https://cse412-21w.github.io/spd-use-of-force/by_race.d822054c.csv";
 },{}],"Rk44":[function(require,module,exports) {
 "use strict";
 
@@ -139,12 +139,11 @@ var margin = {
 };
 var dataArray = [];
 var color;
-var y = d3.scaleLinear().domain([-100, 100]).range([height, margin.top]);
+var y = d3.scaleLinear().domain([-80, 80]).range([height - margin.bottom, margin.top]);
 d3.csv(_by_race.default).then(function (data) {
   data.forEach(function (d) {
     dataArray.push(d);
   });
-  console.log(dataArray);
   makeViz();
 });
 
@@ -162,21 +161,23 @@ function makeViz() {
 
   var x = d3.scaleBand().domain(dataArray.map(function (d) {
     return d.race;
-  })).range([margin.left, width - margin.right]);
-  container = d3.select('#staticBar').append('svg').attr("id", "basic-chart").attr('width', width).attr('height', height).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  })).range([margin.left, width - margin.right]).paddingOuter(.15).paddingInner(.05);
+  container = d3.select('#staticBar').append('svg').attr('width', width).attr('height', height).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var bars = container.append('svg').selectAll('rect').data(dataArray).join('rect').attr('x', function (d) {
     return x(d.race);
   }).attr('y', function (d) {
     return y(d.pop_percent);
   }).attr('width', x.bandwidth()).attr('height', function (d) {
-    return height / 2 - y(d.pop_percent) + margin.top;
+    return height / 2 - margin.top - y(d.pop_percent) - 2.5;
   }).style('fill', function (d) {
     return color(d.race);
-  }).style('stroke', 'white'); // position and populate the x-axis
+  }).style("opacity", .95); // .style('stroke', 'darkgrey')
+  // .style('stroke-width', 2);
+  // position and populate the x-axis
 
-  var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height - margin.bottom, ")")).call(d3.axisBottom(x)).append('text').attr('text-anchor', 'end').attr('fill', 'white').attr('font-size', '12px').attr('font-weight', 'bold').attr('x', width - margin.right).attr('y', height / 2).text('total UOF Percents'); // position and populate the y-axis
+  var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height / 2 - margin.top - 2.5, ")")).call(d3.axisBottom(x)); // position and populate the y-axis
 
-  var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ", 0)")).call(d3.axisLeft(y));
+  var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ",0)")).call(d3.axisLeft(y));
 }
 
 function update(data) {
@@ -185,11 +186,11 @@ function update(data) {
     if (d > 0) {
       return y(d);
     } else {
-      return y(-1) / 2;
+      return y(-80) / 2 + margin.top / 2;
     }
   }).attr('height', function (d) {
-    return d3.max([height / 2 - y(d), -(height / 2 - y(d))]);
+    return d3.max([height / 2 - margin.top - y(d) - 2.5, -(height / 2 - margin.top - y(d) - 2.5)]);
   });
 }
 },{"../static/by_race.csv":"vpAz"}]},{},["Rk44"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.c2da8f17.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.0e5c029c.js.map
