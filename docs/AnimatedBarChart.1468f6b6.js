@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"eMqw":[function(require,module,exports) {
-module.exports = "https://cse412-21w.github.io/spd-use-of-force/by_percent.c2a4410b.csv";
+module.exports = "https://cse412-21w.github.io/spd-use-of-force/by_percent.fa6b645e.csv";
 },{}],"hWbj":[function(require,module,exports) {
 "use strict";
 
@@ -153,4 +153,4 @@ function makeViz() {
   container = d3.select('#animatedBar').append(svg).attr('width', width).attr('height', height);
 }
 },{"../static/by_percent.csv":"eMqw"}]},{},["hWbj"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/AnimatedBarChart.68b47fcc.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/AnimatedBarChart.1468f6b6.js.map
