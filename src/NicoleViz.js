@@ -10,7 +10,7 @@ var dataArray = [];
 var color;
 
 var y = d3.scaleLinear() 
-    .domain([-80, 80])
+    .domain([-40, 80])
     .range([height - margin.bottom, margin.top]);
 
 d3.csv(by_race).then(function(data) {
@@ -56,7 +56,7 @@ function makeViz() {
       .attr('x', d => x(d.race))  
       .attr('y', d => (y(d.pop_percent)))
       .attr('width', x.bandwidth())
-      .attr('height', d => height / 2 - margin.top - y(d.pop_percent) - 2.5)
+      .attr('height', d => height  * 2/3 - (1/2 * margin.bottom) - 1.6 - y(d.pop_percent))
 
       .style('fill', d => color(d.race))
       .style("opacity", .95)
@@ -65,7 +65,7 @@ function makeViz() {
 
   // position and populate the x-axis
   var xAxis = container.append('g')
-      .attr('transform', `translate(0, ${height / 2 - margin.top - 2.5})`)
+      .attr('transform', `translate(0, ${height * 2/3 - ( 1/2 * margin.bottom) - 1.6})`)
       .call(d3.axisBottom(x));
 
 
@@ -91,11 +91,11 @@ function update(data) {
         if(d > 0) {
           return y(d)
         } else {
-          return y(-80)/2 + (margin.top / 2)
+          return height * 2/3 - ( 1/2 * margin.bottom) - 1.6
         }})
       .attr('height', d => 
-            d3.max([height / 2 - margin.top - y(d) - 2.5, 
-            -(height / 2 - margin.top - y(d) - 2.5)]));
+            d3.max([height * 2/ 3 - (1/2 * margin.bottom) - 1.6 - y(d), 
+            -(height *2/ 3 - (1/2 * margin.bottom) - 1.6 - y(d))]));
 
   
 }
