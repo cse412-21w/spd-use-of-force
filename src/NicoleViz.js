@@ -38,7 +38,7 @@ function makeViz() {
     .domain(dataArray.map(d => d.race))
     .range([margin.left, width - margin.right])
     .paddingOuter(.15)
-    .paddingInner(.05);
+    .paddingInner(.1);
 
 
   container = d3.select('#staticBar')
