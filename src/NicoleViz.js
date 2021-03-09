@@ -17,7 +17,6 @@ d3.csv(by_race).then(function(data) {
   data.forEach(function(d){
     dataArray.push(d);
   })
-  console.log(dataArray)
   makeViz();
 });
 
@@ -61,20 +60,14 @@ function makeViz() {
 
       .style('fill', d => color(d.race))
       .style("opacity", .85)
-      .style('stroke', 'grey')
+      .style('stroke', 'darkgrey')
       .style('stroke-width', 2);
 
   // position and populate the x-axis
   var xAxis = container.append('g')
       .attr('transform', `translate(0, ${height / 2 - margin.top - 2.5})`)
-      .call(d3.axisBottom(x))
-      .append('text')
-      .attr('text-anchor', 'end')
-      .attr('fill', 'white')
-      .attr('font-size', '12px')
-      .attr('font-weight', 'bold');
-      
-  
+      .call(d3.axisBottom(x));
+
 
 // position and populate the y-axis
   var yAxis = container.append('g')
