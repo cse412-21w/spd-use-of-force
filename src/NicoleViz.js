@@ -17,6 +17,7 @@ d3.csv(by_race).then(function(data) {
   data.forEach(function(d){
     dataArray.push(d);
   })
+  console.log(dataArray)
   makeViz();
 });
 
