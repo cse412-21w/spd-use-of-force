@@ -144,7 +144,6 @@ d3.csv(_by_race.default).then(function (data) {
   data.forEach(function (d) {
     dataArray.push(d);
   });
-  console.log(dataArray);
   makeViz();
 });
 
@@ -221,7 +220,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55779" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54145" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
