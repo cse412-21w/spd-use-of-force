@@ -24,12 +24,12 @@ uof$subject_race <- as.factor(uof$subject_race)
 uof$incident_type <- as.factor(uof$incident_type)
 levels(uof$incident_type) <- c('1', '2', '3', '4')
 
-uof <- dummy.data.frame(data=uof, names=c('subject_race', 'subject_gender',
+uof_dummies <- dummy.data.frame(data=uof, names=c('subject_race', 'subject_gender',
                                           'incident_type'), sep='_')
 
-uof$count <- 1
-colnames(uof)[3:6] <- c('Type_1','Type_2','Type_3','Type_4')
-colnames(uof)[13:22] <- c('Nat_Am', 'Asian', 'Black', 'Hisp_Lat', 'Pac_Isl',
+uof_dummies$count <- 1
+colnames(uof_dummies)[3:6] <- c('Type_1','Type_2','Type_3','Type_4')
+colnames(uof_dummies)[13:22] <- c('Nat_Am', 'Asian', 'Black', 'Hisp_Lat', 'Pac_Isl',
                           'Race_NA', 'White', 'F', 'M', 'Gender_NA')
 
 # cleaning the beats data
@@ -41,7 +41,7 @@ beats_df <- beats_df[1:8]
 
 by_beat <- aggregate(cbind(Type_1, Type_2, Type_3, Type_4, Nat_Am, Asian, Black,
                            Hisp_Lat, Pac_Isl, Race_NA, White, F, M, Gender_NA,
-                           count) ~ beat, data=uof, sum)
+                           count) ~ beat, data=uof_dummies, sum)
 colnames(beats_df)[8] <- 'beat'
 beats_df <- left_join(beats_df, by_beat, by='beat')
 
@@ -155,7 +155,7 @@ by_puma <- left_join(by_puma, aggregate(cbind(Type_1, Type_2, Type_3, Type_4,
                                         sum), by='PUMA')
 by_date <- aggregate(cbind(Type_1, Type_2, Type_3, Type_4, Nat_Am, Asian,
                            Black, Hisp_Lat, Pac_Isl, Race_NA, White, count) ~ Date,
-                     data = uof, sum)
+                     data = uof_dummies, sum)
 
 write.csv(by_beat, 'static/by_beat.csv', row.names=FALSE)
 write.csv(by_puma, 'static/by_puma.csv', row.names=FALSE)
@@ -219,3 +219,19 @@ rownames(by_percent)<- c("uof_count", "pop_count", "difference")
 #exporting to csv
 write.csv(by_race, 'static/by_race.csv', row.names=FALSE)
 write.csv(by_percent, 'static/by_percent.csv')
+
+## Making the dataset for Cindy:
+uof_c <- data.frame(cbind(uof[4], uof[10], uof[3]))
+uof_c$count <- 1
+temp <- data.frame(0,0,0,0)
+colnames(temp) <- c('d', 'r', 'incident_type', 'count')
+dates <- unique(uof$Date)
+for (d in dates) {
+  for(r in unique(uof_c %>% filter(Date == d) %>% select(subject_race))) {
+    temp1 <- cbind(d, r, aggregate(count ~ incident_type, data = uof_c %>% 
+                                                filter((Date == d) & (subject_race == r)),
+                                              sum))
+    colnames(temp1) <- colnames(temp)
+    temp <- rbind(temp, temp1)
+  }
+}
