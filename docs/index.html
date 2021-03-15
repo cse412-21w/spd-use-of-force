@@ -106,7 +106,15 @@ if (divElement.offsetWidth > 1000) {
 var scriptElement = document.createElement('script');
 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
 vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-         <p> From the two time graphs above, it's worth noting how much the trend changes depending on what period of time you look at.</p>
+         <p> From the two time graphs above, it's worth noting how much the trend changes depending on what period of time you look at.
+           Over the past six years, we have seen a <b>gradual decrease</b> in use of force among the SPD.
+            However, the issue of police violence certainly hasn't gone away. From a distance, it may
+            look like the use of force following the George Floyd protests shot down dramatically, but a <b>closer
+            look</b> reveals that there's much more nuance. In reality, the data simply got <b>more erratic</b>,
+            alternating between large peaks and periods of relative inactivity. With the data we have so far, it's 
+            <b>hard to tell</b> whether the change in UoF frequency since the death of George Floyd represents a
+            <b>significant departure</b> from the previous trend.
+         </p>
         <p> Clearly, not all races are affected equally by police violence. But maybe that can be explained
           by the demographics of the neighborhoods? What about economic factors, do those play a role?
         </p>
@@ -136,15 +144,15 @@ vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
       <section id="Bar chart">
         <h1>So what does all this mean?</h1>
         <h2>Comparing the proportion of different races in the Seattle population with the proportion
-          of different races in the UoF data:
+          of different races in the Use of Force data:
         </h2>
         <h3>Select different menu options to flip between population data, UoF data, and the difference between them:</h3>
         <select id="dropDown">
           <option value="pop_percent">Population Percent</option>
-          <option value="uof_percent">Use of Force Percent Since 2014</option> 
-          <option value="post_gf">Use of Force After SPD Statement Promising Change</option>
-          <option value="difference">Difference Between UOF Since 2014 and Population Percent</option>
-          <option value="difference2">Difference Between UOF After SPD Statement and Population Percent</option>
+          <option value="uof_percent">UoF Percent</option> 
+          <option value="post_gf">UoF Percent After SPD Statement</option>
+          <option value="difference">Difference Between UoF and Population Percent</option>
+          <option value="difference2">Difference Between UOF after SPD Statement and Population Percent</option>
           
         </select> 
 
@@ -169,14 +177,16 @@ vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
           On the other hand, white people are over 70% of the population and only 40% of UoF subjects; white people
           are targeted almost <b>half as often</b> as we would expect.
         </p>
-        <p>With <a href="https://spdblotter.seattle.gov/2020/06/23/re-envisioning-community-safety-in-seattle/">
-        Chief Best's Statement</a> promising "Re-Enivisioning Public Safety" after the Black Lives Matter protests in May and June, 
-        have things gotten better? Take a look at the <u>Use of Force after SPD Statement Promising Change</u> tab and the correlating
-        <u>difference</u> graph and compare it to the <u>Since 2014</u> graphs. It appears that the percentages of Black/African Americans
-        experiencing use of force has decreased, and has gotten closer to the population percentage. However, we can also note that White people 
-        are experiencing use of force even less proportionally. What goes up in their place is the Not Specified column, increasing 
-        from 19.3% to 31.8%. 
-
+        <p>Since <a href="https://spdblotter.seattle.gov/2020/06/23/re-envisioning-community-safety-in-seattle/">
+        SPD Chief Best's Statement</a> on June 22nd, 2020 promising "Re-Enivisioning Public Safety" after the Black Lives Matter protests in May and June, 
+        have things gotten better?
+        </p> <p>
+        When we compare the graphs from the entire dataset vs. from after the SPD statement, we see that the percentages of
+        Black/African Americans experiencing use of force has decreased, getting closer to what we'd expect based on their
+        percentage of the population. However, we can also note that the number of white people involved in UoF incidents has
+        decreased as well, making white people even <i>less</i> likely to be involved in UoF incidents despite being a
+        majority of the Seattle population. Instead we see a rise in incidents where the subject race is not specified, which 
+        is a pattern we can see in the very first visualization as well.
         </p>
       </section>
 
