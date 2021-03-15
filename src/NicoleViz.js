@@ -49,20 +49,9 @@ function makeViz() {
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   
-  var bars = container
-      .append('svg')
-      .selectAll('rect')
-      .data(dataArray)
-      .join('rect')
-      .attr('x', d => x(d.race))  
-      .attr('y', d => (y(d.pop_percent)))
-      .attr('width', x.bandwidth())
-      .attr('height', d => height  * 2/3 - (1/2 * margin.bottom) - 1.6 - y(d.pop_percent))
-
-      .style('fill', d => color(d.race))
-      .style("opacity", .95)
-      // .style('stroke', 'darkgrey')
-      // .style('stroke-width', 2);
+  
+     
+  var gridLines = container.append('g')
 
   // position and populate the x-axis
   var xAxis = container.append('g')
@@ -73,7 +62,24 @@ function makeViz() {
 // position and populate the y-axis
   var yAxis = container.append('g')
       .attr('transform', `translate(${margin.left},0)`)
-      .call(d3.axisLeft(y));
+      .call(d3.axisLeft(y).tickSize(-width));
+
+      yAxis
+      .selectAll(".tick line")
+      .attr("stroke", "lightgrey")
+
+  var bars = container.append('svg')
+  .selectAll('rect')
+  .data(dataArray)
+  .join('rect')
+  .attr('x', d => x(d.race))  
+  .attr('y', d => (y(d.pop_percent)))
+  .attr('width', x.bandwidth())
+  .attr('height', d => height  * 2/3 - (1/2 * margin.bottom) - 1.6 - y(d.pop_percent))
+
+  .style('fill', d => color(d.race))
+  .style("opacity", .95);
+
 
 }
 
