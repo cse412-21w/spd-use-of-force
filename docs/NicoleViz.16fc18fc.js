@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"vpAz":[function(require,module,exports) {
-module.exports = "https://cse412-21w.github.io/spd-use-of-force/by_race.746d5bf0.csv";
+module.exports = "https://cse412-21w.github.io/spd-use-of-force/by_race.dd0cc186.csv";
 },{}],"Rk44":[function(require,module,exports) {
 "use strict";
 
@@ -194,4 +194,4 @@ function update(data) {
   });
 }
 },{"../static/by_race.csv":"vpAz"}]},{},["Rk44"], null)
-//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.6aef0bbc.js.map
+//# sourceMappingURL=https://cse412-21w.github.io/spd-use-of-force/NicoleViz.16fc18fc.js.map
