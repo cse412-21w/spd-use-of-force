@@ -198,7 +198,7 @@ uof_post_summer <- uof_post_summer_count / sum(uof_post_summer_count)
 #combine columns into dataframe
 by_race <- data.frame(race = race, uof_percent = uof_percent * 100, pop_percent = pop_percent * 100,
                      difference = uof_percent * 100 - pop_percent * 100, pre_gf = uof_pre_gf * 100,
-                     post_gf = uof_post_gf * 100, post_summer = uof_post_summer * 100)
+                     post_gf = uof_post_gf * 100, difference2 = uof_post_gf * 100 - pop_percent * 100)
 
 
 #transpose the data so each row is uof/pop percent and each column is race
