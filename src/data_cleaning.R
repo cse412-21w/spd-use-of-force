@@ -182,18 +182,22 @@ pop_count <- c(sum(by_puma$White), sum(by_puma$Black), sum(by_puma$HispLat),
 pop_percent <- pop_count / total_population
 
 total_entries <- as.numeric(length(by_date$Date))
-uof_pre_gf_count <- c(sum(by_date$White[1:2094]), sum(by_date$Black[1:2094]), sum(by_date$Hisp_Lat[1:2094]), 
-                sum(by_date$Asian[1:2094]), sum(by_date$Pac_Isl[1:2094]), sum(by_date$Nat_Am[1:2094]), 
-                sum(by_date$Race_NA[1:2094]))
-uof_post_gf_count <- c(sum(by_date$White[2095:total_entries]), sum(by_date$Black[2095:total_entries]), sum(by_date$Hisp_Lat[2095:total_entries]), 
-                 sum(by_date$Asian[2095:total_entries]), sum(by_date$Pac_Isl[2095:total_entries]), sum(by_date$Nat_Am[2095:total_entries]), 
-                 sum(by_date$Race_NA[2095:total_entries]))
-uof_post_summer_count <- c(sum(by_date$White[2167:total_entries]), sum(by_date$Black[2167:total_entries]), sum(by_date$Hisp_Lat[2167:total_entries]), 
-                     sum(by_date$Asian[2167:total_entries]), sum(by_date$Pac_Isl[2167:total_entries]), sum(by_date$Nat_Am[2167:total_entries]), 
-                     sum(by_date$Race_NA[2167:total_entries]))
+letter_date <- 2111
+day_after <- letter_date + 1
+uof_pre_gf_count <- c(sum(by_date$White[1:letter_date]), sum(by_date$Black[1:letter_date]), 
+                      sum(by_date$Hisp_Lat[1:letter_date]), sum(by_date$Asian[1:letter_date]), 
+                      sum(by_date$Pac_Isl[1:letter_date]), sum(by_date$Nat_Am[1:letter_date]), 
+                      sum(by_date$Race_NA[1:letter_date]))
+uof_post_gf_count <- c(sum(by_date$White[day_after:total_entries]), 
+                       sum(by_date$Black[day_after:total_entries]), 
+                       sum(by_date$Hisp_Lat[day_after:total_entries]), 
+                       sum(by_date$Asian[day_after:total_entries]), 
+                       sum(by_date$Pac_Isl[day_after:total_entries]), 
+                       sum(by_date$Nat_Am[day_after:total_entries]), 
+                       sum(by_date$Race_NA[day_after:total_entries]))
 uof_pre_gf <- uof_pre_gf_count / sum(uof_pre_gf_count)
 uof_post_gf <- uof_post_gf_count / sum(uof_post_gf_count)
-uof_post_summer <- uof_post_summer_count / sum(uof_post_summer_count)
+
 
 #combine columns into dataframe
 by_race <- data.frame(race = race, uof_percent = uof_percent * 100, pop_percent = pop_percent * 100,

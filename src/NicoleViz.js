@@ -82,6 +82,7 @@ function update(data) {
   var u = container.selectAll("rect")
     .data(data);
     
+  console.log(data)
   u
     .enter()
     .append("rect")
