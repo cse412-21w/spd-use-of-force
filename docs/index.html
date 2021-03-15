@@ -65,13 +65,13 @@ var scriptElement = document.createElement('script');
 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
 vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
       <section>
-        <p>We've highlighted two dates that might be relevant. The first is the death of George Floyd, which
+        <p>We've highlighted two dates that might be relevant. The first line marks the death of George Floyd, which
           sparked a massive series of protests across the nation. The second marks the date that the Seattle Chief of Police sent out a
           <a href="https://spdblotter.seattle.gov/2020/06/23/re-envisioning-community-safety-in-seattle/">
             statement</a> promising a "complete re-envisioning of community safety and the police department's role in it".
         </p>
         <h2> Where did this data come from? </h2>
-        <p><a href="https://data.seattle.gov/Public-Safety/Use-Of-Force/ppi5-g2bj.">This data</a> comes from the
+        <p><a href="https://data.seattle.gov/Public-Safety/Use-Of-Force/ppi5-g2bj">This data</a> comes from the
           City of Seattle <a href="https://data.seattle.gov/">open data portal</a>.
           It records all incidents where members of the Seattle Police Department <b>used force on a member of the
           public</b>, starting from January 2014 and continuing up to the present. It includes information on location,
@@ -93,7 +93,7 @@ vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
             </li>
           </ul>
         </p>
-        <h3>Zoom in and explore the UoF levels over time. You could look at a single level of force and compare with the total! </h3>
+        <h3>Zoom in to see how the frequency of different levels of force has changed over time</h3>
             <div class="tableauPlaceholder" id="viz1615849116441" style="position: relative"><noscript><a href="#"><img alt=" " src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;cookie_16158480390980&#47;Sheet1&#47;1_rss.png" style="border: none"></a></noscript><object class="tableauViz" style="display:none;"><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F"> <param name="embed_code_version" value="3"> <param name="site_root" value=""><param name="name" value="cookie_16158480390980&#47;Sheet1"><param name="tabs" value="no"><param name="toolbar" value="yes"><param name="static_image" value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;cookie_16158480390980&#47;Sheet1&#47;1.png"> <param name="animate_transition" value="yes"><param name="display_static_image" value="yes"><param name="display_spinner" value="yes"><param name="display_overlay" value="yes"><param name="display_count" value="yes"><param name="language" value="en"><param name="filter" value="publish=yes"></object></div>                <script>var divElement = document.getElementById('viz1615849116441');
 var vizElement = divElement.getElementsByTagName('object')[0];
 
@@ -111,9 +111,11 @@ if (divElement.offsetWidth > 1000) {
 var scriptElement = document.createElement('script');
 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
 vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-         <p> From the two time graphs above, it's worth noting how much the trend changes depending on what period of time you look at.
-           Over the past six years, we have seen a <b>gradual decrease</b> in use of force among the SPD.
-            However, the issue of police violence certainly hasn't gone away. From a distance, it may
+         <br><br>
+
+          <p>From the two time graphs above, it's worth noting how much the trend changes depending on what period of time you look at.
+           Over the past six years, we have seen a <b>gradual decrease</b> in use of force among the SPD. </p>
+          <p>However, the issue of police violence certainly hasn't gone away. From a distance, it may
             look like the use of force following the George Floyd protests shot down dramatically, but a <b>closer
             look</b> reveals that there's much more nuance. In reality, the data simply got <b>more erratic</b>,
             alternating between large peaks and periods of relative inactivity. With the data we have so far, it's 
@@ -194,6 +196,22 @@ vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
         is a pattern we can see in the very first visualization as well.
         </p>
       </section>
+        <br>
+        <h1>Sources</h1>
+        <h3>Visualizations were created using <a href="https://d3js.org/">D3</a> and  
+        <a href="https://www.tableau.com/why-tableau/what-is-tableau"> Tableau</a>
+        <h3>Data Sources</h3>
+        <a href="https://data.seattle.gov/Public-Safety/Use-Of-Force/ppi5-g2bj">Seattle Police Use of Force</a> <br>
+        <a href="https://data.seattle.gov/dataset/A-Census-Tract-Profile-ACS-5-year-2013-2017/xa8z-c8tf">Seattle Census Data</a> <br>
+        <h3>Additional References</h3>
+        <p>Beekman, Daniel, et al. “Outraged Crowd Mourns Shooting Death of Charleena Lyles, Rages against Police Brutality at Community Forum.” The Seattle Times, 27 June 2017. </p>
+        <p>“Chief Best’s Letter to the Community on Re-Envisioning Public Safety in Seattle.” SPD Blotter, 23 June 2020. </p>
+        <p>“Justice Department Releases Investigative Findings on the Seattle Police Department.” The United States Department of Justice, 16 Dec. 2011. </p>
+        <p>Romo, Vanessa. “Seattle Police Ruled In Contempt For Firing Less Lethal Weapons At BLM Protesters.” NPR, 8 Dec. 2020. </p>
+        <h3>Special thanks to Dr. Hoffswell, Aayush Chhabra, Kalyani Marathe, and the rest of the TAs!</h3>
+      <section>
+
+      </section>
 
       <div class="footer">
         <a href="https://courses.cs.washington.edu/courses/cse412/21wi/">CSE 412 Data Visualization</a>
@@ -207,6 +225,6 @@ vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
       <script src="https://cse412-21w.github.io/spd-use-of-force/NicoleViz.dc760dbb.js"></script>
       <script src="https://cse412-21w.github.io/spd-use-of-force/timeline.9257dc9d.js"></script>
 
-    </section></body>
+    </h3></section></body>
 
 </html>
