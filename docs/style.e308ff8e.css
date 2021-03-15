@@ -1,0 +1,59 @@
+* { padding: 0; margin: 0; }
+@font-face {
+  font-family: bentonSansBook;
+  src: local('Benton Sans Book'),
+  url('/bentonSansBook.263b21da.otf') format('opentype');
+}
+ body {
+  margin: 40px 20px 20px 40px;
+  padding: 0;
+  max-width: 1200px;
+  font-family: bentonSansBook, "Merriweather", Helvetica Neue, Arial;
+  font-size: 1em;
+}
+ a, a:visited { text-decoration: none; color: #2a5783; }
+a:hover { text-decoration: underline; color: #F28E2B; }
+ h1, h2, h3, h4, h5 {
+  color: #666666;
+  background-color: inherit;
+  font-weight: normal;
+  font-family: bentonSansBook, "Merriweather", Helvetica Neue, Arial;
+  padding: 0 0 5px 0;
+  margin: 15px 0 0 0;
+  border: none;
+  clear: right;
+}
+h1 { font-size: 24pt; margin:  5px 0 5px 0; line-height: 28px; }
+h2 { font-size: 14pt; margin: 5px 0 10px 0; letter-spacing: 0.01em; border-bottom: 1px solid #ccc;  line-height: 20px;}
+h3 { font-size: 13pt; }
+h4 { font-size: 12pt; }
+h5 { font-size: 11pt; }
+section { margin: 20px 0 10px 0; }
+ul { margin: 0 0 0 40px}
+p { margin: 0 0 10px 0; }
+ .content {
+  margin: 0;
+  padding: 15px 20px;
+  background-color: #ffffff;
+}
+ .title, .title h1, .title a {
+  color: #333333;
+  font-size: 30pt;
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+ .footer {
+  border-top: 1px solid #ccc;
+  margin-top: 30px;
+  padding-top: 4px;
+  text-align: right;
+  font-size: 12px;
+}
+.footer a {
+  color: #4E79A7;
+}
+.footer a:hover {
+  color: #F28E2B;
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
