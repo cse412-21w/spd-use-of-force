@@ -144,7 +144,6 @@ d3.csv(_by_race.default).then(function (data) {
   data.forEach(function (d) {
     dataArray.push(d);
   });
-  console.log(dataArray);
   makeViz();
 });
 
@@ -163,7 +162,10 @@ function makeViz() {
   var x = d3.scaleBand().domain(dataArray.map(function (d) {
     return d.race;
   })).range([margin.left, width - margin.right]).paddingOuter(.15).paddingInner(.1);
-  container = d3.select('#staticBar').append('svg').attr('width', width).attr('height', height).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  container = d3.select('#staticBar').append('svg').attr('width', width).attr('height', height).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")"); // position and populate the y-axis
+
+  var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ",0)")).call(d3.axisLeft(y).tickSize(-width));
+  yAxis.selectAll(".tick line").attr("stroke", "lightgrey");
   var bars = container.append('svg').selectAll('rect').data(dataArray).join('rect').attr('x', function (d) {
     return x(d.race);
   }).attr('y', function (d) {
@@ -172,13 +174,9 @@ function makeViz() {
     return height * 2 / 3 - 1 / 2 * margin.bottom - 1.6 - y(d.pop_percent);
   }).style('fill', function (d) {
     return color(d.race);
-  }).style("opacity", .95); // .style('stroke', 'darkgrey')
-  // .style('stroke-width', 2);
-  // position and populate the x-axis
+  }).style("opacity", .95); // position and populate the x-axis
 
-  var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height * 2 / 3 - 1 / 2 * margin.bottom - 1.6, ")")).call(d3.axisBottom(x)); // position and populate the y-axis
-
-  var yAxis = container.append('g').attr('transform', "translate(".concat(margin.left, ",0)")).call(d3.axisLeft(y));
+  var xAxis = container.append('g').attr('transform', "translate(0, ".concat(height * 2 / 3 - 1 / 2 * margin.bottom - 1.6, ")")).call(d3.axisBottom(x));
 }
 
 function update(data) {
@@ -221,7 +219,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50792" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51475" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
