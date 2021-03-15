@@ -176,10 +176,10 @@ race <- c("White", "Black/African American","Hispanic / Latino", "Asian",
 uof_count <- c(sum(by_beat$White_uof), sum(by_beat$Black_uof), sum(by_beat$HispLat_uof), 
                sum(by_beat$Asian_uof), sum(by_beat$PacIsl_uof), sum(by_beat$NatAm_uof),
                sum(by_beat$RaceNA_uof))
-uof_percent <- uof_count / total_uof_count
+uof_percent <- round(uof_count / total_uof_count, 3)
 pop_count <- c(sum(by_puma$White), sum(by_puma$Black), sum(by_puma$HispLat), 
                sum(by_puma$Asian), sum(by_puma$PacIsl), sum(by_puma$NatAm), 0)
-pop_percent <- pop_count / total_population
+pop_percent <- round(pop_count / total_population, 3)
 
 total_entries <- as.numeric(length(by_date$Date))
 letter_date <- 2111
@@ -195,8 +195,8 @@ uof_post_gf_count <- c(sum(by_date$White[day_after:total_entries]),
                        sum(by_date$Pac_Isl[day_after:total_entries]), 
                        sum(by_date$Nat_Am[day_after:total_entries]), 
                        sum(by_date$Race_NA[day_after:total_entries]))
-uof_pre_gf <- uof_pre_gf_count / sum(uof_pre_gf_count)
-uof_post_gf <- uof_post_gf_count / sum(uof_post_gf_count)
+uof_pre_gf <- round(uof_pre_gf_count / sum(uof_pre_gf_count), 3)
+uof_post_gf <- round(uof_post_gf_count / sum(uof_post_gf_count), 3)
 
 
 #combine columns into dataframe
