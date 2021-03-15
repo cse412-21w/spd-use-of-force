@@ -49,15 +49,6 @@ function makeViz() {
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   
-  
-     
-  var gridLines = container.append('g')
-
-  // position and populate the x-axis
-  var xAxis = container.append('g')
-      .attr('transform', `translate(0, ${height * 2/3 - ( 1/2 * margin.bottom) - 1.6})`)
-      .call(d3.axisBottom(x));
-
 
 // position and populate the y-axis
   var yAxis = container.append('g')
@@ -79,6 +70,11 @@ function makeViz() {
 
   .style('fill', d => color(d.race))
   .style("opacity", .95);
+
+  // position and populate the x-axis
+  var xAxis = container.append('g')
+      .attr('transform', `translate(0, ${height * 2/3 - ( 1/2 * margin.bottom) - 1.6})`)
+      .call(d3.axisBottom(x));
 
 
 }
