@@ -2,11 +2,9 @@
 ## Team Members
 Shay McCombs, Cindy Imm, Nicole Gooding
 ### Contribution Statements
-- Shay
-- Cindy made the UoF Level Counts Over Time graph in Tableau, helped with data analysis and wrangling, and contributed to
-the associated writings.
-- Nicole created the animated bar graph under the "So what does this all mean" header, helped with data cleaning,
-created sources section, and contributed to final paragraph. 
+- Shay created the UoF Count Over Time by Subject Race graph in Tableau, the neighborhood profiles / context section, led the data cleaning and wrangling process, customized the style sheet, and wrote most of the final narrative.
+- Cindy made the UoF Level Counts Over Time graph in Tableau, helped with data analysis and wrangling, and contributed to the associated writings.
+- Nicole created the animated bar graph under the "So what does this all mean" header, helped with data cleaning, created sources section, and contributed to final paragraph. 
 ## Project Proposal Abstract
 
 The issue of police brutality has risen greatly in the public consciousness over the past few years, particularly in the months following the death of George Floyd. Seattle is generally thought of as “progressive”, but recent events have highlighted the deep racial inequality that this city is no exception to. We want to use visualizations to explore the question of racial bias in policing, specifically in the use of force among the Seattle Police Department. As we dig deeper into that topic, we plan to compare policing data with census data, look for patterns across neighborhoods and socio-economic factors, and how the data has changed over time. We aim to target a general audience with a moderate understanding of the issues, but who perhaps lack a deeper understanding or cause for action.
