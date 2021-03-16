@@ -3,7 +3,8 @@
 Shay McCombs, Cindy Imm, Nicole Gooding
 ### Contribution Statements
 - Shay
-- Cindy
+- Cindy made the UoF Level Counts Over Time graph in Tableau, helped with data analysis and wrangling, and contributed to
+the associated writings.
 - Nicole created the animated bar graph under the "So what does this all mean" header, helped with data cleaning,
 created sources section, and contributed to final paragraph. 
 ## Project Proposal Abstract
