@@ -1,10 +1,15 @@
 # Final Project Demo
 ## Team Members
-Place your team member names here.
+Shay McCombs, Cindy Imm, Nicole Gooding
 ### Contribution Statements
-Add individual contribution statements here.
+- Shay
+- Cindy
+- Nicole created the animated bar graph under the "So what does this all mean" header, helped with data cleaning,
+created sources section, and contributed to final paragraph. 
 ## Project Proposal Abstract
-This is the space for you to add a description for your project.
+
+The issue of police brutality has risen greatly in the public consciousness over the past few years, particularly in the months following the death of George Floyd. Seattle is generally thought of as “progressive”, but recent events have highlighted the deep racial inequality that this city is no exception to. We want to use visualizations to explore the question of racial bias in policing, specifically in the use of force among the Seattle Police Department. As we dig deeper into that topic, we plan to compare policing data with census data, look for patterns across neighborhoods and socio-economic factors, and how the data has changed over time. We aim to target a general audience with a moderate understanding of the issues, but who perhaps lack a deeper understanding or cause for action.
+
 
 ## Getting Started
 
